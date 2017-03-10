@@ -30,7 +30,7 @@ Table of Contents
 19. Sidebar
 20. Footer
 21. Browser Fixes
-22. Responsive 
+22. Responsive
 23. Helper Classes
 */
 /*===================================================================================*/
@@ -764,7 +764,8 @@ header.ver2 {
   margin-bottom: 13px;
 }
 header .logo-holder .logo {
-  margin: 17px 0;
+  /* margin: 17px 0; */
+  margin: 0px 0;
 }
 header .top-search-holder {
   margin: 0 0 0 -20px;
@@ -843,7 +844,8 @@ header .top-search-holder .search-area .search-button:after {
   color: #fff;
 }
 header .top-cart-row {
-  padding: 35px 0 0 21px;
+  /* padding: 35px 0 0 21px; */
+  padding: 0px 0 0 0px;
 }
 header .top-cart-row .wishlist-compare-holder {
   line-height: 24px;
@@ -1055,7 +1057,7 @@ header .top-cart-row .top-cart-holder .total-price-basket {
 /*!
  * Yamm!3
  * Yet another megamenu for Bootstrap 3
- * 
+ *
  * http://geedmo.github.com/yamm3
  */
 .yamm .nav,
