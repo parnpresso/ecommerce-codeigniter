@@ -36,7 +36,7 @@
         ?>
         <div class="row">
           <div class="col-md-12">
-            <div class="form-group">
+            <!--div class="form-group">
               <label class="col-md-4 control-label" for="name">Product Name</label>
               <div class="col-md-4">
                 <input id="name" name="name" value="<?php echo $this->input->post('name');?>" type="text" placeholder="Name" class="form-control input-md" required="">
@@ -65,15 +65,13 @@
               </div>
             </div>
 
-
-            <!-- Text input fname-->
             <div class="form-group">
               <label class="col-md-4 control-label" for="detail">Product Detail</label>
               <div class="col-md-4" >
                 <textarea class="form-control" rows="5" id="detail" name="detail"><?php echo $this->input->post('detail');?></textarea>
 
               </div>
-            </div>
+            </div-->
 
             <!-- Text input lname-->
             <div class="form-group">

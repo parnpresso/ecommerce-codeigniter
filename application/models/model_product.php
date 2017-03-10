@@ -13,7 +13,7 @@ class Model_product extends CI_Model {
     }
 
     // Image process
-    /*if ($this->input->post('userfile')) {
+    if ($this->input->post('userfile')) {
       $this->load->library('upload', $this->get_upload_config());
       if (!$this->upload->do_upload("userfile")) {
           echo $this->upload->display_errors();
@@ -26,8 +26,10 @@ class Model_product extends CI_Model {
       }
     } else {
       echo "NO POST IMAGE";
+      var_dump($this->input->post());
+      var_dump($this->input->post('userfile'));
       break;
-    }*/
+    }
 
     $data = array(
 			'name' => $this->input->post('name'),
