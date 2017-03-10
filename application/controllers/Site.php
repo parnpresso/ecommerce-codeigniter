@@ -8,6 +8,11 @@ class Site extends CI_Controller {
 		$this->load->view('home');
 		$this->load->view('includes/footer');
 	}
+	public function product(){
+		$this->load->view('includes/header');
+		$this->load->view('product');
+		$this->load->view('includes/footer');
+	}
 	public function login(){
 		$this->load->view('includes/header');
 		$this->load->view('login');
