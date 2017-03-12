@@ -6,7 +6,7 @@ class Admin extends CI_Controller {
 	public function index() {
     $this->home();
 	}
-	
+
   public function login() {
     $this->load->view('login-admin');
   }
@@ -154,6 +154,10 @@ class Admin extends CI_Controller {
 	/// USER MANAGEMENT
 	public function user() {
     if ($this->session->userdata('access') == 'ADMIN' || $this->session->userdata('access') == 'STAFF'){
+
+			$this->load->library('pagination');
+			
+
 			$this->load->model('model_user');
 			$data = array("userlist" => $this->model_user->get_user_list());
       $this->load->view('includes/header-admin');
