@@ -13,6 +13,16 @@ class Site extends CI_Controller {
 		$this->load->view('product');
 		$this->load->view('includes/footer');
 	}
+	public function aboutus(){
+		$this->load->view('includes/header');
+		$this->load->view('aboutus');
+		$this->load->view('includes/footer');
+	}
+	public function contact(){
+		$this->load->view('includes/header');
+		$this->load->view('contact');
+		$this->load->view('includes/footer');
+	}
 	public function login(){
 		$this->load->view('includes/header');
 		$this->load->view('login');
