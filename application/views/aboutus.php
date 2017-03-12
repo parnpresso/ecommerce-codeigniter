@@ -5,14 +5,25 @@
 			<div class="col-xs-12 col-md-8 col-lg-8 col-sm-6">
 
 				<section id="who-we-are" class="section m-t-0">
-					<h2>Who we are</h2>
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam quis diam erat. Duis velit lectus, posuere a blandit sit amet, tempor at lorem. Donec ultricies, lorem sed ultrices interdum. Leo metus luctus sem, vel vulputate diam ipsum sed lorem. Donec tempor arcu nisl, et molestie massa scelerisque ut. Nunc at rutrum leo. Mauris metus mauris, tristique quis sapien eu, rutrum vulputate enim.</p>
-					<p>Mauris tempus erat laoreet turpis lobortis, eu tincidunt erat fermentum. Aliquam non tincidunt urna. Integer tincidunt nec nisl vitae ullamcorper. Proin sed ultrices erat. Praesent varius ultrices massa at faucibus. Aenean dignissim, orci sed faucibus pharetra, dui mi dignissim tortor, sit amet condimentum mi ligula sit amet augue.</p>
+					<h2>เกี่ยวกับเรา</h2>
+					<p>บริษัท เอเชียการไฟฟ้า จำกัด ตั้งอยู่ที่ 158/1 ถนน ช้างเผือ ตำบล ศรีภูมิ อำเภอเมืองเชียงใหม่ จังหวัดเชียงใหม่ เป็นบริษัทจำหน่ายอุปกรณ์ไฟฟ้าและอุปกรณ์แรงสูง รวมถึงรับผลิต-ประกอบตู้สวิทช์บอร์ดทุกขนาดตามต้องการ
+          </p>
+
 				</section><!-- /#who-we-are -->
 
 				<section id="our-goal-and-idea" class="section">
-					<h2>Our Goal and Idea</h2>
-					<p>Donec libero dolor, tincidunt id laoreet vitae, ullamcorper eu tortor. Maecenas pellentesque, dui vitae iaculis mattis, tortor nisi faucibus magna, vitae ultrices lacus purus vitae metus. Ut nec odio facilisis, ultricies nunc eget, fringilla orci. Nulla lobortis sem dapibus, aliquet turpis eu, ornare neque. Sed nec sem diam. Mauris neque purus, malesuada at velit vel, tempus congue nisl. Ut aliquam semper augue hendrerit varius. Fusce pretium tempus volutpat. Vivamus dignissim posuere aliquet. In hac habitasse platea dictumst. </p>
+					<h2>สินค้าของเรา</h2>
+          <p>ท่อ EMT,ท่อ IMC,ท่อ PE,ท่อ EPLEX,อุปกรณ์ท่อ คุ๊ปปิ้ง,คอนเนทเตอร์,บุชชิ่ง,LB,LR,OT,หัวงูเห่า,FS บล็อก,บล็อกกลมกันน้ำ ฯลฯ
+เบเกอร์,แมคเนติค,พุทบัสตั้ม,ไพล๊อตแลมป์,เคเบิ้ลไทร์สีขาว-สีดำ,เคเบิ้ลไทร์สแตนเลส,เทอร์มินอลแบบต่าง,หางปลาหนา,หางปลากลมหุ้ม-เปลือย,หางปลาแฉกหุ้ม-เปลือย,หางปลาแรงสูง หางปลาอลูมิเนียม,หางปลาขันสกูร
+สายไฟชนิดต่างๆ สายคอนโทรล,สายสัญญาณมีชิลด์
+เครื่องควบคุมอุณหภูมิ,ฮีตเตอร์,โคมอินฟราเรด
+ตู้ PVCกันน้ำ,กล่องพักสายPVCกันน้ำ,รางเก็บสายPVC,รางคอมพิวเตอร์,รางโทรศัพท์
+ไฟฉุกเฉิน,ไฟ EXIT,โคมไฟไฮเบย์,โคมไฟLED,โคมโรงงาน,โคมห้องเย็นกันน้ำ-กันฝุ่น,โคมถนน
+รางเคเบิ้ลแลคเดอร์,รางเคเบิ้ลเทรย์,รางวายเวย์ สำหรับเดินสายไฟ
+ระบบล่อฟ้า,เสาล่อฟ้า+แฉกล่อฟ้า+ฐาน,กราวด์ร๊อคทองแดง,สายล่อฟ้า ฯลฯ
+อุปกรณ์ติดตั้งงานโทรศัพท์ภายนอก-ภายใน เทอร์มินอล,สายจัมเปอร์ไวท์,คีมย้ำสาย,สายโทรศัพท์ภายนอก-ภายใน
+อินเวอร์เตอร์ปรับมอเตอร์,ซอฟท์สตาทร์,ไทม์เมอร์,มิเตอร์วัดกระแสไฟแบบต่างๆ,กิโลวัตต์ฮาวมิเตอร์
+รับสั่งทำเนมเพลท-ป้ายชื่อ อักษร์ไทย-อังกฤษตามแบบทุกขนาด ตามสั่งเพื่อติดตู้สวิทช์บอร์ดหรือเครื่องจักร</p>
 				</section><!-- /#our-goal-and-idea -->
 
 			</div><!-- /.col -->
@@ -133,20 +144,10 @@
 			</div><!-- /.row -->
 		</div><!-- /.container -->
 
-	</section><!-- /#what-can-we-do-for-you -->
+	</section>
 
-	<section id="our-clients" class="row inner-sm">
-		<div class="container">
-			<h2 class="sr-only">Our Clients</h2>
-			<ul class="list-unstyled row list-clients">
-				<li class="col-md-2"><a href="#"><img alt="" src="<?php echo public_url();?>assets/images/brands/brand-01.jpg" /></a></li>
-				<li class="col-md-2"><a href="#"><img alt="" src="<?php echo public_url();?>assets/images/brands/brand-02.jpg" /></a></li>
-				<li class="col-md-2"><a href="#"><img alt="" src="<?php echo public_url();?>assets/images/brands/brand-03.jpg" /></a></li>
-				<li class="col-md-2"><a href="#"><img alt="" src="<?php echo public_url();?>assets/images/brands/brand-04.jpg" /></a></li>
-				<li class="col-md-2"><a href="#"><img alt="" src="<?php echo public_url();?>assets/images/brands/brand-01.jpg" /></a></li>
-				<li class="col-md-2"><a href="#"><img alt="" src="<?php echo public_url();?>assets/images/brands/brand-02.jpg" /></a></li>
-			</ul>
-		</div>
-	</section><!-- /#our-clients .row -->
+
+
+
 </main><!-- /#about-us -->
 <!-- ========================================= MAIN : END ========================================= -->		<!-- ============================================================= FOOTER ============================================================= -->

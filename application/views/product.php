@@ -5,6 +5,8 @@
 
 
         <!-- ========================================= CATEGORY TREE ========================================= -->
+</br>
+
 <div class="widget accordion-widget category-accordions">
 <h1 class="border">Category Tree</h1>
 <div class="accordion">
@@ -114,117 +116,22 @@
 </div><!-- /.category-accordions -->
 <!-- ========================================= CATEGORY TREE : END ========================================= -->
         <!-- ========================================= LINKS ========================================= -->
-<div class="widget">
-<h1 class="border">information</h1>
-<div class="body">
-    <ul class="le-links">
-        <li><a href="#">delivery</a></li>
-        <li><a href="#">secure payment</a></li>
-        <li><a href="#">our stores</a></li>
-        <li><a href="#">contact</a></li>
-    </ul><!-- /.le-links -->
-</div><!-- /.body -->
-</div><!-- /.widget -->
+
+
+
+
+
+
+
 <!-- ========================================= LINKS : END ========================================= -->
-        <div class="widget">
-<div class="simple-banner">
-<a href="#"><img alt="" class="img-responsive" src="<?php echo public_url();?>assets/images/blank.gif" data-echo="<?php echo public_url();?>assets/images/banners/banner-simple.jpg" /></a>
-</div>
-</div>
-        <!-- ========================================= FEATURED PRODUCTS ========================================= -->
 <div class="widget">
-<h1 class="border">Featured Products</h1>
-<ul class="product-list">
+<div class="simple-banner">
 
-    <li class="sidebar-product-list-item">
-        <div class="row">
-            <div class="col-xs-4 col-sm-4 no-margin">
-                <a href="#" class="thumb-holder">
-                    <img alt="" src="<?php echo public_url();?>assets/images/blank.gif" data-echo="<?php echo public_url();?>assets/images/products/product-small-01.jpg" />
-                </a>
-            </div>
-            <div class="col-xs-8 col-sm-8 no-margin">
-                <a href="#">Netbook Acer </a>
-                <div class="price">
-                    <div class="price-prev">$2000</div>
-                    <div class="price-current">$1873</div>
-                </div>
-            </div>
-        </div>
-    </li><!-- /.sidebar-product-list-item -->
 
-    <li class="sidebar-product-list-item">
-        <div class="row">
-            <div class="col-xs-4 col-sm-4 no-margin">
-                <a href="#" class="thumb-holder">
-                    <img alt="" src="<?php echo public_url();?>assets/images/blank.gif" data-echo="<?php echo public_url();?>assets/images/products/product-small-02.jpg" />
-                </a>
-            </div>
-            <div class="col-xs-8 col-sm-8 no-margin">
-                <a href="#">PowerShot Elph 115 16MP Digital Camera</a>
-                <div class="price">
-                    <div class="price-prev">$2000</div>
-                    <div class="price-current">$1873</div>
-                </div>
-            </div>
-        </div>
-    </li><!-- /.sidebar-product-list-item -->
 
-    <li class="sidebar-product-list-item">
-        <div class="row">
-            <div class="col-xs-4 col-sm-4 no-margin">
-                <a href="#" class="thumb-holder">
-                    <img alt="" src="<?php echo public_url();?>assets/images/blank.gif" data-echo="<?php echo public_url();?>assets/images/products/product-small-03.jpg" />
-                </a>
-            </div>
-            <div class="col-xs-8 col-sm-8 no-margin">
-                <a href="#">PowerShot Elph 115 16MP Digital Camera</a>
-                <div class="price">
-                    <div class="price-prev">$2000</div>
-                    <div class="price-current">$1873</div>
-                </div>
-            </div>
-        </div>
-    </li><!-- /.sidebar-product-list-item -->
-
-    <li class="sidebar-product-list-item">
-        <div class="row">
-            <div class="col-xs-4 col-sm-4 no-margin">
-                <a href="#" class="thumb-holder">
-                    <img alt="" src="<?php echo public_url();?>assets/images/blank.gif" data-echo="<?php echo public_url();?>assets/images/products/product-small-01.jpg" />
-                </a>
-            </div>
-            <div class="col-xs-8 col-sm-8 no-margin">
-                <a href="#">Netbook Acer </a>
-                <div class="price">
-                    <div class="price-prev">$2000</div>
-                    <div class="price-current">$1873</div>
-                </div>
-            </div>
-        </div>
-    </li><!-- /.sidebar-product-list-item -->
-
-    <li class="sidebar-product-list-item">
-        <div class="row">
-            <div class="col-xs-4 col-sm-4 no-margin">
-                <a href="#" class="thumb-holder">
-                    <img alt="" src="<?php echo public_url();?>assets/images/blank.gif" data-echo="<?php echo public_url();?>assets/images/products/product-small-02.jpg" />
-                </a>
-            </div>
-            <div class="col-xs-8 col-sm-8 no-margin">
-                <a href="#">PowerShot Elph 115 16MP Digital Camera</a>
-                <div class="price">
-                    <div class="price-prev">$2000</div>
-                    <div class="price-current">$1873</div>
-                </div>
-            </div>
-        </div>
-    </li><!-- /.sidebar-product-list-item -->
-
-</ul><!-- /.product-list -->
-</div><!-- /.widget -->
-<!-- ========================================= FEATURED PRODUCTS : END ========================================= -->
-    </div>
+</div>
+</div>
+</div>
     <!-- ========================================= SIDEBAR : END ========================================= -->
 
     <!-- ========================================= CONTENT ========================================= -->
@@ -239,32 +146,7 @@
 
         <section id="gaming">
 <div class="grid-list-products">
-    <h2 class="section-title">Gaming</h2>
-
-    <div class="control-bar">
-        <div id="popularity-sort" class="le-select" >
-            <select data-placeholder="sort by popularity">
-                <option value="1">1-100 players</option>
-                <option value="2">101-200 players</option>
-                <option value="3">200+ players</option>
-            </select>
-        </div>
-
-        <div id="item-count" class="le-select">
-            <select>
-                <option value="1">24 per page</option>
-                <option value="2">48 per page</option>
-                <option value="3">32 per page</option>
-            </select>
-        </div>
-
-        <div class="grid-list-buttons">
-            <ul>
-                <li class="grid-list-button-item active"><a data-toggle="tab" href="#grid-view"><i class="fa fa-th-large"></i> Grid</a></li>
-                <li class="grid-list-button-item "><a data-toggle="tab" href="#list-view"><i class="fa fa-th-list"></i> List</a></li>
-            </ul>
-        </div>
-    </div><!-- /.control-bar -->
+  
 
     <div class="tab-content">
         <div id="grid-view" class="products-grid fade tab-pane in active">
@@ -418,7 +300,7 @@
 
                     <div class="col-xs-12 col-sm-4 no-margin product-item-holder hover">
                         <div class="product-item">
-                        
+
                             <div class="image">
                                 <img alt="" src="<?php echo public_url();?>assets/images/blank.gif" data-echo="<?php echo public_url();?>assets/images/products/product-02.jpg" />
                             </div>
