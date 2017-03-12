@@ -1,3 +1,5 @@
+<div id="top-banner-and-menu">
+
 <?php
  if (validation_errors() != NULL){
         echo '<div class="container">';
@@ -115,3 +117,4 @@
          </div>
       </div>
    </div>
+</div>

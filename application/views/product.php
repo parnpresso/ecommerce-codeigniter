@@ -360,8 +360,7 @@
 
                     <div class="col-xs-12 col-sm-4 no-margin product-item-holder hover">
                         <div class="product-item">
-                            <div class="ribbon red"><span>sale</span></div>
-                            <div class="ribbon green"><span>bestseller</span></div>
+
                             <div class="image">
                                 <img alt="" src="<?php echo public_url();?>assets/images/blank.gif" data-echo="<?php echo public_url();?>assets/images/products/product-04.jpg" />
                             </div>
@@ -419,7 +418,7 @@
 
                     <div class="col-xs-12 col-sm-4 no-margin product-item-holder hover">
                         <div class="product-item">
-                            <div class="ribbon blue"><span>new!</span></div>
+                        
                             <div class="image">
                                 <img alt="" src="<?php echo public_url();?>assets/images/blank.gif" data-echo="<?php echo public_url();?>assets/images/products/product-02.jpg" />
                             </div>
