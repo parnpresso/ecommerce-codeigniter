@@ -10,6 +10,25 @@ Features</br>
 <br>
 <div class="container">
 
+  <div class="row">
+  <div class="col-lg-6">
+
+      <!--h4>ผู้ใช้ทั้งหมด</h4-->
+
+  </div><!-- /.col-lg-6 -->
+  <div class="col-lg-6">
+    <div class="input-group pull-right">
+      <form class="navbar-form ">
+      <input type="text" class="form-control" placeholder="ค้นหาผู้ใช้...">
+      <span class="input-group-btn">
+        <button class="btn btn-default" type="submit">ค้นหา</button>
+      </span>
+    </form>
+    </div><!-- /input-group -->
+  </div><!-- /.col-lg-6 -->
+</div><!-- /.row -->
+</br>
+
   <div class="panel panel-default panel-table">
     <div class="panel-heading">
       <div class="row">
