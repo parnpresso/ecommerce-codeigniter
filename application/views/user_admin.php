@@ -1,7 +1,7 @@
 User</br>
 
 Features</br>
-- Add, Delete, Edit, View products</br>
+[X] Add, Delete, Edit, View products</br>
 - Search by  Name</br>
 - Show 10 users of each page</br>
 - View order log</br>
