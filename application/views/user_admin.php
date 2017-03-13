@@ -1,13 +1,3 @@
-User</br>
-
-Features</br>
-[X] Add, Delete, Edit, View products</br>
-- Search by  Name</br>
-- Show 10 users of each page</br>
-- View order log</br>
-
-<?php //var_dump($list);?>
-
 <br>
 <div class="container">
 
@@ -85,8 +75,9 @@ Features</br>
           <div class="col col-xs-8">
             <ul class="pagination hidden-xs pull-right">
               <?php
-
-                echo $pagination;
+                if(isset($pagination)) {
+                  echo $pagination;
+                }
               ?>
             </ul>
             <ul class="pagination visible-xs pull-right">
