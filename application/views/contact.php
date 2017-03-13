@@ -25,31 +25,31 @@
 					<h2 class="bordered">ติดต่อเรา</h2>
 					<p>หากต้องการติดต่อสอบถามข้อมูลเพิ่มเติม สามารถกรอกข้อความที่สงสัยหรือข้อความที่ต้องการจะสอบถามพร้อมทั้งระบุ e-mail ไว้ได้เลยครับ</p>
 					<form id="contact-form" class="contact-form cf-style-1 inner-top-xs" method="post" >
-                        <div class="row field-row">
-                            <div class="col-xs-12 col-sm-6">
-                                <label>ชื่อ*</label>
-                                <input class="le-input" >
-                            </div>
-                            <div class="col-xs-12 col-sm-6">
-                                <label>อิเมลล์*</label>
-                                <input class="le-input" >
-                            </div>
-                        </div><!-- /.field-row -->
+						<div class="row field-row">
+							<div class="col-xs-12 col-sm-6">
+								<label>ชื่อ*</label>
+								<input class="le-input" >
+							</div>
+							<div class="col-xs-12 col-sm-6">
+								<label>อิเมลล์*</label>
+								<input class="le-input" >
+							</div>
+						</div><!-- /.field-row -->
 
-                        <div class="field-row">
-                            <label>เรื่องที่ต้องการสอบถาม</label>
-                            <input type="text" class="le-input">
-                        </div><!-- /.field-row -->
+						<div class="field-row">
+							<label>เรื่องที่ต้องการสอบถาม</label>
+							<input type="text" class="le-input">
+						</div><!-- /.field-row -->
 
-                        <div class="field-row">
-                            <label>ข้อความ</label>
-                            <textarea rows="8" class="le-input"></textarea>
-                        </div><!-- /.field-row -->
+						<div class="field-row">
+							<label>ข้อความ</label>
+							<textarea rows="8" class="le-input"></textarea>
+						</div><!-- /.field-row -->
 
-                        <div class="buttons-holder">
-                            <button type="submit" class="le-button huge">Send Message</button>
-                        </div><!-- /.buttons-holder -->
-                    </form><!-- /.contact-form -->
+						<div class="buttons-holder">
+							<button type="submit" class="le-button huge">Send Message</button>
+						</div><!-- /.buttons-holder -->
+					</form><!-- /.contact-form -->
 				</section><!-- /.leave-a-message -->
 			</div><!-- /.col -->
 
@@ -58,13 +58,13 @@
 					<h2 class="bordered">เอเชียการไฟฟ้า</h2>
 					<address>
 						158/1 ถนน ช้างเผือก <br/>
-						 ตำบล ศรีภูมิ อำเภอเมืองเชียงใหม่<br/>
-						 จังหวัดเชียงใหม่
+						ตำบล ศรีภูมิ อำเภอเมืองเชียงใหม่<br/>
+						จังหวัดเชียงใหม่
 					</address>
 
 
 
-				
+
 				</section><!-- /.our-store -->
 			</div><!-- /.col -->
 
