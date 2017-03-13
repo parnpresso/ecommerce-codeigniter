@@ -57,7 +57,7 @@
 				<section class="our-store section inner-left-xs">
 					<h2 class="bordered">เอเชียการไฟฟ้า</h2>
 					<address>
-						158/1 ถนน ช้างเผือกิ <br/>
+						158/1 ถนน ช้างเผือก <br/>
 						 ตำบล ศรีภูมิ อำเภอเมืองเชียงใหม่<br/>
 						 จังหวัดเชียงใหม่
 					</address>

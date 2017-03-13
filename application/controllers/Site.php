@@ -33,7 +33,11 @@ class Site extends CI_Controller {
 		$this->load->view('register');
 		$this->load->view('includes/footer');
 	}
-
+	public function singleproduct() {
+		$this->load->view('includes/header');
+		$this->load->view('singleproduct');
+		$this->load->view('includes/footer');
+	}
 
 
 	public function login_validation() {

@@ -8,7 +8,7 @@
             <div class="col-xs-12 col-sm-8 col-sm-offset-2 no-padding">
                 <form role="form">
 
-                  <h>รับข้อมูลข่าวสารจากทางร้าน</h>
+
                 </br>
                     <input placeholder="รับข้อมูลข่าวสารจากทางร้าน">
                     <button class="le-button">Submit</button>
