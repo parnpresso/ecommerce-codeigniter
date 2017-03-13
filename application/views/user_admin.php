@@ -6,7 +6,8 @@ Features</br>
 - Show 10 users of each page</br>
 - View order log</br>
 
-<?php //var_dump($userlist);?>
+<?php //var_dump($list);?>
+
 <br>
 <div class="container">
 
@@ -18,8 +19,8 @@ Features</br>
   </div><!-- /.col-lg-6 -->
   <div class="col-lg-6">
     <div class="input-group pull-right">
-      <form class="navbar-form ">
-      <input type="text" class="form-control" placeholder="ค้นหาผู้ใช้...">
+      <form class="navbar-form " action="<?php echo base_url('admin/search_user');?>" method="post">
+      <input type="text" class="form-control" id="username" name="username" placeholder="ค้นหาผู้ใช้..." required="">
       <span class="input-group-btn">
         <button class="btn btn-default" type="submit">ค้นหา</button>
       </span>
@@ -76,20 +77,16 @@ Features</br>
         </table>
       </div>
 
-      <?php
-        $amount = sizeof($userlist);
-        $allpage = floor($amount/10) + 1;
-      ?>
+
       <div class="panel-footer">
         <div class="row">
-          <div class="col col-xs-4"><?php echo 'Page '. $amount .' of '. $allpage;?>
+          <div class="col col-xs-4">
           </div>
           <div class="col col-xs-8">
             <ul class="pagination hidden-xs pull-right">
               <?php
-                for($x = 1; $x <= $allpage; $x++){
-                  echo '<li><a href="#">'. $x .'</a></li>';
-                }
+
+                echo $pagination;
               ?>
             </ul>
             <ul class="pagination visible-xs pull-right">

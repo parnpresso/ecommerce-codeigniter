@@ -3,9 +3,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Model_user extends CI_Model {
 
-  public function get_user_list() {
+  public function get_user_list($limit, $start) {
+    $this->db->limit($limit, $start);
     $query = $this->db->get('customer');
     return $query->result();
+  }
+
+  public function get_user_total_row() {
+    $query = $this->db->get('customer');
+    return $query->num_rows();
   }
 
   public function get_user($id) {
@@ -55,6 +61,18 @@ class Model_user extends CI_Model {
     $this->db->update('customer', $data);
 		if ($query) return true;
 		else return false;
+  }
+
+  public function search_user($name) {
+    $this->db->select('*');
+    $this->db->from('customer');
+    $this->db->like('username_cus', $name);
+    $query = $this->db->get();
+    if ($query->num_rows() > 0) {
+      return $query->result();
+    } else {
+      return $query->result();
+    }
   }
 
 }

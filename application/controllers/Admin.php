@@ -156,10 +156,32 @@ class Admin extends CI_Controller {
     if ($this->session->userdata('access') == 'ADMIN' || $this->session->userdata('access') == 'STAFF'){
 
 			$this->load->library('pagination');
-			
-
 			$this->load->model('model_user');
-			$data = array("userlist" => $this->model_user->get_user_list());
+
+			$config['base_url'] = base_url('admin/user'). '/page/';
+			$config['total_rows'] = $this->model_user->get_user_total_row();
+			$config['per_page'] = 10;
+			$config['uri_segment'] = 4;
+
+			// Pagination style
+			$config['first_tag_open'] = '<li>';
+			$config['first_tag_close'] = '</li>';
+			$config['last_tag_open'] = '<li>';
+			$config['last_tag_close'] = '</li>';
+			$config['prev_tag_open'] = '<li>';
+			$config['prev_tag_close'] = '</li>';
+			$config['next_tag_open'] = '<li>';
+			$config['next_tag_close'] = '</li>';
+			$config['num_tag_open'] = '<li>';
+			$config['num_tag_close'] = '</li>';
+			$config['cur_tag_open'] = '<li class="active"><a href="#">';
+			$config['cur_tag_close'] = '</a></li>';
+
+			$this->pagination->initialize($config);
+			$page = $this->uri->segment(4,0);
+			$data['pagination'] = $this->pagination->create_links();
+			$data['userlist'] = $this->model_user->get_user_list($config['per_page'], $page);
+
       $this->load->view('includes/header-admin');
       $this->load->view('user_admin', $data);
       $this->load->view('includes/footer-admin');
@@ -220,6 +242,17 @@ class Admin extends CI_Controller {
 		} else {
 			redirect('admin/login');
 		}
+	}
+	public function search_user() {
+		if ($this->session->userdata('access') == 'ADMIN'){
+			$this->load->model('model_user');
+			$data = array("userlist" => $this->model_user->search_user($this->input->post('username')));
+      $this->load->view('includes/header-admin');
+      $this->load->view('user_admin', $data);
+      $this->load->view('includes/footer-admin');
+		} else {
+      redirect('admin/login');
+    }
 	}
 
 	public function promotion() {
@@ -402,4 +435,6 @@ class Admin extends CI_Controller {
 			redirect('admin/edit_user/'. $id);
 		}
 	}
+
+
 }
