@@ -10,7 +10,7 @@
 	    <meta name="keywords" content="MediaCenter, Template, eCommerce">
 	    <meta name="robots" content="all">
 
-	    <title>Asia Electric</title>
+	    <title>Asia Electric l เอเชียการไฟฟ้า</title>
 
 	    <!-- Bootstrap Core CSS -->
 	    <link rel="stylesheet" href="<?php echo public_url();?>assets/css/bootstrap.min.css">

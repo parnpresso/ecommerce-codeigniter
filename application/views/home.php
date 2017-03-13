@@ -52,31 +52,19 @@
 <div id="hero">
 	<div id="owl-main" class="owl-carousel owl-inner-nav owl-ui-sm">
 
-		<div class="item" style="background-image: url(<?php echo public_url();?>assets/images/sliders/slider01.jpg);">
+		<div class="item" style="background-image: url(<?php echo public_url();?>assets/images/ashop.jpg);">
 			<div class="container-fluid">
 
 
-					
+
 			</div><!-- /.container-fluid -->
 		</div><!-- /.item -->
 
-		<div class="item" style="background-image: url(<?php echo public_url();?>assets/images/sliders/slider03.jpg);">
+		<div class="item" style="background-image: url(<?php echo public_url();?>assets/images/a2.jpg);">
 			<div class="container-fluid">
-				<div class="caption vertical-center text-left">
-					<div class="big-text fadeInDown-1">
-						Want a<span class="big"><span class="sign">$</span>200</span>Discount?
-					</div>
 
-					<div class="excerpt fadeInDown-2">
-						on selected <br>desktop pcs<br>
-					</div>
-					<div class="small fadeInDown-2">
-						terms and conditions apply
-					</div>
-					<div class="button-holder fadeInDown-3">
-						<a href="single-product.html" class="big le-button ">shop now</a>
-					</div>
-				</div><!-- /.caption -->
+
+
 			</div><!-- /.container-fluid -->
 		</div><!-- /.item -->
 
@@ -95,8 +83,8 @@
         <div class="col-xs-12 col-lg-6 no-margin banner">
             <a href="category-grid-2.html">
                 <div class="banner-text theblue">
-                    <h1>New Life</h1>
-                    <span class="tagline">Introducing New Category</span>
+                    <h1>Promotion1</h1>
+                    <span class="tagline">-------</span>
                 </div>
                 <img class="banner-image" alt="" src="<?php echo public_url();?>assets/images/blank.gif" data-echo="<?php echo public_url();?>assets/images/banners/banner-narrow-01.jpg" />
             </a>
@@ -104,8 +92,8 @@
         <div class="col-xs-12 col-lg-6 no-margin text-right banner">
             <a href="category-grid-2.html">
                 <div class="banner-text right">
-                    <h1>Time &amp; Style</h1>
-                    <span class="tagline">Checkout new arrivals</span>
+                    <h1>Promotion2</h1>
+                    <span class="tagline">-----</span>
                 </div>
                 <img class="banner-image" alt="" src="<?php echo public_url();?>assets/images/blank.gif" data-echo="<?php echo public_url();?>assets/images/banners/banner-narrow-02.jpg" />
             </a>

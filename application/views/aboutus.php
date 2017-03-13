@@ -34,7 +34,7 @@
 					<ul class="team-members list-unstyled">
 
 						<li class="team-member">
-							<img src="<?php echo public_url();?>assets/images/team/1.jpg" alt="" class="profile-pic img-responsive">
+							<img src="<?php echo public_url();?>assets/images/a1.jpg" alt="" class="profile-pic img-responsive">
 							<div class="profile">
 								<h3>John Snow <small class="designation">CEO/Founder</small></h3>
 								<ul class="social list-unstyled">
@@ -67,7 +67,7 @@
 						</li><!-- /.team-member -->
 
 						<li class="team-member">
-							<img src="<?php echo public_url();?>assets/images/team/2.jpg" alt="" class="profile-pic img-responsive">
+							<img src="<?php echo public_url();?>assets/images/a2.jpg" alt="" class="profile-pic img-responsive">
 							<div class="profile">
 								<h3>Smith John <small class="designation">Support Staff</small></h3>
 								<ul class="social list-unstyled">

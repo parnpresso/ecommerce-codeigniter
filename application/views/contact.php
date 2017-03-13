@@ -64,8 +64,7 @@
 
 
 
-					<h3>Career</h3>
-					<p>If you're interested in employment opportunities at MediaCenter, please email us: <a href="mailto:contact@yourstore.com">contact@yourstore.com</a></p>
+				
 				</section><!-- /.our-store -->
 			</div><!-- /.col -->
 
