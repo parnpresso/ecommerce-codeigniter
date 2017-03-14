@@ -19,6 +19,15 @@ class Model_promotion extends CI_Model {
     return $query->result();
   }
 
+  public function get_promotion_categories() {
+    $array = array();
+    $query = $this->db->get('promotion_categories');
+    foreach ($query->result() as $each) {
+      array_push($array, $each->name);
+    }
+    return $array;
+  }
+
   public function get_promotion_category_list($limit, $start){
     $this->db->limit($limit, $start);
     $query = $this->db->get('promotion_categories');
@@ -66,5 +75,102 @@ class Model_promotion extends CI_Model {
 
   public function delete_promotion_category($id) {
     $this->db->delete('promotion_categories', array('id' => $id));
+  }
+  public function delete_promotion($id) {
+    $this->db->delete('promotion', array('id' => $id));
+  }
+
+  public function add_promotion() {
+    $cateid = 0;
+    $cate = $query = $this->db->get('promotion_categories')->result();
+    for ($x = 0; $x <= sizeof($cate)-1; $x++) {
+      if ($x == $this->input->post('category')) {
+        $cateid = $cate[$x]->id;
+      }
+    }
+
+
+    $image = 'test.png';
+    $this->load->library('upload', $this->get_upload_config());
+    if ( ! $this->upload->do_upload('userfile')) {
+        $image = 'test.png';
+    } else {
+      $image = $this->upload->data('file_name');
+    }
+
+    $data = array(
+			'pro_name' => $this->input->post('name'),
+			'pro_detail' => $this->input->post('detail'),
+			'category_id' => $cateid,
+      'pro_image' => $image
+		);
+		$query = $this->db->insert('promotion', $data);
+		if ($query) return true;
+		else return false;
+  }
+
+  // Upload Config Loader
+	public function get_upload_config(){
+		return array(
+			// Change path when you upload to a live server
+			'upload_path'   => "C:\wamp64\www\asia\public\image\promotion",
+            'allowed_types' => 'gif|jpg|png|jpeg',
+            'max_size'      => '1000',
+            'max_width'     => '2000',
+            'max_height'    => '2000',
+            'encrypt_name'  => true,
+            'overwrite'     => true
+			);
+	}
+
+  public function get_promotion($id) {
+    $this->db->select('promotion.*,promotion_categories.name AS cate_name');
+    $this->db->from('promotion');
+    $this->db->join('promotion_categories', 'promotion.category_id = promotion_categories.id', 'left');
+    $this->db->where('promotion.id', $id);
+    $fetch = $this->db->get();
+
+		return $fetch->result();
+  }
+
+  public function edit_promotion($id) {
+    $cateid = 0;
+    $cate = $query = $this->db->get('promotion_categories')->result();
+    for ($x = 0; $x <= sizeof($cate)-1; $x++) {
+      if ($x == $this->input->post('category')) {
+        $cateid = $cate[$x]->id;
+      }
+    }
+
+
+
+
+    $image = 'test.png';
+    $this->load->library('upload', $this->get_upload_config());
+    if ( ! $this->upload->do_upload('userfile')) {
+        $image = 'test.png';
+    } else {
+      // Delete old file
+      $this->load->helper("file");
+      $data = $this->get_promotion($id);
+      $old_image_path = $data[0]->pro_image;
+
+      // Change path when you upload to a live server
+      if ($old_image_path != 'test.png') {
+        unlink($_SERVER['DOCUMENT_ROOT']. 'asia/public/image/promotion/' .$old_image_path) ;
+      }
+      $image = $this->upload->data('file_name');
+    }
+
+    $data = array(
+      'pro_name' => $this->input->post('name'),
+      'pro_detail' => $this->input->post('detail'),
+      'category_id' => $cateid,
+      'pro_image' => $image
+    );
+    $this->db->where('id', $id);
+    $this->db->update('promotion', $data);
+    if ($query) return true;
+    else return false;
   }
 }

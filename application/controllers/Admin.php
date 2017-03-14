@@ -475,6 +475,62 @@ class Admin extends CI_Controller {
 			redirect('admin/login');
 		}
 	}
+	public function add_promotion() {
+    if ($this->session->userdata('access') == 'ADMIN' || $this->session->userdata('access') == 'STAFF'){
+			$this->load->model('model_promotion');
+			$data = array("categories" => $this->model_promotion->get_promotion_categories());
+      $this->load->view('promotion_add_admin', $data);
+		} else {
+      redirect('admin/login');
+    }
+  }
+	public function add_promotion_success() {
+    if ($this->session->userdata('access') == 'ADMIN' || $this->session->userdata('access') == 'STAFF'){
+      $this->load->view('includes/header-admin');
+      $this->load->view('promotion_add_success_admin');
+      $this->load->view('includes/footer-admin');
+		} else {
+      redirect('admin/login');
+    }
+  }
+	public function edit_promotion($id) {
+    if ($this->session->userdata('access') == 'ADMIN' || $this->session->userdata('access') == 'STAFF'){
+			$this->load->model('model_promotion');
+			$data = array("promotion" => $this->model_promotion->get_promotion($id), "categories" => $this->model_promotion->get_promotion_categories());
+      $this->load->view('promotion_edit_admin', $data);
+		} else {
+      redirect('admin/login');
+    }
+  }
+	public function edit_promotion_success() {
+		if ($this->session->userdata('access') == 'ADMIN' || $this->session->userdata('access') == 'STAFF'){
+			$this->load->view('includes/header-admin');
+			$this->load->view('promotion_edit_success_admin');
+			$this->load->view('includes/footer-admin');
+		} else {
+			redirect('admin/login');
+		}
+	}
+	public function view_promotion() {
+    if ($this->session->userdata('access') == 'ADMIN' || $this->session->userdata('access') == 'STAFF'){
+			$this->load->model('model_promotion');
+			$data = array("promotion" => $this->model_promotion->get_promotion($this->uri->segment(3)), "categories" => $this->model_promotion->get_promotion_categories());
+      $this->load->view('promotion_view_admin', $data);
+		} else {
+      redirect('admin/login');
+    }
+  }
+	public function delete_promotion($id){
+		if ($this->session->userdata('access') == 'ADMIN' || $this->session->userdata('access') == 'STAFF'){
+			$this->load->model('model_promotion');
+			$this->model_promotion->delete_promotion($id);
+			$this->load->view('includes/header-admin');
+			$this->load->view('promotion_delete_success_admin');
+			$this->load->view('includes/footer-admin');
+		} else {
+			redirect('admin/login');
+		}
+	}
 
 	public function promotion_category() {
     if ($this->session->userdata('access') == 'ADMIN' || $this->session->userdata('access') == 'STAFF'){
@@ -792,6 +848,33 @@ class Admin extends CI_Controller {
 			$data = array('error'=>'Invalid Input');
 			$this->session->set_flashdata('error',$data);
 			redirect('admin/edit_promotion_category/'. $id);
+		}
+	}
+
+	public function add_promotion_validation() {
+		$this->load->library('form_validation');
+		$this->form_validation->set_rules('name', 'Name', 'required|trim');
+		$this->form_validation->set_rules('detail', 'Detail', 'required|trim');
+		if ($this->form_validation->run()){
+			$this->load->model('model_promotion');
+			$this->model_promotion->add_promotion();
+			redirect('admin/add_promotion_success');
+		} else {
+			$this->add_promotion();
+		}
+	}
+	public function edit_promotion_validation($id) {
+		$this->load->library('form_validation');
+		$this->form_validation->set_rules('name', 'Name', 'required|trim');
+		$this->form_validation->set_rules('detail', 'Detail', 'required|trim');
+		if ($this->form_validation->run()){
+			$this->load->model('model_promotion');
+			$this->model_promotion->edit_promotion($id);
+			redirect('admin/edit_promotion_success');
+		} else {
+			$data = array('error'=>'Invalid Input');
+			$this->session->set_flashdata('error',$data);
+			redirect('admin/edit_promotion/'. $id);
 		}
 	}
 
