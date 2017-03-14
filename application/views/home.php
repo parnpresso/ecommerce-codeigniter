@@ -7,40 +7,11 @@
     <div class="head"><i class="fa fa-list"></i>ประเภทสินค้า</div>
     <nav class="yamm megamenu-horizontal" role="navigation">
         <ul class="nav">
-            <li class="dropdown menu-item">
-                <a href="#" >สายไฟเคเบิล</a>
-            </li>
-            <li class="dropdown menu-item">
-                <a href="#" >หลอดไฟ</a>
-            </li>
-            <li class="dropdown menu-item">
-                <a href="#">โคมไฟ</a></li>
-
-
-            <li class="dropdown menu-item">
-                <a href="#">เครื่องมือตัด/ย้ำ</a></li>
-
-
-
-            <li class="dropdown menu-item">
-                <a href="#">แรงสูง</a></li>
-
-            <li class="dropdown menu-item">
-                <a href="#">ถ่าน/แบตเตอรี่</a></li>
-
-            <li class="dropdown menu-item">
-                <a href="#">เครื่องมือวัด</a></li>
-
-            <li class="dropdown menu-item">
-                <a href="#">ตู้โหลด</a></li>
-
-            <li class="dropdown menu-item">
-                <a href="#">ไฟฉุกเฉิน</a></li>
-
-            <li class="dropdown menu-item">
-                <a href="#">ไทม์เมอร์</a></li>
-
-
+						<?php
+							for ($x = 0; $x <= sizeof($categories)-1; $x++) {
+								echo '<li class="dropdown menu-item"><a href="'.base_url('site/category/').$categories[$x]->id.'" >'.$categories[$x]->name.'</a></li>';
+							}
+						?>
         </ul><!-- /.nav -->
     </nav><!-- /.megamenu-horizontal -->
 </div><!-- /.side-menu -->

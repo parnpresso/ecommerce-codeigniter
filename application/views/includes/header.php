@@ -84,12 +84,12 @@
 <div class="search-area">
     <form>
         <div class="control-group">
-            <input class="search-field" placeholder="Search for item" />
+            <input class="search-field" placeholder="ค้นหาสินค้า" />
 
-            <ul class="categories-filter animate-dropdown">
+            <!--ul class="categories-filter animate-dropdown">
                 <li class="dropdown">
 
-                    <a class="dropdown-toggle"  data-toggle="dropdown" href="category-grid.html">all categories</a>
+                    <a class="dropdown-toggle"  data-toggle="dropdown" href="category-grid.html">ค้นหา</a>
 
                     <ul class="dropdown-menu" role="menu" >
                         <li role="presentation"><a role="menuitem" tabindex="-1" href="category-grid.html">laptops</a></li>
@@ -99,7 +99,7 @@
 
                     </ul>
                 </li>
-            </ul>
+            </ul-->
 
             <a class="search-button" href="#" ></a>
 
@@ -119,14 +119,14 @@
 
             <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                 <div class="basket-item-count">
-                    <span class="count">3</span>
+                    <span class="count">0</span>
                     <img src="<?php echo public_url();?>assets/images/icon-cart.png" alt="" />
                 </div>
 
                 <div class="total-price-basket">
-                    <span class="lbl">your cart:</span>
+                    <span class="lbl">ตระกร้าของคุณ:</span>
                     <span class="total-price">
-                        <span class="sign">$</span><span class="value">3219,00</span>
+                        <span class="sign">฿</span><span class="value">0</span>
                     </span>
                 </div>
             </a>

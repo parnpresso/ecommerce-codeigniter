@@ -4,13 +4,46 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Site extends CI_Controller {
 
 	public function index(){
+		$query = $this->db->get('product_categories');
+		$data['categories'] = $query->result();
+
 		$this->load->view('includes/header');
-		$this->load->view('home');
+		$this->load->view('home', $data);
 		$this->load->view('includes/footer');
 	}
 	public function product(){
+		$query = $this->db->get('product_categories');
+		$data['categories'] = $query->result();
+
+		$this->load->library('pagination');
+		$this->load->model('model_product');
+
+		$config['base_url'] = base_url('site/product'). '/page/';
+		$config['total_rows'] = $this->model_product->get_product_total_row();
+		$config['per_page'] = 9;
+		$config['uri_segment'] = 4;
+
+		// Pagination style
+		$config['first_tag_open'] = '<li>';
+		$config['first_tag_close'] = '</li>';
+		$config['last_tag_open'] = '<li>';
+		$config['last_tag_close'] = '</li>';
+		$config['prev_tag_open'] = '<li>';
+		$config['prev_tag_close'] = '</li>';
+		$config['next_tag_open'] = '<li>';
+		$config['next_tag_close'] = '</li>';
+		$config['num_tag_open'] = '<li>';
+		$config['num_tag_close'] = '</li>';
+		$config['cur_tag_open'] = '<li class="active"><a href="#">';
+		$config['cur_tag_close'] = '</a></li>';
+
+		$this->pagination->initialize($config);
+		$page = $this->uri->segment(4,0);
+		$data['pagination'] = $this->pagination->create_links();
+		$data['productlist'] = $this->model_product->get_product_list($config['per_page'], $page);
+
 		$this->load->view('includes/header');
-		$this->load->view('product');
+		$this->load->view('product', $data);
 		$this->load->view('includes/footer');
 	}
 	public function aboutus(){
