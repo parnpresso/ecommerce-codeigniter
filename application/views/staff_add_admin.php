@@ -6,7 +6,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
   <meta charset="UTF-8">
-   <title>Add new product</title>
+   <title>Admin Zone</title>
    <!-- Latest compiled and minified CSS -->
    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
    <!-- Optional theme -->
@@ -19,10 +19,10 @@
   <br/><br/>
   <div class="container-fluid">
     <!--form class="form-horizontal" action="<?php echo base_url('admin/add_product_validation');?>" method="post" id="register-form"-->
-    <?php echo form_open_multipart(base_url('admin/add_user_validation'),  array('class' => 'form-horizontal'));?>
+    <?php echo form_open_multipart(base_url('admin/add_staff_validation'),  array('class' => 'form-horizontal'));?>
       <fieldset>
         <!-- Form Name -->
-        <legend style="text-align:center"><h2>เพิ่มผู้ใช้งานใหม่</h2></legend>
+        <legend style="text-align:center"><h2>เพิ่มผู้ดูแลระบบใหม่</h2></legend>
         <br />
         <?php
         if (validation_errors() != NULL){
@@ -85,21 +85,13 @@
               </div>
             </div>
             <div class="form-group">
-              <label class="col-md-4 control-label" for="district">อำเภอ</label>
+              <label class="col-md-4 control-label" for="name">สิทธิ์การใช้งาน</label>
               <div class="col-md-4">
-                <input id="district" name="district" value="<?php echo $this->input->post('district');?>" type="text" placeholder="District" class="form-control input-md" required="">
-              </div>
-            </div>
-            <div class="form-group">
-              <label class="col-md-4 control-label" for="province">จังหวัด</label>
-              <div class="col-md-4">
-                <input id="province" name="province" value="<?php echo $this->input->post('province');?>" type="text" placeholder="Province" class="form-control input-md" required="">
-              </div>
-            </div>
-            <div class="form-group">
-              <label class="col-md-4 control-label" for="postcode">รหัสไปรษณีย์</label>
-              <div class="col-md-4">
-                <input id="postcode" name="postcode" value="<?php echo $this->input->post('postcode');?>" type="text" placeholder="Postcode" class="form-control input-md" required="">
+                <?php
+        					echo form_dropdown('access', $access);
+        					echo "</p>";
+        				?>
+
               </div>
             </div>
 
@@ -108,7 +100,7 @@
             <div class="form-group">
               <div class="col-md-4"></div>
               <div class="col-md-4">
-                <a href="<?php echo base_url('admin/user');?>" class="btn btn-danger" style="float:left;">กลับ</a>
+                <a href="<?php echo base_url('admin/staff');?>" class="btn btn-danger" style="float:left;">กลับ</a>
                 <button type="submit" class="btn btn-success" name="btn-signup" style="float:right;">
                   <span class="glyphicon glyphicon-log-in"></span> &nbsp;เพิ่ม
                 </button>

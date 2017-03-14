@@ -21,7 +21,7 @@
     <form class="form-horizontal" action="<?php echo base_url('admin/edit_product_validation');?>" method="post" id="register-form">
       <fieldset>
         <!-- Form Name -->
-        <legend style="text-align:center"><h2>View user</h2></legend>
+        <legend style="text-align:center"><h2>ดูข้อมูลผู้ดูแลระบบ</h2></legend>
         <br />
 
         <div class="row">
@@ -29,61 +29,55 @@
             <div class="form-group">
               <label class="col-md-4 control-label" for="name">ชื่อบัญชี</label>
               <div class="col-md-4">
-                <label class="control-label" for="name"><?php echo $user[0]->username_cus;?></label>
+                <label class="control-label" for="name"><?php echo $staff[0]->username_staff;?></label>
               </div>
             </div>
             <div class="form-group">
               <label class="col-md-4 control-label" for="firstname">ชื่อจริง</label>
               <div class="col-md-4">
-                <label class="control-label" for="firstname"><?php echo $user[0]->fname_cus;?></label>
+                <label class="control-label" for="firstname"><?php echo $staff[0]->fname_staff;?></label>
               </div>
             </div>
             <div class="form-group">
               <label class="col-md-4 control-label" for="lasname">นามสกุล</label>
               <div class="col-md-4">
-                <label class="control-label" for="lasname"><?php echo $user[0]->lname_cus;?></label>
+                <label class="control-label" for="lasname"><?php echo $staff[0]->lname_staff;?></label>
               </div>
             </div>
             <div class="form-group">
               <label class="col-md-4 control-label" for="Email">อีเมล</label>
               <div class="col-md-4">
-                <label class="control-label" for="Email"><?php echo $user[0]->email_cus;?></label>
+                <label class="control-label" for="Email"><?php echo $staff[0]->email_staff;?></label>
               </div>
             </div>
             <div class="form-group">
               <label class="col-md-4 control-label" for="ID card">รหัสบัตรประชาชน</label>
               <div class="col-md-4">
-                <label class="control-label" for="ID card"><?php echo $user[0]->idcard_cus;?></label>
+                <label class="control-label" for="ID card"><?php echo $staff[0]->idcard_staff;?></label>
               </div>
             </div>
             <div class="form-group">
               <label class="col-md-4 control-label" for="address">ที่อยู่</label>
               <div class="col-md-4">
-                <label class="control-label" for="address"><?php echo $user[0]->address;?></label>
+                <label class="control-label" for="address"><?php echo $staff[0]->address_staff;?></label>
               </div>
             </div>
             <div class="form-group">
-              <label class="col-md-4 control-label" for="district">อำเภอ</label>
+              <label class="col-md-4 control-label" for="address">สิทธิ์การใช้งาน</label>
               <div class="col-md-4">
-                <label class="control-label" for="district"><?php echo $user[0]->district;?></label>
+                <label class="control-label" for="address"><?php echo $staff[0]->Status;?></label>
               </div>
             </div>
             <div class="form-group">
-              <label class="col-md-4 control-label" for="province">จังหวัด</label>
+              <label class="col-md-4 control-label" for="address">สร้างเมื่อ</label>
               <div class="col-md-4">
-                <label class="control-label" for="province"><?php echo $user[0]->province;?></label>
-              </div>
-            </div>
-            <div class="form-group">
-              <label class="col-md-4 control-label" for="postcode">รหัสไปรษณีย์</label>
-              <div class="col-md-4">
-                <label class="control-label" for="postcode"><?php echo $user[0]->postcode;?></label>
+                <label class="control-label" for="address"><?php echo $staff[0]->createdate;?></label>
               </div>
             </div>
             <div class="form-group">
               <div class="col-md-4"></div>
               <div class="col-md-4">
-                <a href="<?php echo base_url('admin/user');?>" class="btn btn-danger" style="float:left;">กลับ</a>
+                <a href="<?php echo base_url('admin/staff');?>" class="btn btn-danger" style="float:left;">กลับ</a>
               </div>
             </div>
 

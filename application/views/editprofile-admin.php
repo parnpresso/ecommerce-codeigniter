@@ -28,7 +28,7 @@
          <fieldset>
 
             <!-- Form Name -->
-            <legend style="text-align:center"><h2>Hello, <?php echo $profile[0]->username_staff;?></h2></legend>
+            <legend style="text-align:center"><h2>สวัสดี, <?php echo $profile[0]->username_staff;?></h2></legend>
             <br />
 
 
@@ -46,7 +46,7 @@
                <div class="col-md-12">
                   <!-- Text input-->
                   <div class="form-group">
-                     <label class="col-md-4 control-label" for="username_staff">Username</label>
+                     <label class="col-md-4 control-label" for="username_staff">ชื่อบัญชี</label>
                      <div class="col-md-4">
                         <input id="username_staff" name="username_staff"  placeholder="Username" class="form-control input-md" value="<?php echo $profile[0]->username_staff;?>">
 
@@ -55,7 +55,7 @@
 
                   <!-- Password input-->
                   <div class="form-group">
-                     <label class="col-md-4 control-label" for="password_staff">Password</label>
+                     <label class="col-md-4 control-label" for="password_staff">รหัสผ่าน</label>
                      <div class="col-md-4">
                         <input id="password_staff" name="password_staff" type="password" placeholder="Password" class="form-control input-md" value="<?php echo $profile[0]->password_staff;?>">
 
@@ -65,32 +65,32 @@
 
                   <!-- Text input fname-->
                   <div class="form-group">
-                     <label class="col-md-4 control-label" for="fname_staff">First name</label>
+                     <label class="col-md-4 control-label" for="fname_staff">ชื่อจริง</label>
                      <div class="col-md-4">
                         <input id="fname_staff" name="fname_staff" type="text" placeholder="ชื่อจริง" class="form-control input-md" value="<?php echo $profile[0]->fname_staff;?>">
 
                      </div>
                   </div>
                   <div class="form-group">
-                     <label class="col-md-4 control-label" for="lname_staff">Last name</label>
+                     <label class="col-md-4 control-label" for="lname_staff">นามสกุล</label>
                      <div class="col-md-4">
                         <input id="lname_staff" name="lname_staff" type="text" placeholder="นามสกุล" class="form-control input-md" value="<?php echo $profile[0]->lname_staff;?>">
                      </div>
                   </div>
                   <div class="form-group">
-                     <label class="col-md-4 control-label" for="email_staff">E-Mail</label>
+                     <label class="col-md-4 control-label" for="email_staff">อีเมล</label>
                      <div class="col-md-4">
                         <input id="email_staff" name="email_staff" type="email" placeholder="E-Mail" class="form-control input-md" value="<?php echo $profile[0]->email_staff;?>">
                      </div>
                   </div>
                   <div class="form-group">
-                     <label class="col-md-4 control-label" for="idcard_staff">ID card</label>
+                     <label class="col-md-4 control-label" for="idcard_staff">รหัสบัตรประชาชน</label>
                      <div class="col-md-4">
                         <input id="idcard_staff" name="idcard_staff" type="text" placeholder="นามสกุล" class="form-control input-md" value="<?php echo $profile[0]->idcard_staff;?>">
                      </div>
                   </div>
                   <div class="form-group">
-                     <label class="col-md-4 control-label" for="tel_staff">Telephone</label>
+                     <label class="col-md-4 control-label" for="tel_staff">เบอร์โทร</label>
                      <div class="col-md-4">
                         <input id="tel_staff" name="tel_staff" type="text" placeholder="นามสกุล" class="form-control input-md" value="<?php echo $profile[0]->tel_staff;?>">
                      </div>
@@ -101,9 +101,9 @@
                      <div class="col-md-4"></div>
                      <div class="col-md-4">
 
-                        <a href="<?php echo base_url('admin/home');?>" class="btn btn-primary" style="float:left;">Back</a>
+                        <a href="<?php echo base_url('admin/home');?>" class="btn btn-primary" style="float:left;">กลับ</a>
                         <button type="submit" class="btn btn-success" name="Submit" style="float:right;">
-                           <span class="glyphicon glyphicon-log-in"></span> &nbsp; Save
+                           <span class="glyphicon glyphicon-log-in"></span> &nbsp; บันทึก
                         </button>
                      </div>
                   </div>

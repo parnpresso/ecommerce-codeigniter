@@ -4,7 +4,7 @@
   <div class="row">
   <div class="col-lg-6">
 
-      <!--h4>ผู้ใช้ทั้งหมด</h4-->
+      <h3>จัดการผู้ใช้งาน</h3>
 
   </div><!-- /.col-lg-6 -->
   <div class="col-lg-6">
@@ -24,11 +24,11 @@
     <div class="panel-heading">
       <div class="row">
         <div class="col col-xs-3">
-          <h3 class="panel-title">User</h3>
+          <!--h3 class="panel-title">รายชื่อผู้ใช้</h3-->
         </div>
 
         <div class="col col-xs-9 text-right">
-          <a href="<?php echo base_url('admin/add_user'); ?>"><button type="button" class="btn btn-sm btn-success btn-create">Create New</button></a>
+          <a href="<?php echo base_url('admin/add_user'); ?>"><button type="button" class="btn btn-sm btn-success btn-create">เพิ่มผู้ใช้งาน</button></a>
         </div>
       </div>
     </div>
@@ -38,10 +38,10 @@
         <thead>
           <tr>
             <th>ID</th>
-            <th>Name</th>
-            <th>Email</th>
-            <th>Firstname</th>
-            <th>Lastname</th>
+            <th>ชื่อบัญชี</th>
+            <th>อีเมล</th>
+            <th>ชื่อจริง</th>
+            <th>นามสกุล</th>
             <th><center><em class="fa fa-cog"></em></center></th>
           </tr>
         </thead>

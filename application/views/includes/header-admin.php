@@ -21,23 +21,24 @@
             <a class="navbar-brand" href=""><?php echo $this->session->userdata('username');?></a>
          </div>
          <ul class="nav navbar-nav">
-            <li <?php if ($this->uri->rsegment(2) == "home") echo 'class="active"';?>><a href="<?php echo base_url() ."admin/home"; ?>">Home</a></li>
-            <li <?php if ($this->uri->rsegment(2) == "product") echo 'class="active"';?>><a href="<?php echo base_url() ."admin/product"; ?>">Product</a></li>
-            <li <?php if ($this->uri->rsegment(2) == "promotion") echo 'class="active"';?>><a href="<?php echo base_url() ."admin/promotion"; ?>">Promotion</a></li>
+            <li <?php if ($this->uri->rsegment(2) == "home") echo 'class="active"';?>><a href="<?php echo base_url() ."admin/home"; ?>">หน้าหลัก</a></li>
+            <li <?php if ($this->uri->rsegment(2) == "product") echo 'class="active"';?>><a href="<?php echo base_url() ."admin/product"; ?>">สินค้า</a></li>
+            <li <?php if ($this->uri->rsegment(2) == "category") echo 'class="active"';?>><a href="<?php echo base_url() ."admin/category"; ?>">ประเภทสินค้า</a></li>
+            <li <?php if ($this->uri->rsegment(2) == "promotion") echo 'class="active"';?>><a href="<?php echo base_url() ."admin/promotion"; ?>">โปรโมชั่น</a></li>
             <!--li <?php if ($this->uri->rsegment(2) == "email") echo 'class="active"';?>><a href="<?php echo base_url() ."admin/email"; ?>">Email</a></li-->
-            <li <?php if ($this->uri->rsegment(2) == "order") echo 'class="active"';?>><a href="<?php echo base_url() ."admin/order"; ?>">Order</a></li>
+            <li <?php if ($this->uri->rsegment(2) == "order") echo 'class="active"';?>><a href="<?php echo base_url() ."admin/order"; ?>">รายการสั่งซื้อ</a></li>
             <?php
               if ($this->session->userdata('access') == 'ADMIN') {
-                if ($this->uri->rsegment(2) == "staff") echo '<li class="active"><a href="'. base_url() .'admin/staff">Staff</a></li>';
-                else echo '<li><a href="'. base_url() .'admin/staff">Staff</a></li>';
+                if ($this->uri->rsegment(2) == "staff") echo '<li class="active"><a href="'. base_url() .'admin/staff">ผู้ดูแลระบบ</a></li>';
+                else echo '<li><a href="'. base_url() .'admin/staff">ผู้ดูแลระบบ</a></li>';
               }
             ?>
-            <li <?php if ($this->uri->rsegment(2) == "user") echo 'class="active"';?>><a href="<?php echo base_url() ."admin/user"; ?>">User</a></li>
+            <li <?php if ($this->uri->rsegment(2) == "user") echo 'class="active"';?>><a href="<?php echo base_url() ."admin/user"; ?>">ผู้ใช้งาน</a></li>
             <!--li <?php if ($this->uri->rsegment(2) == "contact") echo 'class="active"';?>><a href="<?php echo base_url() ."admin/contact"; ?>">Contact</a></li-->
          </ul>
          <ul class="nav navbar-nav navbar-right">
-            <li><a href="<?php echo base_url() ."admin/editprofile"; ?>"><span class="glyphicon glyphicon-user"></span>Edit profile</a></li>
-            <li><a href="<?php echo base_url() ."admin/logout"; ?>"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
+            <li><a href="<?php echo base_url() ."admin/editprofile"; ?>"><span class="glyphicon glyphicon-user"></span>แก้ไขโปรไฟล์</a></li>
+            <li><a href="<?php echo base_url() ."admin/logout"; ?>"><span class="glyphicon glyphicon-log-in"></span> ออกจากระบบ</a></li>
          </ul>
       </div>
    </nav>

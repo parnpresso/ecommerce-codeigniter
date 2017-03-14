@@ -3,6 +3,24 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Model_product extends CI_Model {
 
+  public function get_product_total_row() {
+    $query = $this->db->get('product');
+    return $query->num_rows();
+  }
+
+  public function search_product($name) {
+    $this->db->select('product.*,product_categories.name AS cate_name');
+    $this->db->join('product_categories', 'product.category_id = product_categories.id', 'left');
+    $this->db->from('product');
+    $this->db->like('product.name', $name);
+    $query = $this->db->get();
+    if ($query->num_rows() > 0) {
+      return $query->result();
+    } else {
+      return $query->result();
+    }
+  }
+
   public function add_product() {
     $cateid = 0;
     $cate = $query = $this->db->get('product_categories')->result();
@@ -173,7 +191,8 @@ class Model_product extends CI_Model {
     return $array;
   }
 
-  public function get_product_list() {
+  public function get_product_list($limit, $start) {
+    $this->db->limit($limit, $start);
     $this->db->select('product.*,product_categories.name AS cate_name');
     $this->db->from('product');
     $this->db->join('product_categories', 'product.category_id = product_categories.id', 'left');
@@ -217,9 +236,15 @@ class Model_product extends CI_Model {
     $this->db->delete('product', array('id' => $id));
   }
 
-  public function get_category_list(){
+  public function get_category_list($limit, $start){
+    $this->db->limit($limit, $start);
     $query = $this->db->get('product_categories');
     return $query->result();
+  }
+
+  public function get_category_total_row() {
+    $query = $this->db->get('product_categories');
+    return $query->num_rows();
   }
 
   public function get_category($id) {

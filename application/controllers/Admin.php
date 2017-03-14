@@ -6,7 +6,6 @@ class Admin extends CI_Controller {
 	public function index() {
     $this->home();
 	}
-
   public function login() {
     $this->load->view('login-admin');
   }
@@ -27,15 +26,53 @@ class Admin extends CI_Controller {
 	/// PRODUCT MANAGEMENT
   public function product() {
     if ($this->session->userdata('access') == 'ADMIN' || $this->session->userdata('access') == 'STAFF'){
+
+			$this->load->library('pagination');
 			$this->load->model('model_product');
-			$data = array("productlist" => $this->model_product->get_product_list(), "categorylist" => $this->model_product->get_category_list());
+
+			$config['base_url'] = base_url('admin/product'). '/page/';
+			$config['total_rows'] = $this->model_product->get_product_total_row();
+			$config['per_page'] = 10;
+			$config['uri_segment'] = 4;
+
+			// Pagination style
+			$config['first_tag_open'] = '<li>';
+			$config['first_tag_close'] = '</li>';
+			$config['last_tag_open'] = '<li>';
+			$config['last_tag_close'] = '</li>';
+			$config['prev_tag_open'] = '<li>';
+			$config['prev_tag_close'] = '</li>';
+			$config['next_tag_open'] = '<li>';
+			$config['next_tag_close'] = '</li>';
+			$config['num_tag_open'] = '<li>';
+			$config['num_tag_close'] = '</li>';
+			$config['cur_tag_open'] = '<li class="active"><a href="#">';
+			$config['cur_tag_close'] = '</a></li>';
+
+			$this->pagination->initialize($config);
+			$page = $this->uri->segment(4,0);
+			$data['pagination'] = $this->pagination->create_links();
+			$data['productlist'] = $this->model_product->get_product_list($config['per_page'], $page);
+
+
       $this->load->view('includes/header-admin');
-      $this->load->view('product-admin', $data);
+      $this->load->view('product_admin', $data);
       $this->load->view('includes/footer-admin');
 		} else {
       redirect('admin/login');
     }
   }
+	public function search_product() {
+		if ($this->session->userdata('access') == 'ADMIN' || $this->session->userdata('access') == 'STAFF'){
+			$this->load->model('model_product');
+			$data = array("productlist" => $this->model_product->search_product($this->input->post('username')));
+      $this->load->view('includes/header-admin');
+      $this->load->view('product_admin', $data);
+      $this->load->view('includes/footer-admin');
+		} else {
+      redirect('admin/login');
+    }
+	}
 	public function add_product() {
     if ($this->session->userdata('access') == 'ADMIN' || $this->session->userdata('access') == 'STAFF'){
 			$this->load->model('model_product');
@@ -92,9 +129,49 @@ class Admin extends CI_Controller {
 			redirect('admin/login');
 		}
 	}
+
+	// CATEGORY MANAGEMENT
+	public function category() {
+		if ($this->session->userdata('access') == 'ADMIN' || $this->session->userdata('access') == 'STAFF'){
+
+			$this->load->library('pagination');
+			$this->load->model('model_product');
+
+			$config['base_url'] = base_url('admin/category'). '/page/';
+			$config['total_rows'] = $this->model_product->get_category_total_row();
+			$config['per_page'] = 10;
+			$config['uri_segment'] = 4;
+
+			// Pagination style
+			$config['first_tag_open'] = '<li>';
+			$config['first_tag_close'] = '</li>';
+			$config['last_tag_open'] = '<li>';
+			$config['last_tag_close'] = '</li>';
+			$config['prev_tag_open'] = '<li>';
+			$config['prev_tag_close'] = '</li>';
+			$config['next_tag_open'] = '<li>';
+			$config['next_tag_close'] = '</li>';
+			$config['num_tag_open'] = '<li>';
+			$config['num_tag_close'] = '</li>';
+			$config['cur_tag_open'] = '<li class="active"><a href="#">';
+			$config['cur_tag_close'] = '</a></li>';
+
+			$this->pagination->initialize($config);
+			$page = $this->uri->segment(4,0);
+			$data['pagination'] = $this->pagination->create_links();
+			$data['categorylist'] = $this->model_product->get_category_list($config['per_page'], $page);
+
+
+      $this->load->view('includes/header-admin');
+      $this->load->view('category_admin', $data);
+      $this->load->view('includes/footer-admin');
+		} else {
+      redirect('admin/login');
+    }
+  }
 	public function add_category() {
     if ($this->session->userdata('access') == 'ADMIN' || $this->session->userdata('access') == 'STAFF'){
-      $this->load->view('product_category_add_admin');
+      $this->load->view('category_add_admin');
 		} else {
       redirect('admin/login');
     }
@@ -102,7 +179,7 @@ class Admin extends CI_Controller {
 	public function add_category_success() {
     if ($this->session->userdata('access') == 'ADMIN' || $this->session->userdata('access') == 'STAFF'){
       $this->load->view('includes/header-admin');
-      $this->load->view('product_category_add_success_admin');
+      $this->load->view('category_add_success_admin');
       $this->load->view('includes/footer-admin');
 		} else {
       redirect('admin/login');
@@ -112,7 +189,7 @@ class Admin extends CI_Controller {
     if ($this->session->userdata('access') == 'ADMIN' || $this->session->userdata('access') == 'STAFF'){
 			$this->load->model('model_product');
 			$data = array("category" => $this->model_product->get_category($id));
-      $this->load->view('product_category_edit_admin', $data);
+      $this->load->view('category_edit_admin', $data);
 		} else {
       redirect('admin/login');
     }
@@ -120,7 +197,7 @@ class Admin extends CI_Controller {
 	public function edit_category_success() {
     if ($this->session->userdata('access') == 'ADMIN' || $this->session->userdata('access') == 'STAFF'){
       $this->load->view('includes/header-admin');
-      $this->load->view('product_category_edit_success_admin');
+      $this->load->view('category_edit_success_admin');
       $this->load->view('includes/footer-admin');
 		} else {
       redirect('admin/login');
@@ -131,7 +208,7 @@ class Admin extends CI_Controller {
 			$this->load->model('model_product');
 			$this->model_product->delete_category($id);
 			$this->load->view('includes/header-admin');
-			$this->load->view('product_category_delete_success_admin');
+			$this->load->view('category_delete_success_admin');
 			$this->load->view('includes/footer-admin');
 		} else {
 			redirect('admin/login');
@@ -141,8 +218,35 @@ class Admin extends CI_Controller {
 	/// STAFF MANAGEMENT
 	public function staff() {
     if ($this->session->userdata('access') == 'ADMIN'){
+
+			$this->load->library('pagination');
 			$this->load->model('model_staff');
-			$data = array("stafflist" => $this->model_staff->get_staff_list());
+
+			$config['base_url'] = base_url('admin/staff'). '/page/';
+			$config['total_rows'] = $this->model_staff->get_staff_total_row();
+			$config['per_page'] = 10;
+			$config['uri_segment'] = 4;
+
+			// Pagination style
+			$config['first_tag_open'] = '<li>';
+			$config['first_tag_close'] = '</li>';
+			$config['last_tag_open'] = '<li>';
+			$config['last_tag_close'] = '</li>';
+			$config['prev_tag_open'] = '<li>';
+			$config['prev_tag_close'] = '</li>';
+			$config['next_tag_open'] = '<li>';
+			$config['next_tag_close'] = '</li>';
+			$config['num_tag_open'] = '<li>';
+			$config['num_tag_close'] = '</li>';
+			$config['cur_tag_open'] = '<li class="active"><a href="#">';
+			$config['cur_tag_close'] = '</a></li>';
+
+			$this->pagination->initialize($config);
+			$page = $this->uri->segment(4,0);
+			$data['pagination'] = $this->pagination->create_links();
+			$data['stafflist'] = $this->model_staff->get_staff_list($config['per_page'], $page);
+
+
       $this->load->view('includes/header-admin');
       $this->load->view('staff_admin', $data);
       $this->load->view('includes/footer-admin');
@@ -150,6 +254,73 @@ class Admin extends CI_Controller {
       redirect('admin/login');
     }
   }
+	public function search_staff() {
+		if ($this->session->userdata('access') == 'ADMIN'){
+			$this->load->model('model_staff');
+			$data = array("stafflist" => $this->model_staff->search_staff($this->input->post('username')));
+      $this->load->view('includes/header-admin');
+      $this->load->view('staff_admin', $data);
+      $this->load->view('includes/footer-admin');
+		} else {
+      redirect('admin/login');
+    }
+	}
+	public function add_staff() {
+    if ($this->session->userdata('access') == 'ADMIN' ){
+			$this->load->model('model_staff');
+			$data = array("access" => $this->model_staff->get_access());
+      $this->load->view('staff_add_admin', $data);
+		} else {
+      redirect('admin/login');
+    }
+  }
+	public function add_staff_success() {
+    if ($this->session->userdata('access') == 'ADMIN' ){
+      $this->load->view('includes/header-admin');
+      $this->load->view('staff_add_success_admin');
+      $this->load->view('includes/footer-admin');
+		} else {
+      redirect('admin/login');
+    }
+  }
+	public function edit_staff($id) {
+		if ($this->session->userdata('access') == 'ADMIN' ){
+			$this->load->model('model_staff');
+			$data = array("staff" => $this->model_staff->get_staff($id));
+			$this->load->view('staff_edit_admin', $data);
+		} else {
+			redirect('admin/login');
+		}
+	}
+	public function edit_staff_success() {
+		if ($this->session->userdata('access') == 'ADMIN' ){
+			$this->load->view('includes/header-admin');
+			$this->load->view('staff_edit_success_admin');
+			$this->load->view('includes/footer-admin');
+		} else {
+			redirect('admin/login');
+		}
+	}
+	public function view_staff() {
+		if ($this->session->userdata('access') == 'ADMIN' ){
+			$this->load->model('model_staff');
+			$data = array("staff" => $this->model_staff->get_staff($this->uri->segment(3)));
+			$this->load->view('staff_view_admin', $data);
+		} else {
+			redirect('admin/login');
+		}
+	}
+	public function delete_staff($id){
+		if ($this->session->userdata('access') == 'ADMIN' ){
+			$this->load->model('model_staff');
+			$this->model_staff->delete_staff($id);
+			$this->load->view('includes/header-admin');
+			$this->load->view('staff_delete_success_admin');
+			$this->load->view('includes/footer-admin');
+		} else {
+			redirect('admin/login');
+		}
+	}
 
 	/// USER MANAGEMENT
 	public function user() {
@@ -316,7 +487,6 @@ class Admin extends CI_Controller {
 			return false;
 		}
 	}
-
 	public function add_product_validation() {
 		$this->load->library('form_validation');
 		$this->form_validation->set_rules('name', 'Name', 'required|trim');
@@ -369,7 +539,6 @@ class Admin extends CI_Controller {
 			$this->edit_category();
 		}
 	}
-
 	public function edit_profile_validation() {
 		$this->load->library('form_validation');
 		$this->form_validation->set_rules('username_staff', 'Username', 'required|trim');
@@ -387,8 +556,6 @@ class Admin extends CI_Controller {
 			$this->editprofile();
 		}
 	}
-
-
 	public function add_user_validation() {
 		$this->load->library('form_validation');
 		$this->form_validation->set_rules('username', 'Username', 'required|trim');
@@ -435,6 +602,45 @@ class Admin extends CI_Controller {
 			redirect('admin/edit_user/'. $id);
 		}
 	}
-
+	public function add_staff_validation() {
+		$this->load->library('form_validation');
+		$this->form_validation->set_rules('username', 'Username', 'required|trim');
+		$this->form_validation->set_rules('password', 'Password', 'required|trim');
+		$this->form_validation->set_rules('firstname', 'Firstname', 'required|trim');
+		$this->form_validation->set_rules('lastname', 'Lastname', 'required|trim');
+		$this->form_validation->set_rules('idcard', 'ID card', 'required|trim');
+		$this->form_validation->set_rules('email', 'Email', 'required|trim');
+		$this->form_validation->set_rules('telephone', 'Telephone', 'required|trim');
+		$this->form_validation->set_rules('address', 'Address', 'required|trim');
+		if ($this->form_validation->run()){
+			$this->load->model('model_staff');
+			$this->model_staff->add_staff();
+			redirect('admin/add_staff_success');
+		} else {
+			$this->add_staff();
+		}
+	}
+	public function edit_staff_validation($id) {
+		$this->load->library('form_validation');
+		$this->form_validation->set_rules('username', 'Username', 'required|trim');
+		$this->form_validation->set_rules('password', 'Password', 'required|trim');
+		$this->form_validation->set_rules('firstname', 'Firstname', 'required|trim');
+		$this->form_validation->set_rules('lastname', 'Lastname', 'required|trim');
+		$this->form_validation->set_rules('idcard', 'ID card', 'required|trim');
+		$this->form_validation->set_rules('email', 'Email', 'required|trim');
+		$this->form_validation->set_rules('telephone', 'Telephone', 'required|trim');
+		$this->form_validation->set_rules('address', 'Address', 'required|trim');
+		//var_dump($this->input->post());
+		//break;
+		if ($this->form_validation->run()){
+			$this->load->model('model_staff');
+			$this->model_staff->edit_staff($id);
+			redirect('admin/edit_staff_success');
+		} else {
+			$data = array('error'=>'Invalid Input');
+			$this->session->set_flashdata('error',$data);
+			redirect('admin/edit_staff/'. $id);
+		}
+	}
 
 }

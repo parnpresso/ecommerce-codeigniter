@@ -6,7 +6,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
   <meta charset="UTF-8">
-   <title>Add new product</title>
+   <title>AdminZone</title>
    <!-- Latest compiled and minified CSS -->
    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
    <!-- Optional theme -->
@@ -21,25 +21,25 @@
     <form class="form-horizontal" action="<?php echo base_url('admin/edit_product_validation');?>" method="post" id="register-form">
       <fieldset>
         <!-- Form Name -->
-        <legend style="text-align:center"><h2>View product</h2></legend>
+        <legend style="text-align:center"><h2>ดูสินค้า</h2></legend>
         <br />
 
         <div class="row">
           <div class="col-md-12">
             <div class="form-group">
-              <label class="col-md-4 control-label" for="name">Product Name</label>
+              <label class="col-md-4 control-label" for="name">ชื่อสินค้า</label>
               <div class="col-md-4">
                 <label class="control-label" for="name"><?php echo $product[0]->name;?></label>
               </div>
             </div>
             <div class="form-group">
-              <label class="col-md-4 control-label" for="name">Product Category</label>
+              <label class="col-md-4 control-label" for="name">ประเภทสินค้า</label>
               <div class="col-md-4">
                 <label class="control-label" for="name"><?php echo $product[0]->cate_name;?></label>
               </div>
             </div>
             <div class="form-group">
-              <label class="col-md-4 control-label" for="price">Product Price</label>
+              <label class="col-md-4 control-label" for="price">ราคาสินค้า</label>
               <div class="col-md-4">
                 <label class="control-label" for="name"><?php echo $product[0]->price;?></label>
 
@@ -49,7 +49,7 @@
 
             <!-- Text input fname-->
             <div class="form-group">
-              <label class="col-md-4 control-label" for="detail">Product Detail</label>
+              <label class="col-md-4 control-label" for="detail">รายละเอียดสินค้า</label>
               <div class="col-md-4" >
                 <label class="control-label" for="name"><?php echo $product[0]->detail;?></label>
 
@@ -58,7 +58,7 @@
 
             <!-- Text input lname-->
             <div class="form-group">
-              <label class="col-md-4 control-label" for="image">Image</label>
+              <label class="col-md-4 control-label" for="image">รูปสินค้า</label>
               <div class="col-md-4">
                 <img style="width: 300px" src="<?php echo public_url().'image/product/'.$product[0]->image;?>"/>
               </div>
@@ -66,7 +66,7 @@
             <div class="form-group">
               <div class="col-md-4"></div>
               <div class="col-md-4">
-                <a href="<?php echo base_url('admin/product');?>" class="btn btn-danger" style="float:left;">Back</a>
+                <a href="<?php echo base_url('admin/product');?>" class="btn btn-danger" style="float:left;">กลับ</a>
               </div>
             </div>
 

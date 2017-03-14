@@ -6,7 +6,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
   <meta charset="UTF-8">
-   <title>Add new product</title>
+   <title>AdminZone</title>
    <!-- Latest compiled and minified CSS -->
    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
    <!-- Optional theme -->
@@ -21,7 +21,7 @@
     <form class="form-horizontal" action="<?php echo base_url('admin/edit_product_validation/'.$product[0]->id);?>" method="post" id="register-form">
       <fieldset>
         <!-- Form Name -->
-        <legend style="text-align:center"><h2>Edit product</h2></legend>
+        <legend style="text-align:center"><h2>แก้ไขสินค้า</h2></legend>
         <br />
         <?php
         if ($this->session->flashdata('error')){
@@ -37,13 +37,13 @@
         <div class="row">
           <div class="col-md-12">
             <div class="form-group">
-              <label class="col-md-4 control-label" for="name">Product Name</label>
+              <label class="col-md-4 control-label" for="name">ชื่อสินค้า</label>
               <div class="col-md-4">
                 <input id="name" name="name" value="<?php echo $product[0]->name;?>" type="text" placeholder="Name" class="form-control input-md" required="">
               </div>
             </div>
             <div class="form-group">
-              <label class="col-md-4 control-label" for="name">Product Category</label>
+              <label class="col-md-4 control-label" for="name">ประเภทสินค้า</label>
               <div class="col-md-4">
                 <?php
         					if (form_error('item_price_rate') != NULL){
@@ -58,7 +58,7 @@
               </div>
             </div>
             <div class="form-group">
-              <label class="col-md-4 control-label" for="price">Product Price</label>
+              <label class="col-md-4 control-label" for="price">ราคาสินค้า</label>
               <div class="col-md-4">
                 <input id="price" name="price" value="<?php echo $product[0]->price;?>" type="text" placeholder="Price" class="form-control input-md" required="">
 
@@ -68,7 +68,7 @@
 
             <!-- Text input fname-->
             <div class="form-group">
-              <label class="col-md-4 control-label" for="detail">Product Detail</label>
+              <label class="col-md-4 control-label" for="detail">รายละเอียดสินค้า</label>
               <div class="col-md-4" >
                 <textarea class="form-control" rows="5" id="detail" name="detail"><?php echo $product[0]->detail;?></textarea>
 
@@ -77,7 +77,7 @@
 
             <!-- Text input lname-->
             <div class="form-group">
-              <label class="col-md-4 control-label" for="image">Image</label>
+              <label class="col-md-4 control-label" for="image">รูปสินค้า</label>
               <div class="col-md-4">
                 <input type="file" name="image" id="image">
               </div>
@@ -85,9 +85,9 @@
             <div class="form-group">
               <div class="col-md-4"></div>
               <div class="col-md-4">
-                <a href="<?php echo base_url('admin/product');?>" class="btn btn-danger" style="float:left;">Back</a>
+                <a href="<?php echo base_url('admin/product');?>" class="btn btn-danger" style="float:left;">กลับ</a>
                 <button type="submit" class="btn btn-success" name="btn-signup" style="float:right;">
-                  <span class="glyphicon glyphicon-log-in"></span> &nbsp;Edit
+                  <span class="glyphicon glyphicon-log-in"></span> &nbsp;แก้ไข
                 </button>
               </div>
             </div>

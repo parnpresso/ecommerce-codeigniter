@@ -18,17 +18,17 @@
 <body>
   <br/><br/>
   <div class="container-fluid">
-    <!--form class="form-horizontal" action="<?php echo base_url('admin/add_product_validation');?>" method="post" id="register-form"-->
-    <?php echo form_open_multipart(base_url('admin/add_user_validation'),  array('class' => 'form-horizontal'));?>
+    <form class="form-horizontal" action="<?php echo base_url('admin/edit_staff_validation/'.$staff[0]->user_id);?>" method="post" id="register-form">
       <fieldset>
         <!-- Form Name -->
-        <legend style="text-align:center"><h2>เพิ่มผู้ใช้งานใหม่</h2></legend>
+        <legend style="text-align:center"><h2>แก้ไขผู้ดูแลระบบ</h2></legend>
         <br />
         <?php
-        if (validation_errors() != NULL){
+        if ($this->session->flashdata('error')){
           echo '<div class="col-md-4 col-md-offset-4">
           <div class="alert alert-danger alert-error">
-          <button type="button" class="close" data-dismiss="alert">&times;</button>'. validation_errors().'
+          <button type="button" class="close" data-dismiss="alert">&times;</button>
+            Invalid Input
           </div>
           </div>
           ';
@@ -39,78 +39,57 @@
             <div class="form-group">
               <label class="col-md-4 control-label" for="username">ชื่อบัญชี</label>
               <div class="col-md-4">
-                <input id="username" name="username" value="<?php echo $this->input->post('username');?>" type="text" placeholder="Username" class="form-control input-md" required="">
+                <input id="username" name="username" value="<?php echo $staff[0]->username_staff;?>" type="text" placeholder="Username" class="form-control input-md" required="">
               </div>
             </div>
             <div class="form-group">
               <label class="col-md-4 control-label" for="password">รหัสผ่าน</label>
               <div class="col-md-4">
-                <input id="password" name="password" value="<?php echo $this->input->post('password');?>" type="text" placeholder="Password" class="form-control input-md" required="">
+                <input id="password" name="password" value="<?php echo $staff[0]->password_staff;?>" type="text" placeholder="Password" class="form-control input-md" required="">
               </div>
             </div>
             <div class="form-group">
               <label class="col-md-4 control-label" for="firstname">ชื่อจริง</label>
               <div class="col-md-4">
-                <input id="firstname" name="firstname" value="<?php echo $this->input->post('firstname');?>" type="text" placeholder="Firstname" class="form-control input-md" required="">
+                <input id="firstname" name="firstname" value="<?php echo $staff[0]->fname_staff;?>" type="text" placeholder="Firstname" class="form-control input-md" required="">
               </div>
             </div>
             <div class="form-group">
               <label class="col-md-4 control-label" for="lastname">นามสกุล</label>
               <div class="col-md-4">
-                <input id="lastname" name="lastname" value="<?php echo $this->input->post('lastname');?>" type="text" placeholder="Lastname" class="form-control input-md" required="">
+                <input id="lastname" name="lastname" value="<?php echo $staff[0]->lname_staff;?>" type="text" placeholder="Lastname" class="form-control input-md" required="">
               </div>
             </div>
             <div class="form-group">
               <label class="col-md-4 control-label" for="idcard">รหัสบัตรประชาชน</label>
               <div class="col-md-4">
-                <input id="idcard" name="idcard" value="<?php echo $this->input->post('idcard');?>" type="text" placeholder="ID card" class="form-control input-md" required="">
+                <input id="idcard" name="idcard" value="<?php echo $staff[0]->idcard_staff;?>" type="text" placeholder="ID card" class="form-control input-md" required="">
               </div>
             </div>
             <div class="form-group">
               <label class="col-md-4 control-label" for="email">อีเมล</label>
               <div class="col-md-4">
-                <input id="email" name="email" value="<?php echo $this->input->post('email');?>" type="text" placeholder="Email" class="form-control input-md" required="">
+                <input id="email" name="email" value="<?php echo $staff[0]->email_staff;?>" type="text" placeholder="Email" class="form-control input-md" required="">
               </div>
             </div>
             <div class="form-group">
               <label class="col-md-4 control-label" for="telephone">เบอร์โทร</label>
               <div class="col-md-4">
-                <input id="telephone" name="telephone" value="<?php echo $this->input->post('telephone');?>" type="text" placeholder="Telephone" class="form-control input-md" required="">
+                <input id="telephone" name="telephone" value="<?php echo $staff[0]->tel_staff;?>" type="text" placeholder="Telephone" class="form-control input-md" required="">
               </div>
             </div>
             <div class="form-group">
               <label class="col-md-4 control-label" for="address">ที่อยู่</label>
               <div class="col-md-4" >
-                <textarea class="form-control" rows="5" id="address" name="address" placeholder="Address"><?php echo $this->input->post('address');?></textarea>
+                <textarea class="form-control" rows="5" id="address" name="address" placeholder="Adress"><?php echo $staff[0]->address_staff;?></textarea>
               </div>
             </div>
-            <div class="form-group">
-              <label class="col-md-4 control-label" for="district">อำเภอ</label>
-              <div class="col-md-4">
-                <input id="district" name="district" value="<?php echo $this->input->post('district');?>" type="text" placeholder="District" class="form-control input-md" required="">
-              </div>
-            </div>
-            <div class="form-group">
-              <label class="col-md-4 control-label" for="province">จังหวัด</label>
-              <div class="col-md-4">
-                <input id="province" name="province" value="<?php echo $this->input->post('province');?>" type="text" placeholder="Province" class="form-control input-md" required="">
-              </div>
-            </div>
-            <div class="form-group">
-              <label class="col-md-4 control-label" for="postcode">รหัสไปรษณีย์</label>
-              <div class="col-md-4">
-                <input id="postcode" name="postcode" value="<?php echo $this->input->post('postcode');?>" type="text" placeholder="Postcode" class="form-control input-md" required="">
-              </div>
-            </div>
-
-
-
             <div class="form-group">
               <div class="col-md-4"></div>
               <div class="col-md-4">
-                <a href="<?php echo base_url('admin/user');?>" class="btn btn-danger" style="float:left;">กลับ</a>
+                <a href="<?php echo base_url('admin/staff');?>" class="btn btn-danger" style="float:left;">กลับ</a>
                 <button type="submit" class="btn btn-success" name="btn-signup" style="float:right;">
-                  <span class="glyphicon glyphicon-log-in"></span> &nbsp;เพิ่ม
+                  <span class="glyphicon glyphicon-log-in"></span> &nbsp;แก้ไข
                 </button>
               </div>
             </div>
