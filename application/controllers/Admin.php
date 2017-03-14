@@ -77,7 +77,7 @@ class Admin extends CI_Controller {
     if ($this->session->userdata('access') == 'ADMIN' || $this->session->userdata('access') == 'STAFF'){
 			$this->load->model('model_product');
 			$data = array("categories" => $this->model_product->get_categories());
-      $this->load->view('product-add-admin', $data);
+      $this->load->view('product_add_admin', $data);
 		} else {
       redirect('admin/login');
     }

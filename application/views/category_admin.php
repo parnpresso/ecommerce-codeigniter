@@ -37,8 +37,8 @@
                         <thead class="thead-default">
                            <tr style="text-align:center">
                               <th>ID</th>
-                              <th>Codename</th>
-                              <th>Name</th>
+                              <th>รหัสประเภทสินค้า</th>
+                              <th>ชื่อประเภทสินค้า</th>
                               <th><center>Update</center></th>
                            </tr>
                         </thead>

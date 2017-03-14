@@ -30,23 +30,13 @@ class Model_product extends CI_Model {
       }
     }
 
-    // Image process
-    if ($this->input->post('userfile')) {
-      $this->load->library('upload', $this->get_upload_config());
-      if (!$this->upload->do_upload("userfile")) {
-          echo $this->upload->display_errors();
-          print_r($_POST);
-          var_dump($this->upload->data());
-          break;
-      } else {
-        echo "SUCCESS";
-          break;
-      }
+
+    $image = 'test.png';
+    $this->load->library('upload', $this->get_upload_config());
+    if ( ! $this->upload->do_upload('userfile')) {
+        $image = 'test.png';
     } else {
-      echo "NO POST IMAGE";
-      var_dump($this->input->post());
-      var_dump($this->input->post('userfile'));
-      break;
+      $image = $this->upload->data('file_name');
     }
 
     $data = array(
@@ -54,7 +44,7 @@ class Model_product extends CI_Model {
 			'price' => $this->input->post('price'),
 			'detail' => $this->input->post('detail'),
 			'category_id' => $cateid,
-      'image' => 'test.png'
+      'image' => $image
 		);
 		$query = $this->db->insert('product', $data);
 		if ($query) return true;
@@ -70,7 +60,8 @@ class Model_product extends CI_Model {
             'max_size'      => '1000',
             'max_width'     => '2000',
             'max_height'    => '2000',
-            'encrypt_name'  => true
+            'encrypt_name'  => true,
+            'overwrite'     => true
 			);
 	}
 	// Update a upload and profiles table
@@ -219,12 +210,32 @@ class Model_product extends CI_Model {
       }
     }
 
+
+
+
+    $image = 'test.png';
+    $this->load->library('upload', $this->get_upload_config());
+    if ( ! $this->upload->do_upload('userfile')) {
+        $image = 'test.png';
+    } else {
+      // Delete old file
+  		$this->load->helper("file");
+      $data = $this->get_product($id);
+  		$old_image_path = $data[0]->image;
+
+  		// Change path when you upload to a live server
+  		if ($old_image_path != 'test.png') {
+  			unlink($_SERVER['DOCUMENT_ROOT']. 'asia/public/image/product/' .$old_image_path) ;
+  		}
+      $image = $this->upload->data('file_name');
+    }
+
     $data = array(
 			'name' => $this->input->post('name'),
 			'price' => $this->input->post('price'),
 			'detail' => $this->input->post('detail'),
 			'category_id' => $cateid,
-      'image' => 'test.png'
+      'image' => $image
 		);
     $this->db->where('id', $id);
     $this->db->update('product', $data);

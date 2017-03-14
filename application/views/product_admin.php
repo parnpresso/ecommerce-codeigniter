@@ -38,10 +38,10 @@
                <table class="table" align="center" border="0">
                   <thead class="thead-default">
                      <tr style="text-align:center">
-                        <th>Name</th>
-                        <th>Detail</th>
-                        <th>Category</th>
-                        <th>Price</th>
+                        <th>ชื่อ</th>
+                        <th>รายละเอียก</th>
+                        <th>ประเภทสินค้า</th>
+                        <th>ราคา</th>
                         <th><center>Update</center></th>
                      </tr>
                   </thead>

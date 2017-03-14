@@ -6,7 +6,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
   <meta charset="UTF-8">
-   <title>AdminZone</title>
+   <title>Add new product</title>
    <!-- Latest compiled and minified CSS -->
    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
    <!-- Optional theme -->
@@ -19,25 +19,24 @@
   <br/><br/>
   <div class="container-fluid">
     <fieldset>
-      <legend style="text-align:center"><h2>แก้ไขสินค้า</h2></legend><br />
+      <legend style="text-align:center"><h2>เพิ่มสินค้า</h2></legend><br />
       <?php
-      if ($this->session->flashdata('error')){
-        echo '<div class="col-md-4 col-md-offset-4">
-        <div class="alert alert-danger alert-error">
-        <button type="button" class="close" data-dismiss="alert">&times;</button>
-          Invalid Input
-        </div>
-        </div>
-        ';
-      }
+        if (validation_errors() != NULL){
+          echo '<div class="col-md-4 col-md-offset-4">
+          <div class="alert alert-danger alert-error">
+          <button type="button" class="close" data-dismiss="alert">&times;</button>'. validation_errors().'
+          </div>
+          </div>
+          ';
+        }
       ?>
-      <?php echo form_open_multipart(base_url('admin/edit_product_validation/'.$product[0]->id),  array('class' => 'form-horizontal'));?>
+      <?php echo form_open_multipart('admin/add_product_validation',  array('class' => 'form-horizontal'));?>
       <div class="row">
         <div class="col-md-12">
           <div class="form-group">
             <label class="col-md-4 control-label" for="name">ชื่อสินค้า</label>
             <div class="col-md-4">
-              <input id="name" name="name" value="<?php echo $product[0]->name;?>" type="text" placeholder="Name" class="form-control input-md" required="">
+              <input id="name" name="name" value="<?php echo $this->input->post('name');?>" type="text" placeholder="Name" class="form-control input-md" required="">
             </div>
           </div>
           <div class="form-group">
@@ -58,14 +57,14 @@
           <div class="form-group">
             <label class="col-md-4 control-label" for="price">ราคาสินค้า</label>
             <div class="col-md-4">
-              <input id="price" name="price" value="<?php echo $product[0]->price;?>" type="text" placeholder="Price" class="form-control input-md" required="">
+              <input id="price" name="price" value="<?php echo $this->input->post('price');?>" type="text" placeholder="Price" class="form-control input-md" required="">
 
             </div>
           </div>
           <div class="form-group">
             <label class="col-md-4 control-label" for="detail">รายละเอียดสินค้า</label>
             <div class="col-md-4" >
-              <textarea class="form-control" rows="5" id="detail" name="detail"><?php echo $product[0]->detail;?>"</textarea>
+              <textarea class="form-control" rows="5" id="detail" name="detail"><?php echo $this->input->post('detail');?></textarea>
 
             </div>
           </div>
@@ -83,7 +82,7 @@
             <div class="col-md-4">
               <a href="<?php echo base_url('admin/product');?>" class="btn btn-danger" style="float:left;">กลับ</a>
               <button type="submit" class="btn btn-success" name="btn-signup" style="float:right;">
-                <span class="glyphicon glyphicon-log-in"></span> &nbsp;แก้ไข
+                <span class="glyphicon glyphicon-log-in"></span> &nbsp;เพิ่ม
               </button>
             </div>
           </div>
@@ -92,6 +91,6 @@
       </form>
 
     </fieldset>
-
-
-          </html>
+  </div>
+</body>
+</html>
