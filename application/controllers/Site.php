@@ -61,6 +61,10 @@ class Site extends CI_Controller {
 		$this->load->view('login');
 		$this->load->view('includes/footer');
 	}
+	public function logout() {
+		$this->session->sess_destroy();
+		redirect('site');
+	}
 	public function register() {
 		$this->load->view('includes/header');
 		$this->load->view('register');
@@ -83,11 +87,11 @@ class Site extends CI_Controller {
 		// from above, the command that check is run()
 		if ($this->form_validation->run()){
 			// Set session
-			$this->load->model('model_users');
-			$this->model_users->setSession();
+			$this->load->model('model_site');
+			$this->model_site->setSession();
 			// For view a session component
 			// var_dump($this->session->userdata('session_id'));
-			redirect('products');
+			redirect('site');
 		} else {
 			$this->login();
 		}
@@ -96,8 +100,8 @@ class Site extends CI_Controller {
 	}
 	// Check User Info
 	public function validate_credentials(){
-		$this->load->model('model_users');
-		if ($this->model_users->can_log_in()) {
+		$this->load->model('model_site');
+		if ($this->model_site->can_log_in()) {
 			return true;
 		} else {
 			$this->form_validation->set_message('validate_credentials', 'Incorrect Username or Password');

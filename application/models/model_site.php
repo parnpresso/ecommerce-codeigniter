@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Model_users extends CI_Model {
+class Model_site extends CI_Model {
 	//error_reporting(0);
 	/**
 	*** Login Functions [Start]
@@ -61,7 +61,7 @@ class Model_users extends CI_Model {
 	**/
 
 
-	
+
 }
 
 ?>

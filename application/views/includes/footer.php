@@ -99,7 +99,7 @@
         <div class="container">
             <div class="col-xs-12 col-sm-6 no-margin">
                 <div class="copyright">
-                    &copy; <a href="index.html">Asia Electric</a> 2015 Asia Electric Co.,Ltd. All Rights Reserved.
+                    &copy; <a href="<?php echo base_url();?>">Asia Electric</a> 2015 Asia Electric Co.,Ltd. All Rights Reserved.
                 </div><!-- /.copyright -->
             </div>
 
