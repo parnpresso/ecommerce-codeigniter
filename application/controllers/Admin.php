@@ -197,7 +197,7 @@ class Admin extends CI_Controller {
 	public function edit_category_success() {
     if ($this->session->userdata('access') == 'ADMIN' || $this->session->userdata('access') == 'STAFF'){
       $this->load->view('includes/header-admin');
-      $this->load->view('category_edit_success_admin');
+      $this->load->view('promotion_category_edit_success_admin');
       $this->load->view('includes/footer-admin');
 		} else {
       redirect('admin/login');
@@ -428,13 +428,138 @@ class Admin extends CI_Controller {
 
 	public function promotion() {
     if ($this->session->userdata('access') == 'ADMIN' || $this->session->userdata('access') == 'STAFF'){
+
+			$this->load->library('pagination');
+			$this->load->model('model_promotion');
+
+			$config['base_url'] = base_url('admin/promotion'). '/page/';
+			$config['total_rows'] = $this->model_promotion->get_promotion_total_row();
+			$config['per_page'] = 10;
+			$config['uri_segment'] = 4;
+
+			// Pagination style
+			$config['first_tag_open'] = '<li>';
+			$config['first_tag_close'] = '</li>';
+			$config['last_tag_open'] = '<li>';
+			$config['last_tag_close'] = '</li>';
+			$config['prev_tag_open'] = '<li>';
+			$config['prev_tag_close'] = '</li>';
+			$config['next_tag_open'] = '<li>';
+			$config['next_tag_close'] = '</li>';
+			$config['num_tag_open'] = '<li>';
+			$config['num_tag_close'] = '</li>';
+			$config['cur_tag_open'] = '<li class="active"><a href="#">';
+			$config['cur_tag_close'] = '</a></li>';
+
+			$this->pagination->initialize($config);
+			$page = $this->uri->segment(4,0);
+			$data['pagination'] = $this->pagination->create_links();
+			$data['promotionlist'] = $this->model_promotion->get_promotion_list($config['per_page'], $page);
+
+
       $this->load->view('includes/header-admin');
-      $this->load->view('promotion-admin');
+      $this->load->view('promotion_admin', $data);
       $this->load->view('includes/footer-admin');
 		} else {
         redirect('admin/login');
     }
   }
+	public function search_promotion() {
+		if ($this->session->userdata('access') == 'ADMIN' || $this->session->userdata('access') == 'STAFF'){
+			$this->load->model('model_promotion');
+			$data = array("promotionlist" => $this->model_promotion->search_promotion($this->input->post('name')));
+			$this->load->view('includes/header-admin');
+			$this->load->view('promotion_admin', $data);
+			$this->load->view('includes/footer-admin');
+		} else {
+			redirect('admin/login');
+		}
+	}
+
+	public function promotion_category() {
+    if ($this->session->userdata('access') == 'ADMIN' || $this->session->userdata('access') == 'STAFF'){
+
+			$this->load->library('pagination');
+			$this->load->model('model_promotion');
+
+			$config['base_url'] = base_url('admin/promotion_category'). '/page/';
+			$config['total_rows'] = $this->model_promotion->get_promotion_category_total_row();
+			$config['per_page'] = 10;
+			$config['uri_segment'] = 4;
+
+			// Pagination style
+			$config['first_tag_open'] = '<li>';
+			$config['first_tag_close'] = '</li>';
+			$config['last_tag_open'] = '<li>';
+			$config['last_tag_close'] = '</li>';
+			$config['prev_tag_open'] = '<li>';
+			$config['prev_tag_close'] = '</li>';
+			$config['next_tag_open'] = '<li>';
+			$config['next_tag_close'] = '</li>';
+			$config['num_tag_open'] = '<li>';
+			$config['num_tag_close'] = '</li>';
+			$config['cur_tag_open'] = '<li class="active"><a href="#">';
+			$config['cur_tag_close'] = '</a></li>';
+
+			$this->pagination->initialize($config);
+			$page = $this->uri->segment(4,0);
+			$data['pagination'] = $this->pagination->create_links();
+			$data['promotioncategorylist'] = $this->model_promotion->get_promotion_category_list($config['per_page'], $page);
+
+
+      $this->load->view('includes/header-admin');
+      $this->load->view('promotion_category_admin', $data);
+      $this->load->view('includes/footer-admin');
+		} else {
+        redirect('admin/login');
+    }
+  }
+	public function add_promotion_category() {
+    if ($this->session->userdata('access') == 'ADMIN' || $this->session->userdata('access') == 'STAFF'){
+      $this->load->view('promotion_category_add_admin');
+		} else {
+      redirect('admin/login');
+    }
+  }
+	public function add_promotion_category_success() {
+		if ($this->session->userdata('access') == 'ADMIN' || $this->session->userdata('access') == 'STAFF'){
+			$this->load->view('includes/header-admin');
+			$this->load->view('promotion_category_add_success_admin');
+			$this->load->view('includes/footer-admin');
+		} else {
+			redirect('admin/login');
+		}
+	}
+	public function edit_promotion_category($id) {
+		if ($this->session->userdata('access') == 'ADMIN' || $this->session->userdata('access') == 'STAFF'){
+			$this->load->model('model_promotion');
+			$data = array("promotion" => $this->model_promotion->get_promotion_category($id));
+			$this->load->view('promotion_category_edit_admin', $data);
+		} else {
+			redirect('admin/login');
+		}
+	}
+	public function edit_promotion_category_success() {
+		if ($this->session->userdata('access') == 'ADMIN' || $this->session->userdata('access') == 'STAFF'){
+			$this->load->view('includes/header-admin');
+			$this->load->view('promotion_category_edit_success_admin');
+			$this->load->view('includes/footer-admin');
+		} else {
+			redirect('admin/login');
+		}
+	}
+	public function delete_promotion_category($id){
+		if ($this->session->userdata('access') == 'ADMIN' || $this->session->userdata('access') == 'STAFF'){
+			$this->load->model('model_promotion');
+			$this->model_promotion->delete_promotion_category($id);
+			$this->load->view('includes/header-admin');
+			$this->load->view('promotion_category_delete_success_admin');
+			$this->load->view('includes/footer-admin');
+		} else {
+			redirect('admin/login');
+		}
+	}
+
   public function order() {
     if ($this->session->userdata('access') == 'ADMIN' || $this->session->userdata('access') == 'STAFF'){
       $this->load->view('includes/header-admin');
@@ -640,6 +765,33 @@ class Admin extends CI_Controller {
 			$data = array('error'=>'Invalid Input');
 			$this->session->set_flashdata('error',$data);
 			redirect('admin/edit_staff/'. $id);
+		}
+	}
+
+	public function add_promotion_category_validation() {
+		$this->load->library('form_validation');
+		$this->form_validation->set_rules('name', 'Name', 'required|trim');
+		$this->form_validation->set_rules('codename', 'Codename', 'required|trim');
+		if ($this->form_validation->run()){
+			$this->load->model('model_promotion');
+			$this->model_promotion->add_promotion_category();
+			redirect('admin/add_promotion_category_success');
+		} else {
+			$this->add_promotion_category();
+		}
+	}
+	public function edit_promotion_category_validation($id) {
+		$this->load->library('form_validation');
+		$this->form_validation->set_rules('codename', 'Codename', 'required|trim');
+		$this->form_validation->set_rules('name', 'Name', 'required|trim');
+		if ($this->form_validation->run()){
+			$this->load->model('model_promotion');
+			$this->model_promotion->edit_promotion_category($id);
+			redirect('admin/edit_promotion_category_success');
+		} else {
+			$data = array('error'=>'Invalid Input');
+			$this->session->set_flashdata('error',$data);
+			redirect('admin/edit_promotion_category/'. $id);
 		}
 	}
 

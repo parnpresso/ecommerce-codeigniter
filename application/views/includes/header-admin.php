@@ -1,7 +1,7 @@
 <html>
 <head>
    <meta charset="utf-8">
-   <title>Admin Zone</title>
+   <title>AdminZone</title>
 
    <!-- Latest compiled and minified CSS -->
    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -25,6 +25,7 @@
             <li <?php if ($this->uri->rsegment(2) == "product") echo 'class="active"';?>><a href="<?php echo base_url() ."admin/product"; ?>">สินค้า</a></li>
             <li <?php if ($this->uri->rsegment(2) == "category") echo 'class="active"';?>><a href="<?php echo base_url() ."admin/category"; ?>">ประเภทสินค้า</a></li>
             <li <?php if ($this->uri->rsegment(2) == "promotion") echo 'class="active"';?>><a href="<?php echo base_url() ."admin/promotion"; ?>">โปรโมชั่น</a></li>
+            <li <?php if ($this->uri->rsegment(2) == "promotion_category") echo 'class="active"';?>><a href="<?php echo base_url() ."admin/promotion_category"; ?>">ประเภทโปรโมชั่น</a></li>
             <!--li <?php if ($this->uri->rsegment(2) == "email") echo 'class="active"';?>><a href="<?php echo base_url() ."admin/email"; ?>">Email</a></li-->
             <li <?php if ($this->uri->rsegment(2) == "order") echo 'class="active"';?>><a href="<?php echo base_url() ."admin/order"; ?>">รายการสั่งซื้อ</a></li>
             <?php
