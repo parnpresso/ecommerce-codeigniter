@@ -8,16 +8,23 @@ class Model_site extends CI_Model {
 	**/
 	// [Check] email and password is match?
 	public function can_log_in() {
-		// Mean where is username is equal to $this....
+
+		/*
 		$this->db->where('username_cus', $this->input->post('username'));
 		$fetch_user = $this->db->get('customer');
-		// Check found user? first
 		if ($fetch_user->num_rows() == 1){
 			$this->db->where('password_cus', $this->input->post('password'));
 			$query = $this->db->get('customer');
-			// In condition, mean if that found a user?
 			if ($query->num_rows() == 1) return true;
 			else return false;
+		} else return false;
+		*/
+
+		$this->db->where('username_cus', $this->input->post('username'));
+		$this->db->where('password_cus', $this->input->post('password'));
+		$fetch_user = $this->db->get('customer');
+		if ($fetch_user->num_rows() == 1){
+			return true;
 		} else return false;
 	}
 	// Create a session
