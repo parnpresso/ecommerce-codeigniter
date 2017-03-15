@@ -65,16 +65,19 @@
             <div class="tab-pane" id="additional-info">
                 <ul class="tabled-data">
                     <li>
-                        <label>weight</label>
+                        <label>น้ำหนัก</label>
                         <div class="value">7.25 kg</div>
                     </li>
                     <li>
-                        <label>size</label>
+                        <label>ขนาด</label>
                         <div class="value">one size fits all</div>
                     </li>
-
                     <li>
-                        <label>price</label>
+                        <label>หน่วย</label>
+                        <div class="value">UNIT</div>
+                    </li>
+                    <li>
+                        <label>ราคา</label>
                         <div class="value">฿<?php echo $product[0]->price;?></div>
                     </li>
                 </ul><!-- /.tabled-data -->

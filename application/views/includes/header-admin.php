@@ -22,11 +22,12 @@
          </div>
          <ul class="nav navbar-nav">
             <li <?php if ($this->uri->rsegment(2) == "home") echo 'class="active"';?>><a href="<?php echo base_url() ."admin/home"; ?>">หน้าหลัก</a></li>
+            <li <?php if ($this->uri->rsegment(2) == "homemanagement") echo 'class="active"';?>><a href="<?php echo base_url() ."admin/homemanagement"; ?>">จัดการหน้าหลัก</a></li>
             <li <?php if ($this->uri->rsegment(2) == "product") echo 'class="active"';?>><a href="<?php echo base_url() ."admin/product"; ?>">สินค้า</a></li>
             <li <?php if ($this->uri->rsegment(2) == "category") echo 'class="active"';?>><a href="<?php echo base_url() ."admin/category"; ?>">ประเภทสินค้า</a></li>
             <li <?php if ($this->uri->rsegment(2) == "promotion") echo 'class="active"';?>><a href="<?php echo base_url() ."admin/promotion"; ?>">โปรโมชั่น</a></li>
             <li <?php if ($this->uri->rsegment(2) == "promotion_category") echo 'class="active"';?>><a href="<?php echo base_url() ."admin/promotion_category"; ?>">ประเภทโปรโมชั่น</a></li>
-            <!--li <?php if ($this->uri->rsegment(2) == "email") echo 'class="active"';?>><a href="<?php echo base_url() ."admin/email"; ?>">Email</a></li-->
+            <li <?php if ($this->uri->rsegment(2) == "email") echo 'class="active"';?>><a href="<?php echo base_url() ."admin/email"; ?>">อีเมล</a></li>
             <li <?php if ($this->uri->rsegment(2) == "order") echo 'class="active"';?>><a href="<?php echo base_url() ."admin/order"; ?>">รายการสั่งซื้อ</a></li>
             <?php
               if ($this->session->userdata('access') == 'ADMIN') {
