@@ -129,39 +129,42 @@
 
 						<div class="basket">
 
-							<a class="dropdown-toggle" data-toggle="dropdown" href="#">
-								<div class="basket-item-count">
-									<span class="count">0</span>
-									<img src="<?php echo public_url();?>assets/images/icon-cart.png" alt="" />
-								</div>
+							<?php
+								if ($this->session->userdata('is_logged_in')) {
+									echo '<a class="dropdown-toggle" data-toggle="dropdown" href="'.base_url('site/cart').'">
+										<div class="basket-item-count">
+											<span class="count">0</span>
+											<img src="'.public_url().'assets/images/icon-cart.png" alt="" />
+										</div>
 
-								<div class="total-price-basket">
-									<span class="lbl">ตระกร้าของคุณ:</span>
-									<span class="total-price">
-										<span class="sign">฿</span><span class="value">0</span>
-									</span>
-								</div>
-							</a>
+										<div class="total-price-basket">
+											<span class="lbl">ตระกร้าของคุณ:</span>
+											<span class="total-price">
+												<span class="sign">฿</span><span class="value">0</span>
+											</span>
+										</div>
+									</a>';
+								} else {
+									echo '<a class="dropdown-toggle" href="'.base_url('site/login').'">
+										<div class="basket-item-count">
+											<span class="count">0</span>
+											<img src="'.public_url().'assets/images/icon-cart.png" alt="" />
+										</div>
+
+										<div class="total-price-basket">
+											<span class="lbl">ตระกร้าของคุณ:</span>
+											<span class="total-price">
+												<span class="sign">฿</span><span class="value">0</span>
+											</span>
+										</div>
+									</a>';
+								}
+							?>
+
 
 							<ul class="dropdown-menu">
-								<li>
-									<div class="basket-item">
-										<div class="row">
-											<div class="col-xs-4 col-sm-4 no-margin text-center">
-												<div class="thumb">
-													<img alt="" src="<?php echo public_url();?>assets/images/products/product-small-01.jpg" />
-												</div>
-											</div>
-											<div class="col-xs-8 col-sm-8 no-margin">
-												<div class="title">Blueberry</div>
-												<div class="price">$270.00</div>
-											</div>
-										</div>
-										<a class="close-btn" href="#"></a>
-									</div>
-								</li>
 
-								<li>
+								<!--li>
 									<div class="basket-item">
 										<div class="row">
 											<div class="col-xs-4 col-sm-4 no-margin text-center">
@@ -176,34 +179,17 @@
 										</div>
 										<a class="close-btn" href="#"></a>
 									</div>
-								</li>
-
-								<li>
-									<div class="basket-item">
-										<div class="row">
-											<div class="col-xs-4 col-sm-4 no-margin text-center">
-												<div class="thumb">
-													<img alt="" src="<?php echo public_url();?>assets/images/products/product-small-01.jpg" />
-												</div>
-											</div>
-											<div class="col-xs-8 col-sm-8 no-margin">
-												<div class="title">Blueberry</div>
-												<div class="price">$270.00</div>
-											</div>
-										</div>
-										<a class="close-btn" href="#"></a>
-									</div>
-								</li>
+								</li-->
 
 
 								<li class="checkout">
 									<div class="basket-item">
 										<div class="row">
 											<div class="col-xs-12 col-sm-6">
-												<a href="cart.html" class="le-button inverse">View cart</a>
+												<a href="<?php echo base_url('site/cart'); ?>" class="le-button inverse">View cart</a>
 											</div>
 											<div class="col-xs-12 col-sm-6">
-												<a href="checkout.html" class="le-button">Checkout</a>
+												<a href="<?php echo base_url('site/checkout'); ?>" class="le-button">Checkout</a>
 											</div>
 										</div>
 									</div>

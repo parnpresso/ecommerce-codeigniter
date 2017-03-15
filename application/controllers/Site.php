@@ -6,6 +6,8 @@ class Site extends CI_Controller {
 	public function index(){
 		$query = $this->db->get('product_categories');
 		$data['categories'] = $query->result();
+		$this->load->model('model_product');
+		$data['productlist'] = $this->model_product->get_product_list(4,1);
 
 		$this->load->view('includes/header');
 		$this->load->view('home', $data);
