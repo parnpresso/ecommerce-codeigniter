@@ -72,9 +72,12 @@ class Site extends CI_Controller {
 		$this->load->view('register');
 		$this->load->view('includes/footer');
 	}
-	public function singleproduct() {
+	public function single_product($id) {
+		$this->load->model('model_product');
+		$data['productlist'] = $this->model_product->get_product_list(6,1);
+		$data['product'] = $this->model_product->get_product($id);
 		$this->load->view('includes/header');
-		$this->load->view('singleproduct');
+		$this->load->view('single_product', $data);
 		$this->load->view('includes/footer');
 	}
 
