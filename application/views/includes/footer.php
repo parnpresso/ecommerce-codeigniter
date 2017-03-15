@@ -114,12 +114,39 @@
 <!-- ============================================================= FOOTER : END ============================================================= -->	</div><!-- /.wrapper -->
 
 
-
 	<!-- JavaScripts placed at the end of the document so the pages load faster -->
 	<script src="<?php echo public_url();?>assets/js/jquery-1.10.2.min.js"></script>
 	<script src="<?php echo public_url();?>assets/js/jquery-migrate-1.2.1.js"></script>
 	<script src="<?php echo public_url();?>assets/js/bootstrap.min.js"></script>
-	<script src="http://maps.google.com/maps/api/js?sensor=false&amp;language=en"></script>
+	<script src="http://maps.google.com/maps/api/js?sensor=false&amp;language=th&key=AIzaSyD8kgqw56omH5xKj9lQTYMN02FByMNtZT4"></script>
+  <script>
+      var map;
+      function initialize() {
+        var mapOptions = {
+          zoom: 15,
+          center: {lat: 18.8021575, lng: 98.9859011},
+          sensor: false
+        };
+        map = new google.maps.Map(document.getElementById('map'),
+            mapOptions);
+
+        var marker = new google.maps.Marker({
+          // The below line is equivalent to writing:
+          // position: new google.maps.LatLng(-34.397, 150.644)
+          position: {lat: 18.8021575, lng: 98.9859011},
+          map: map
+        });
+
+        var infowindow = new google.maps.InfoWindow({
+          content: '<p>Marker Location:' + marker.getPosition() + '</p>'
+        });
+
+        google.maps.event.addListener(marker, 'click', function() {
+          infowindow.open(map, marker);
+        });
+      }
+      google.maps.event.addDomListener(window, 'load', initialize);
+    </script>
 	<script src="<?php echo public_url();?>assets/js/gmap3.min.js"></script>
 	<script src="<?php echo public_url();?>assets/js/bootstrap-hover-dropdown.min.js"></script>
 	<script src="<?php echo public_url();?>assets/js/owl.carousel.min.js"></script>

@@ -2,7 +2,7 @@
 	<section class="google-map map-holder">
 		<div id="map" class="map center"></div>
 		<form role="form" class="get-direction">
-			<div class="container">
+			<!--div class="container">
 				<div class="row">
 					<div class="center-block col-lg-10">
 						<div class="input-group">
@@ -11,9 +11,9 @@
 								<button class="btn btn-lg le-button" type="button">Get Directions</button>
 							</span>
 						</div><!-- /input-group -->
-					</div><!-- /.col-lg-6 -->
-				</div><!-- /.row -->
-			</div>
+					<!--/div><!-- /.col-lg-6 -->
+				<!--/div><!-- /.row -->
+			<!--/div-->
 		</form>
 	</section>
 
