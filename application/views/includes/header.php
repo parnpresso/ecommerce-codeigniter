@@ -55,7 +55,8 @@
 						<li><a href="<?php echo base_url('site/contact');?>">ติดต่อเรา</a></li>
 						<?php
 						if ($this->session->userdata('is_logged_in')) {
-							echo '<li><a href="'. base_url('site/profile').'">บัญชีของฉัน</a></li>';
+							echo '<li><a href="'. base_url('site/editprofile').'">บัญชีของฉัน</a></li>';
+							echo '<li><a href="'. base_url('site/order').'">ใบสั่งสินค้า</a></li>';
 						}
 						?>
 					</ul>

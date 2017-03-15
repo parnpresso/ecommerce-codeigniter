@@ -102,6 +102,28 @@ class Site extends CI_Controller {
 		$this->load->view('checkout');
 		$this->load->view('includes/footer');
 	}
+	public function editprofile(){
+		if ($this->session->userdata('is_logged_in')){
+			$this->load->model('model_site');
+			$data = array("profile" => $this->model_site->get_profile());
+
+			$this->load->view('includes/header');
+			$this->load->view('editprofile', $data);
+			$this->load->view('includes/footer');
+		} else {
+      redirect('site/login');
+    }
+
+	}
+	public function edit_profile_success() {
+		if ($this->session->userdata('is_logged_in')){
+			$this->load->view('includes/header');
+      $this->load->view('edit_profile_success');
+      $this->load->view('includes/footer');
+		} else {
+      redirect('site/login');
+    }
+	}
 	public function subscribe(){
 		$this->load->model('model_promotion');
 		$data['categories'] = $this->model_promotion->get_promotion_category_list(999, 0);
@@ -218,6 +240,28 @@ class Site extends CI_Controller {
 		var_dump($email_id[0]->id);
 		//var_dump();
 		break;
+	}
+
+	public function edit_profile_validation() {
+		$this->load->library('form_validation');
+		$this->form_validation->set_rules('username_cus', 'Username', 'required|trim');
+		$this->form_validation->set_rules('password_cus', 'Password', 'required|trim');
+		$this->form_validation->set_rules('fname_cus', 'First name', 'required|trim');
+		$this->form_validation->set_rules('lname_cus', 'Last name', 'required|trim');
+		$this->form_validation->set_rules('email_cus', 'Email', 'required|trim');
+		$this->form_validation->set_rules('idcard_cus', 'ID card', 'required|trim|numeric');
+		$this->form_validation->set_rules('tel', 'Telephone', 'required|trim');
+		$this->form_validation->set_rules('address', 'Address', 'required|trim');
+		$this->form_validation->set_rules('district', 'District', 'required|trim');
+		$this->form_validation->set_rules('province', 'Province', 'required|trim');
+		$this->form_validation->set_rules('postcode', 'postcode', 'required|trim');
+		if ($this->form_validation->run()){
+			$this->load->model('model_site');
+			$this->model_site->edit_profile();
+			redirect('site/edit_profile_success');
+		} else {
+			$this->editprofile();
+		}
 	}
 
 }

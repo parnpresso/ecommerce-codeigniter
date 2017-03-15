@@ -60,6 +60,31 @@ class Model_site extends CI_Model {
 	*** Register Functions [End]
 	**/
 
+	public function get_profile() {
+    $this->db->where('id', $this->session->userdata('id'));
+    $fetch = $this->db->get('customer');
+		return $fetch->result();
+  }
+
+	public function edit_profile() {
+		$data = array(
+			'username_cus' => $this->input->post('username_cus'),
+			'password_cus' => $this->input->post('password_cus'),
+			'fname_cus' => $this->input->post('fname_cus'),
+			'lname_cus' => $this->input->post('lname_cus'),
+			'email_cus' => $this->input->post('email_cus'),
+			'idcard_cus' => $this->input->post('idcard_cus'),
+			'tel' => $this->input->post('tel'),
+			'address' => $this->input->post('address'),
+			'postcode' => $this->input->post('postcode'),
+			'province' => $this->input->post('province'),
+			'district' => $this->input->post('district'),
+		);
+    $this->db->where('id', $this->session->userdata('id'));
+    $this->db->update('customer', $data);
+		if ($query) return true;
+		else return false;
+	}
 
 
 }
