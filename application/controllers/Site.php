@@ -204,8 +204,8 @@ class Site extends CI_Controller {
 
 		if ($this->form_validation->run()) {
 			// Add them to the CUSTOMER db
-			$this->load->model('model_users');
-			$this->model_users->add_user();
+			$this->load->model('model_site');
+			$this->model_site->add_user();
 			redirect('site/login');
 		} else {
 			// Register has Failed
