@@ -23,7 +23,7 @@ class Model_site extends CI_Model {
 		$this->db->where('username_cus', $this->input->post('username'));
 		$this->db->where('password_cus', $this->input->post('password'));
 		$fetch_user = $this->db->get('customer');
-		if ($fetch_user->num_rows() == 1){
+		if ($fetch_user->num_rows() == 1) {
 			return true;
 		} else return false;
 	}
