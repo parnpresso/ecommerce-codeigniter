@@ -162,7 +162,7 @@
 
 	<!-- For demo purposes – can be removed on production -->
 
-	<script src="switchstylesheet/switchstylesheet.js"></script>
+	<script src="<?php echo public_url();?>switchstylesheet/switchstylesheet.js"></script>
 
 	<script>
 		$(document).ready(function(){

@@ -51,7 +51,8 @@ class Site extends CI_Controller {
 	public function category($id){
 		$query = $this->db->get('product_categories');
 		$data['categories'] = $query->result();
-		
+		$data['pagination'] = '';
+
 		$this->db->select('product.*,product_categories.name AS cate_name');
     $this->db->join('product_categories', 'product.category_id = product_categories.id', 'left');
 		$this->db->where('product_categories.id', $id);
@@ -61,7 +62,24 @@ class Site extends CI_Controller {
 		$data['productlist'] = $query->result();
 
 		$this->load->view('includes/header');
-		$this->load->view('home', $data);
+		$this->load->view('product', $data);
+		$this->load->view('includes/footer');
+	}
+	public function search(){
+		$query = $this->db->get('product_categories');
+		$data['categories'] = $query->result();
+		$data['pagination'] = '';
+
+		$this->db->select('product.*,product_categories.name AS cate_name');
+		$this->db->join('product_categories', 'product.category_id = product_categories.id', 'left');
+		$this->db->from('product');
+		$this->db->like('product.name', $this->input->post('text'));
+		$query = $this->db->get();
+
+		$data['productlist'] = $query->result();
+
+		$this->load->view('includes/header');
+		$this->load->view('product', $data);
 		$this->load->view('includes/footer');
 	}
 	public function aboutus(){

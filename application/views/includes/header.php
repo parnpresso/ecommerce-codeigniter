@@ -94,9 +94,9 @@
 
 						<!-- ============================================================= SEARCH AREA ============================================================= -->
 						<div class="search-area">
-							<form>
+							<form action="<?php echo base_url('site/search');?>" id="myform" method="post">
 								<div class="control-group">
-									<input class="search-field" placeholder="ค้นหาสินค้า" />
+									<input name="text" class="search-field" placeholder="ค้นหาสินค้า" />
 
 									<!--ul class="categories-filter animate-dropdown">
 									<li class="dropdown">
@@ -113,7 +113,7 @@
 							</li>
 						</ul-->
 
-						<a class="search-button" href="#" ></a>
+						<a class="search-button" href="#" onclick="document.getElementById('myform').submit()"></a>
 
 					</div>
 				</form>
