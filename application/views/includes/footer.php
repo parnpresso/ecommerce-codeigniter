@@ -6,12 +6,12 @@
     <div class="sub-form-row">
         <div class="container">
             <div class="col-xs-12 col-sm-8 col-sm-offset-2 no-padding">
-                <form role="form">
+                <form role="form" action="<?php echo base_url('site/subscribe');?>"  method="post">
 
 
                 </br>
-                    <input placeholder="รับข้อมูลข่าวสารจากทางร้าน">
-                    <button class="le-button">Submit</button>
+                    <input placeholder="รับข้อมูลข่าวสารจากทางร้าน" name="email">
+                    <button class="le-button" type="submit">สมัคร</button>
                 </form>
             </div>
         </div><!-- /.container -->

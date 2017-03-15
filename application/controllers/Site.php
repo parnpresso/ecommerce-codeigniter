@@ -92,6 +92,23 @@ class Site extends CI_Controller {
 		$this->load->view('contact');
 		$this->load->view('includes/footer');
 	}
+	public function cart(){
+		$this->load->view('includes/header');
+		$this->load->view('cart');
+		$this->load->view('includes/footer');
+	}
+	public function checkout(){
+		$this->load->view('includes/header');
+		$this->load->view('checkout');
+		$this->load->view('includes/footer');
+	}
+	public function subscribe(){
+		$this->load->model('model_promotion');
+		$data['categories'] = $this->model_promotion->get_promotion_category_list(999, 0);
+		$this->load->view('includes/header');
+		$this->load->view('subscribe', $data);
+		$this->load->view('includes/footer');
+	}
 	public function login(){
 		$this->load->view('includes/header');
 		$this->load->view('login');
@@ -172,6 +189,11 @@ class Site extends CI_Controller {
 			// Register has Failed
 			$this->register();
 		}
+	}
+
+	public function subscribing(){
+		var_dump($this->input->post());
+		break;
 	}
 
 }
