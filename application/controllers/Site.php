@@ -192,7 +192,31 @@ class Site extends CI_Controller {
 	}
 
 	public function subscribing(){
-		var_dump($this->input->post());
+
+		// INSERT email
+		$data = array(
+			'gen_email' => $this->input->post('email')
+		);
+		$this->db->insert('general_cus', $data);
+
+		// SELECT email id
+		$this->db->select('*');
+    $this->db->from('general_cus');
+    $this->db->where('gen_email', $this->input->post('email'));
+    $fetch = $this->db->get();
+
+		$email_id = $fetch->result();
+
+
+		// SELECT Promotion categories id
+		/*for ($x = 0; $x < sizeof($this->input->post())-1; $x++) {
+      if ($this->input->post('cate'.$x) == ) {
+        $cateid = $cate[$x]->id;
+      }
+    }*/
+
+		var_dump($email_id[0]->id);
+		//var_dump();
 		break;
 	}
 
