@@ -93,15 +93,22 @@
 
 
               </br>
-                    <div class="le-quantity">
-                        <form>
-                            <a class="minus" href="#reduce"></a>
-                            <input name="quantity" readonly="readonly" type="text" value="1" />
-                            <a class="plus" href="#add"></a>
-                        </form>
-                    </div>
-                    <a id="addto-cart" href="cart.html" class="le-button huge">เพิ่มลงตระกร้า</a>
 
+
+                    <?php
+        						if ($this->session->userdata('is_logged_in')) {
+                      echo '<div class="le-quantity">
+                          <form>
+                              <a class="minus" href="#reduce"></a>
+                              <input name="quantity" readonly="readonly" type="text" value="1" />
+                              <a class="plus" href="#add"></a>
+                          </form>
+                      </div>';
+        							echo '<a id="addto-cart" href="'.base_url('site/add_cart/'. $product[0]->id).'" class="le-button huge">เพิ่มลงตระกร้า</a>';
+        						} else {
+                      echo '<p><b>กรุณาเข้าสู่ระบบเพื่อเลือกของลงตระกร้า</b></p>';
+                    }
+        						?>
 
 
                 <div class="meta-row">
@@ -171,7 +178,7 @@
         echo '</div>';
       }
     ?>
-    
+
 
 
   </div><!-- /#recently-carousel -->

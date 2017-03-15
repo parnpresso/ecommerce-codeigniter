@@ -48,6 +48,22 @@ class Site extends CI_Controller {
 		$this->load->view('product', $data);
 		$this->load->view('includes/footer');
 	}
+	public function category($id){
+		$query = $this->db->get('product_categories');
+		$data['categories'] = $query->result();
+		
+		$this->db->select('product.*,product_categories.name AS cate_name');
+    $this->db->join('product_categories', 'product.category_id = product_categories.id', 'left');
+		$this->db->where('product_categories.id', $id);
+    $this->db->from('product');
+    $query = $this->db->get();
+
+		$data['productlist'] = $query->result();
+
+		$this->load->view('includes/header');
+		$this->load->view('home', $data);
+		$this->load->view('includes/footer');
+	}
 	public function aboutus(){
 		$this->load->view('includes/header');
 		$this->load->view('aboutus');
