@@ -69,20 +69,8 @@
                         <div class="value">7.25 kg</div>
                     </li>
                     <li>
-                        <label>dimensions</label>
-                        <div class="value">90x60x90 cm</div>
-                    </li>
-                    <li>
                         <label>size</label>
                         <div class="value">one size fits all</div>
-                    </li>
-                    <li>
-                        <label>color</label>
-                        <div class="value">white</div>
-                    </li>
-                    <li>
-                        <label>guarantee</label>
-                        <div class="value">5 years</div>
                     </li>
 
                     <li>
