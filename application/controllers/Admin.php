@@ -7,6 +7,7 @@ class Admin extends CI_Controller {
     $this->home();
 	}
   public function login() {
+		$this->session->sess_destroy();
     $this->load->view('login-admin');
   }
   public function logout() {
@@ -686,6 +687,9 @@ class Admin extends CI_Controller {
 		$this->form_validation->set_rules('name', 'Name', 'required|trim');
 		$this->form_validation->set_rules('price', 'Price', 'required|trim|numeric');
 		$this->form_validation->set_rules('detail', 'Detail', 'required|trim');
+		$this->form_validation->set_rules('weight', 'Weight', 'required|trim|numeric');
+		$this->form_validation->set_rules('size', 'Size', 'required|trim');
+		$this->form_validation->set_rules('unit', 'Unit', 'required|trim');
 		if ($this->form_validation->run()){
 			$this->load->model('model_product');
 			$this->model_product->edit_product($id);

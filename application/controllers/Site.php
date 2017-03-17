@@ -132,6 +132,7 @@ class Site extends CI_Controller {
 		$this->load->view('includes/footer');
 	}
 	public function login(){
+		$this->session->sess_destroy();
 		$this->load->view('includes/header');
 		$this->load->view('login');
 		$this->load->view('includes/footer');

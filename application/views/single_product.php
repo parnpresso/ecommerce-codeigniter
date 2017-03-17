@@ -66,15 +66,15 @@
                 <ul class="tabled-data">
                     <li>
                         <label>น้ำหนัก</label>
-                        <div class="value">7.25 kg</div>
+                        <div class="value"><?php echo $product[0]->weight;?></div>
                     </li>
                     <li>
                         <label>ขนาด</label>
-                        <div class="value">one size fits all</div>
+                        <div class="value"><?php echo $product[0]->size;?></div>
                     </li>
                     <li>
                         <label>หน่วย</label>
-                        <div class="value">UNIT</div>
+                        <div class="value"><?php echo $product[0]->unit;?></div>
                     </li>
                     <li>
                         <label>ราคา</label>

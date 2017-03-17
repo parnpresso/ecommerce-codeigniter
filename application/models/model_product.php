@@ -43,6 +43,9 @@ class Model_product extends CI_Model {
 			'name' => $this->input->post('name'),
 			'price' => $this->input->post('price'),
 			'detail' => $this->input->post('detail'),
+      'weight' => $this->input->post('weight'),
+			'size' => $this->input->post('size'),
+			'unit' => $this->input->post('unit'),
 			'category_id' => $cateid,
       'image' => $image
 		);
@@ -235,6 +238,9 @@ class Model_product extends CI_Model {
 			'price' => $this->input->post('price'),
 			'detail' => $this->input->post('detail'),
 			'category_id' => $cateid,
+      'weight' => $this->input->post('weight'),
+			'size' => $this->input->post('size'),
+			'unit' => $this->input->post('unit'),
       'image' => $image
 		);
     $this->db->where('id', $id);

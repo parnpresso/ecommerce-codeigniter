@@ -69,6 +69,27 @@
 
             </div>
           </div>
+          <div class="form-group">
+            <label class="col-md-4 control-label" for="weight">น้ำหนัก</label>
+            <div class="col-md-4">
+              <input id="weight" name="weight" value="<?php echo $product[0]->weight;?>" type="text" placeholder="Price" class="form-control input-md" required="">
+
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-md-4 control-label" for="size">ขนาด</label>
+            <div class="col-md-4">
+              <input id="size" name="size" value="<?php echo $product[0]->size;?>" type="text" placeholder="Price" class="form-control input-md" required="">
+
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-md-4 control-label" for="unit">หน่วย</label>
+            <div class="col-md-4">
+              <input id="unit" name="unit" value="<?php echo $product[0]->unit;?>" type="text" placeholder="Price" class="form-control input-md" required="">
+
+            </div>
+          </div>
 
           <div class="form-group">
             <label class="col-md-4 control-label" for="image">รูปสินค้า</label>

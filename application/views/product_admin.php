@@ -39,9 +39,11 @@
                   <thead class="thead-default">
                      <tr style="text-align:center">
                         <th>ชื่อ</th>
-                        <th>รายละเอียก</th>
+                        <th>น้ำหนัก</th>
+                        <th>ขนาด</th>
                         <th>ประเภทสินค้า</th>
                         <th>ราคา</th>
+                        <th>หน่วย</th>
                         <th><center>Update</center></th>
                      </tr>
                   </thead>
@@ -49,10 +51,12 @@
                       for ($x = 0; $x <= sizeof($productlist)-1; $x++) {
                         echo '<tr>';
                         echo '<td><a href="view_product/'. $productlist[$x]->id .'">'. $productlist[$x]->name .'</a></td>';
-                        echo '<td>'. $productlist[$x]->detail .'</td>';
+                        echo '<td>'. $productlist[$x]->weight .'</td>';
+                        echo '<td>'. $productlist[$x]->size .'</td>';
                         //echo '<td><img src="'. public_url() .'image/product/'. $productlist[$x]->image .'" style="width:100px;height:100px" /></td>';
                         echo '<td>'. $productlist[$x]->cate_name .'</td>';
                         echo '<td>'. $productlist[$x]->price .'</td>';
+                        echo '<td>'. $productlist[$x]->unit .'</td>';
                         echo '<td align="center">
                                 <a href="'. base_url("admin/view_product/"). $productlist[$x]->id .'" class="btn btn-default"><em class="fa fa-eye"></em></a>
                                 <a href="'. base_url("admin/edit_product/"). $productlist[$x]->id .'" class="btn btn-default"><em class="fa fa-pencil"></em></a>

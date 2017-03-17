@@ -42,10 +42,8 @@
               <label class="col-md-4 control-label" for="price">ราคาสินค้า</label>
               <div class="col-md-4">
                 <label class="control-label" for="name"><?php echo $product[0]->price;?></label>
-
               </div>
             </div>
-
 
             <!-- Text input fname-->
             <div class="form-group">
@@ -53,6 +51,24 @@
               <div class="col-md-4" >
                 <label class="control-label" for="name"><?php echo $product[0]->detail;?></label>
 
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-md-4 control-label" for="weight">น้ำหนัก</label>
+              <div class="col-md-4">
+                <label class="control-label" for="name"><?php echo $product[0]->weight;?></label>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-md-4 control-label" for="size">ขนาด</label>
+              <div class="col-md-4">
+                <label class="control-label" for="name"><?php echo $product[0]->size;?></label>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-md-4 control-label" for="unit">หน่วย</label>
+              <div class="col-md-4">
+                <label class="control-label" for="name"><?php echo $product[0]->unit;?></label>
               </div>
             </div>
 

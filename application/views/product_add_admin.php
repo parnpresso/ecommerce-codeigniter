@@ -58,7 +58,6 @@
             <label class="col-md-4 control-label" for="price">ราคาสินค้า</label>
             <div class="col-md-4">
               <input id="price" name="price" value="<?php echo $this->input->post('price');?>" type="text" placeholder="Price" class="form-control input-md" required="">
-
             </div>
           </div>
           <div class="form-group">
@@ -68,7 +67,24 @@
 
             </div>
           </div>
-
+          <div class="form-group">
+            <label class="col-md-4 control-label" for="weight">น้ำหนัก</label>
+            <div class="col-md-4" >
+              <input id="weight" name="weight" value="<?php echo $this->input->post('weight');?>" type="text" placeholder="Weight" class="form-control input-md" required="">
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-md-4 control-label" for="size">ขนาด</label>
+            <div class="col-md-4" >
+              <input id="size" name="size" value="<?php echo $this->input->post('size');?>" type="text" placeholder="Size" class="form-control input-md" required="">
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-md-4 control-label" for="unit">หน่วย</label>
+            <div class="col-md-4" >
+              <input id="unit" name="unit" value="<?php echo $this->input->post('unit');?>" type="text" placeholder="Unit" class="form-control input-md" required="">
+            </div>
+          </div>
           <div class="form-group">
             <label class="col-md-4 control-label" for="image">รูปสินค้า</label>
             <div class="col-md-4">
