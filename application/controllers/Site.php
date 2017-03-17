@@ -95,8 +95,17 @@ class Site extends CI_Controller {
 		$this->load->view('includes/footer');
 	}
 	public function cart(){
+		$data['items'] = array();
+		for ($x = 0; $x < sizeof($this->session->userdata('cart'));$x++){
+			$this->db->where('id', $this->session->userdata('cart')[$x]['productid']);
+			$fetch = $this->db->get('product');
+			$temp = $fetch->result();
+			array_push($temp, array('quan' => $this->session->userdata('cart')[$x]['quantity']));
+			array_push($data['items'],$temp);
+		}
+
 		$this->load->view('includes/header');
-		$this->load->view('cart');
+		$this->load->view('cart', $data);
 		$this->load->view('includes/footer');
 	}
 	public function checkout(){

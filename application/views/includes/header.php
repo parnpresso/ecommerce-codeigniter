@@ -187,10 +187,10 @@
 									<div class="basket-item">
 										<div class="row">
 											<div class="col-xs-12 col-sm-6">
-												<a href="<?php echo base_url('site/cart'); ?>" class="le-button inverse">View cart</a>
+												<a href="<?php echo base_url('site/cart'); ?>" class="le-button inverse">ไปยังตระกร้า</a>
 											</div>
 											<div class="col-xs-12 col-sm-6">
-												<a href="<?php echo base_url('site/checkout'); ?>" class="le-button">Checkout</a>
+												<a href="<?php echo base_url('site/checkout'); ?>" class="le-button">ชำระเงิน</a>
 											</div>
 										</div>
 									</div>
