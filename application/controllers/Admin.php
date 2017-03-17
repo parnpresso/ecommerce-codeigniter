@@ -680,6 +680,17 @@ class Admin extends CI_Controller {
 		}
 	}
 
+	// EMAIL MANAGEMENT
+	public function email() {
+    if ($this->session->userdata('access') == 'ADMIN' || $this->session->userdata('access') == 'STAFF'){
+      $this->load->view('includes/header-admin');
+      $this->load->view('email_admin.php');
+      $this->load->view('includes/footer-admin');
+		} else {
+      redirect('admin/login');
+    }
+  }
+
 
   public function validation() {
 		$this->load->library('form_validation');

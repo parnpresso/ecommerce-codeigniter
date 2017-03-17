@@ -45,11 +45,11 @@
 
     <div class="col-xs-12 col-sm-9 no-margin wide sidebar">
 
-        <div id="grid-page-banner">
+        <!--div id="grid-page-banner">
             <a href="#">
                 <img src="<?php echo public_url();?>assets/images/banners/banner-gamer.jpg" alt="" />
             </a>
-        </div>
+        </div-->
 
         <section id="gaming">
 <div class="grid-list-products">

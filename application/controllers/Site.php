@@ -133,6 +133,11 @@ class Site extends CI_Controller {
 		$this->load->view('subscribe', $data);
 		$this->load->view('includes/footer');
 	}
+	public function subscribing_success(){
+		$this->load->view('includes/header');
+		$this->load->view('subscribing_success');
+		$this->load->view('includes/footer');
+	}
 	public function login(){
 		$this->session->sess_destroy();
 		$this->load->view('includes/header');
@@ -229,20 +234,32 @@ class Site extends CI_Controller {
     $this->db->from('general_cus');
     $this->db->where('gen_email', $this->input->post('email'));
     $fetch = $this->db->get();
-
 		$email_id = $fetch->result();
 
-
 		// SELECT Promotion categories id
-		/*for ($x = 0; $x < sizeof($this->input->post())-1; $x++) {
-      if ($this->input->post('cate'.$x) == ) {
-        $cateid = $cate[$x]->id;
-      }
-    }*/
+		$this->load->model('model_promotion');
+		$arraycate = $this->model_promotion->get_promotion_category_list(99,0);
+		//var_dump($arraycate);
+		//break;
+		for ($x = 0; $x < sizeof($this->input->post())-1; $x++) {
+			//echo 'cate'.$x;
+			//echo $this->input->post('cate'.$x);
+			for ($y = 0; $y < sizeof($arraycate); $y++) {
+				if ($this->input->post('cate'.$x) == $arraycate[$y]->id) {
+					//echo  $arraycate[$y]->id;
+					// INSERT relationship
+					$data = array(
+						'general_cus_id' => $email_id[0]->id,
+						'promotion_categories_id' => $arraycate[$y]->id
+					);
+					$this->db->insert('subscribe_relation', $data);
+	      }
+			}
+    }
 
-		var_dump($email_id[0]->id);
-		//var_dump();
-		break;
+		//var_dump($email_id[0]->id);
+		//break;
+		redirect('site/subscribing_success');
 	}
 
 	public function edit_profile_validation() {
