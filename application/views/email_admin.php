@@ -25,10 +25,6 @@
       <div class="col col-xs-3">
         <!--h3 class="panel-title">Products</h3-->
       </div>
-
-      <!--div class="col col-xs-9 text-right">
-        <a href="<?php echo base_url('admin/add_promotion'); ?>"><button type="button" class="btn btn-sm btn-success btn-create">เพิ่มโปรโมชั่น</button></a>
-      </div-->
     </div>
   </div>
 
@@ -47,7 +43,7 @@
         for ($x = 0; $x <= sizeof($emaillist)-1; $x++) {
           echo '<tr>';
           echo '<td>'. $emaillist[$x]->id .'</td>';
-          echo '<td>'. $emaillist[$x]->email .'</td>';
+          echo '<td>'. $emaillist[$x]->gen_email .'</td>';
           echo '<td align="center">
           <a href="'. base_url("admin/delete_email/"). $emaillist[$x]->id .'" onClick="return confirm(\'Are you sure you want to delete?\')" class="btn btn-danger"><em class="fa fa-trash"></em></a>
           </td>';

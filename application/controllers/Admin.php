@@ -683,13 +683,51 @@ class Admin extends CI_Controller {
 	// EMAIL MANAGEMENT
 	public function email() {
     if ($this->session->userdata('access') == 'ADMIN' || $this->session->userdata('access') == 'STAFF'){
+			$this->load->library('pagination');
+			$this->load->model('model_promotion');
+
+			$config['base_url'] = base_url('admin/email'). '/page/';
+			$config['total_rows'] = $this->model_promotion->get_email_total_row();
+			$config['per_page'] = 10;
+			$config['uri_segment'] = 4;
+
+			// Pagination style
+			$config['first_tag_open'] = '<li>';
+			$config['first_tag_close'] = '</li>';
+			$config['last_tag_open'] = '<li>';
+			$config['last_tag_close'] = '</li>';
+			$config['prev_tag_open'] = '<li>';
+			$config['prev_tag_close'] = '</li>';
+			$config['next_tag_open'] = '<li>';
+			$config['next_tag_close'] = '</li>';
+			$config['num_tag_open'] = '<li>';
+			$config['num_tag_close'] = '</li>';
+			$config['cur_tag_open'] = '<li class="active"><a href="#">';
+			$config['cur_tag_close'] = '</a></li>';
+
+			$this->pagination->initialize($config);
+			$page = $this->uri->segment(4,0);
+			$data['pagination'] = $this->pagination->create_links();
+			$data['emaillist'] = $this->model_promotion->get_email_list($config['per_page'], $page);
+
       $this->load->view('includes/header-admin');
-      $this->load->view('email_admin.php');
+      $this->load->view('email_admin.php', $data);
       $this->load->view('includes/footer-admin');
 		} else {
       redirect('admin/login');
     }
   }
+	public function delete_email($id){
+		if ($this->session->userdata('access') == 'ADMIN' || $this->session->userdata('access') == 'STAFF'){
+			$this->load->model('model_promotion');
+			$this->model_promotion->delete_email($id);
+			$this->load->view('includes/header-admin');
+			$this->load->view('email_delete_success_admin');
+			$this->load->view('includes/footer-admin');
+		} else {
+			redirect('admin/login');
+		}
+	}
 
 
   public function validation() {

@@ -40,6 +40,22 @@ class Model_promotion extends CI_Model {
     return $query->result();
   }
 
+  public function get_email_list($limit, $start){
+    $this->db->limit($limit, $start);
+    $query = $this->db->get('general_cus');
+    return $query->result();
+  }
+
+  public function get_email_total_row() {
+    $query = $this->db->get('general_cus');
+    return $query->num_rows();
+  }
+
+  public function delete_email($id) {
+    $this->db->delete('general_cus', array('id' => $id));
+  }
+
+
   public function search_promotion($name) {
     $this->db->select('*');
     $this->db->from('promotion');
