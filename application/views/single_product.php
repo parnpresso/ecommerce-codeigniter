@@ -89,13 +89,13 @@
                     <?php
         						if ($this->session->userdata('is_logged_in')) {
                       echo '<div class="le-quantity">
-                          <form>
+                          <form action="'.base_url('site/carting/'.$product[0]->id).'" id="submitform" method="post">
                               <a class="minus" href="#reduce"></a>
                               <input name="quantity" readonly="readonly" type="text" value="1" />
                               <a class="plus" href="#add"></a>
                           </form>
                       </div>';
-        							echo '<a id="addto-cart" href="'.base_url('site/add_cart/'. $product[0]->id).'" class="le-button huge">เพิ่มลงตระกร้า</a>';
+        							echo '<a id="addto-cart" href="#"  onclick="document.getElementById(\'submitform\').submit()" class="le-button huge">เพิ่มลงตระกร้า</a>';
         						} else {
                       echo '<p><b>กรุณาเข้าสู่ระบบเพื่อเลือกของลงตระกร้า</b></p>';
                     }
