@@ -161,6 +161,10 @@ class Site extends CI_Controller {
 		$this->load->view('single_product', $data);
 		$this->load->view('includes/footer');
 	}
+	public function add_cart(){
+		var_dump($this->input->post());
+		break;
+	}
 
 
 	public function login_validation() {
@@ -284,4 +288,23 @@ class Site extends CI_Controller {
 		}
 	}
 
+	public function carting($id) {
+		//var_dump($this->input->post());
+		//break;
+		if ($this->session->userdata('cart') == NULL) {
+			$temp = array('productid' => $id,
+			'quantity' => $this->input->post('quantity'));
+			$newdata = array(
+			  'cart'  => array($temp)
+			);
+			$this->session->set_userdata($newdata);
+		} else {
+			$session_data = $this->session->userdata('cart');
+			$temp = array('productid' => $id,
+			'quantity' => $this->input->post('quantity'));
+			array_push($session_data,$temp);
+			$this->session->set_userdata("cart", $session_data);
+		}
+		redirect('site/product');
+	}
 }

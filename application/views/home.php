@@ -1,4 +1,4 @@
-<?php //var_dump($this->session->all_userdata());
+<?php var_dump($this->session->all_userdata());
 //var_dump($contents); ?>
 <div id="top-banner-and-menu">
 	<div class="container">
@@ -53,7 +53,7 @@
 <section id="banner-holder" class="wow fadeInUp">
     <div class="container">
         <div class="col-xs-12 col-lg-6 no-margin banner">
-            <a href="category-grid-2.html">
+            <a href="#">
                 <div class="banner-text theblue">
                     <h1><?php echo $contents['promotion1_topic'];?></h1>
                     <span class="tagline">-------</span>
@@ -62,7 +62,7 @@
             </a>
         </div>
         <div class="col-xs-12 col-lg-6 no-margin text-right banner">
-            <a href="category-grid-2.html">
+            <a href="#">
                 <div class="banner-text right">
                     <h1><?php echo $contents['promotion2_topic'];?></h1>
                     <span class="tagline">-----</span>
