@@ -7,7 +7,9 @@ class Site extends CI_Controller {
 		$query = $this->db->get('product_categories');
 		$data['categories'] = $query->result();
 		$this->load->model('model_product');
+		$this->load->model('model_home');
 		$data['productlist'] = $this->model_product->get_product_list(4,1);
+		$data['contents'] = $this->model_home->get_all_contents();
 
 		$this->load->view('includes/header');
 		$this->load->view('home', $data);

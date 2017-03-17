@@ -1,4 +1,5 @@
-<?php var_dump($this->session->all_userdata()); ?>
+<?php //var_dump($this->session->all_userdata());
+//var_dump($contents); ?>
 <div id="top-banner-and-menu">
 	<div class="container">
 
@@ -24,19 +25,18 @@
 <div id="hero">
 	<div id="owl-main" class="owl-carousel owl-inner-nav owl-ui-sm">
 
-		<div class="item" style="background-image: url(<?php echo public_url();?>assets/images/ashop.jpg);">
+		<div class="item" style="background-image: url(<?php echo public_url();?>image/contents/<?php echo $contents['slide1'];?>);">
 			<div class="container-fluid">
-
-
-
 			</div><!-- /.container-fluid -->
 		</div><!-- /.item -->
 
-		<div class="item" style="background-image: url(<?php echo public_url();?>assets/images/a2.jpg);">
+		<div class="item" style="background-image: url(<?php echo public_url();?>image/contents/<?php echo $contents['slide2'];?>);">
 			<div class="container-fluid">
+			</div><!-- /.container-fluid -->
+		</div><!-- /.item -->
 
-
-
+		<div class="item" style="background-image: url(<?php echo public_url();?>image/contents/<?php echo $contents['slide3'];?>);">
+			<div class="container-fluid">
 			</div><!-- /.container-fluid -->
 		</div><!-- /.item -->
 
@@ -55,19 +55,19 @@
         <div class="col-xs-12 col-lg-6 no-margin banner">
             <a href="category-grid-2.html">
                 <div class="banner-text theblue">
-                    <h1>Promotion1</h1>
+                    <h1><?php echo $contents['promotion1_topic'];?></h1>
                     <span class="tagline">-------</span>
                 </div>
-                <img class="banner-image" alt="" src="<?php echo public_url();?>assets/images/blank.gif" data-echo="<?php echo public_url();?>assets/images/banners/banner-narrow-01.jpg" />
+                <img class="banner-image" alt="" src="<?php echo public_url();?>image/contents/<?php echo $contents['promotion1'];?>);" data-echo="<?php echo public_url();?>image/contents/<?php echo $contents['promotion1'];?>" />
             </a>
         </div>
         <div class="col-xs-12 col-lg-6 no-margin text-right banner">
             <a href="category-grid-2.html">
                 <div class="banner-text right">
-                    <h1>Promotion2</h1>
+                    <h1><?php echo $contents['promotion2_topic'];?></h1>
                     <span class="tagline">-----</span>
                 </div>
-                <img class="banner-image" alt="" src="<?php echo public_url();?>assets/images/blank.gif" data-echo="<?php echo public_url();?>assets/images/banners/banner-narrow-02.jpg" />
+                <img class="banner-image" alt="" src="<?php echo public_url();?>image/contents/<?php echo $contents['promotion2'];?>);" data-echo="<?php echo public_url();?>image/contents/<?php echo $contents['promotion2'];?>" />
             </a>
         </div>
     </div><!-- /.container -->

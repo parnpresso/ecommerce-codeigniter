@@ -647,6 +647,39 @@ class Admin extends CI_Controller {
     }
 	}
 
+	// HOMEPAGE MANAGEMENT
+	public function home_management() {
+    if ($this->session->userdata('access') == 'ADMIN' || $this->session->userdata('access') == 'STAFF'){
+
+			$this->load->model('model_home');
+			$data['contents'] = $this->model_home->get_content_list();
+
+      $this->load->view('includes/header-admin');
+			$this->load->view('home_management_admin', $data);
+      $this->load->view('includes/footer-admin');
+		} else {
+        redirect('admin/login');
+    }
+  }
+	public function edit_home($id) {
+    if ($this->session->userdata('access') == 'ADMIN' || $this->session->userdata('access') == 'STAFF'){
+			$this->load->model('model_home');
+			$data = array("content" => $this->model_home->get_content($id));
+      $this->load->view('home_management_edit_admin', $data);
+		} else {
+      redirect('admin/login');
+    }
+  }
+	public function edit_home_success() {
+		if ($this->session->userdata('access') == 'ADMIN' || $this->session->userdata('access') == 'STAFF'){
+			$this->load->view('includes/header-admin');
+			$this->load->view('home_management_edit_success_admin');
+			$this->load->view('includes/footer-admin');
+		} else {
+			redirect('admin/login');
+		}
+	}
+
 
   public function validation() {
 		$this->load->library('form_validation');
@@ -882,4 +915,18 @@ class Admin extends CI_Controller {
 		}
 	}
 
+	public function edit_home_validation($id) {
+		$this->load->library('form_validation');
+		$this->form_validation->set_rules('topic', 'Topic', 'required|trim');
+		$this->form_validation->set_rules('detail', 'Detail', 'required|trim');
+		if ($this->form_validation->run()){
+			$this->load->model('model_home');
+			$this->model_home->edit_content($id);
+			redirect('admin/edit_home_success');
+		} else {
+			$data = array('error'=>'Invalid Input');
+			$this->session->set_flashdata('error',$data);
+			redirect('admin/edit_home/'. $id);
+		}
+	}
 }
