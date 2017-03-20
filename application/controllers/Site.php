@@ -95,8 +95,17 @@ class Site extends CI_Controller {
 		$this->load->view('includes/footer');
 	}
 	public function order(){
+
+		$this->db->select('*');
+		$this->db->from('order');
+		$this->db->join('order_product', 'order_product.order_id = order.id', 'inner');
+		$this->db->join('order_orderer', 'order_orderer.id = order.orderer_id', 'inner');
+		$this->db->where('order_orderer.username', $this->session->userdata('username'));
+		$query = $this->db->get();
+		$data['orders'] = $query->result();
+		
 		$this->load->view('includes/header');
-		$this->load->view('order');
+		$this->load->view('order', $data);
 		$this->load->view('includes/footer');
 	}
 	public function cart(){
