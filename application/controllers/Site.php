@@ -316,4 +316,28 @@ class Site extends CI_Controller {
 		}
 		redirect('site/product');
 	}
+
+	public function delete_item($id) {
+
+		for ($x=0; $x < sizeof($this->session->userdata('cart')); $x++) {
+			if ($this->session->userdata('cart')[$x]['productid'] == $id) {
+				$temp = $this->session->userdata('cart');
+				$this->session->unset_userdata('cart');
+				for ($y=0; $y < sizeof($temp); $y++)
+				{
+				    if ($temp[$y]['productid'] == $id) {
+				      unset($temp[$y]);
+				   }
+				}
+				$sessiondata = array_values($temp);
+				//$sessiondata = $temp;
+				$this->session->set_userdata("cart", $sessiondata);
+				//var_dump($temp);
+				//break;
+				redirect('site/cart');
+			}
+		}
+		//var_dump($this->session->userdata('cart'));
+		//break;
+	}
 }

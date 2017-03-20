@@ -30,8 +30,8 @@
               echo '</div>';
               echo '</div>';
               echo '<div class="col-xs-12 col-sm-2 no-margin">';
-              echo '<div class="price">฿'.$items[$x][0]->price.'</div>';
-              echo '<a class="close-btn" href="#"></a>';
+              echo '<div class="price">฿'.$items[$x][0]->price * (int)$items[$x][1]['quan'].'</br>(Each '.$items[$x][0]->price.')</div>';
+              echo '<a class="close-btn" href="'.base_url('site/delete_item/').$items[$x][0]->id.'"></a>';
               echo '</div>';
               echo '</div>';
             }
@@ -43,7 +43,12 @@
         <!-- ========================================= CONTENT : END ========================================= -->
 
         <!-- ========================================= SIDEBAR ========================================= -->
-
+        <?php
+          $sum = 0;
+          for ($x = 0; $x <= sizeof($items)-1; $x++) {
+            $sum += $items[$x][0]->price * (int)$items[$x][1]['quan'];
+          }
+        ?>
         <div class="col-xs-12 col-md-3 no-margin sidebar ">
             <div class="widget cart-summary">
                 <h1 class="border">ราคาสินค้าทั้งหมด</h1>
@@ -51,7 +56,7 @@
                     <ul class="tabled-data no-border inverse-bold">
                         <li>
                             <label>ราคาทั้งหมด</label>
-                            <div class="value pull-right">$8434.00</div>
+                            <div class="value pull-right">฿<?php echo $sum;?></div>
                         </li>
                         <!--li>
                             <label>shipping</label>
@@ -61,12 +66,12 @@
                     <ul id="total-price" class="tabled-data inverse-bold no-border">
                         <li>
                             <label>ราคารวม</label>
-                            <div class="value pull-right">$8434.00</div>
+                            <div class="value pull-right">฿<?php echo $sum;?></div>
                         </li>
                     </ul>
                     <div class="buttons-holder">
-                        <a class="le-button big" href="http://localhost/~ibrahim/themeforest/HTML/mediacenter/upload/PHP/checkout" >ชำระเงิน</a>
-                        <a class="simple-link block" href="http://localhost/~ibrahim/themeforest/HTML/mediacenter/upload/PHP/home" >เลือกสินค้าต่อ</a>
+                        <a class="le-button big" href="<?php echo base_url('site/checkout');?>" >ชำระเงิน</a>
+                        <a class="simple-link block" href="<?php echo base_url('site/product');?>" >เลือกสินค้าต่อ</a>
                     </div>
                 </div>
             </div><!-- /.widget -->
