@@ -296,8 +296,8 @@ class Model_product extends CI_Model {
   }
 
   public function checkout(){
-    var_dump(sizeof($this->session->userdata('cart')));
-    break;
+    //var_dump(sizeof($this->session->userdata('cart')));
+    //break;
 
     $this->load->model('model_product');
     //$user = $this->model_user->get_user($this->session->userdata('id'));
@@ -325,23 +325,26 @@ class Model_product extends CI_Model {
     for ($x = 0; $x < sizeof($this->session->userdata('cart')); $x++){
       $pid = $this->session->userdata('cart')[$x]['productid'];
       $product = $this->model_product->get_product($pid);
-      //var_dump($product);
-      //break;
+      //var_dump($product[0]->cate_name);
+      //var_dump((int)$this->session->userdata('cart')[$x]['quantity']);
+      //if ($x == 1) break;
 
       $data3 = array(
         'order_id' => $order_id,
-        'product_name' => $product[$x]->name,
-        'product_price' => $product[$x]->price,
-        'product_detail' => $product[$x]->detail,
-        'product_weight' => $product[$x]->weight,
-        'product_size' => $product[$x]->size,
-        'product_unit' => $product[$x]->unit,
-        'product_category' => $product[$x]->cate_name,
-        'product_name' => $this->session->userdata('cart')[$x]['quantity']
+        'product_name' => $product[0]->name,
+        'product_price' => $product[0]->price,
+        'product_detail' => $product[0]->detail,
+        'product_weight' => $product[0]->weight,
+        'product_size' => $product[0]->size,
+        'product_unit' => $product[0]->unit,
+        'product_category' => $product[0]->cate_name,
+        'product_quantity' => (int)$this->session->userdata('cart')[$x]['quantity']
       );
       $query3 = $this->db->insert('order_product', $data3);
 
     }
+    $this->session->unset_userdata('cart');
+    //break;
   }
 
 }
