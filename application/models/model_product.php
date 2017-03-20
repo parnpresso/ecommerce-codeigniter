@@ -295,4 +295,53 @@ class Model_product extends CI_Model {
     $this->db->delete('product_categories', array('id' => $id));
   }
 
+  public function checkout(){
+    var_dump(sizeof($this->session->userdata('cart')));
+    break;
+
+    $this->load->model('model_product');
+    //$user = $this->model_user->get_user($this->session->userdata('id'));
+
+    $data = array(
+			'email' => $this->input->post('email_cus'),
+      'username' => $this->session->userdata('username'),
+			'fname' => $this->input->post('fname_cus'),
+			'lname' => $this->input->post('lname_cus'),
+      'idcard' => $this->input->post('idcard_cus'),
+			'address' => $this->input->post('address'),
+			'tel' => $this->input->post('tel'),
+      'district' => $this->input->post('district'),
+			'province' => $this->input->post('province'),
+			'postcode' => $this->input->post('postcode'),
+		);
+		$query = $this->db->insert('order_orderer', $data);
+
+    $data2 = array(
+      'orderer_id' => $this->db->insert_id()
+    );
+    $query2 = $this->db->insert('order', $data2);
+    $order_id = $this->db->insert_id();
+
+    for ($x = 0; $x < sizeof($this->session->userdata('cart')); $x++){
+      $pid = $this->session->userdata('cart')[$x]['productid'];
+      $product = $this->model_product->get_product($pid);
+      //var_dump($product);
+      //break;
+
+      $data3 = array(
+        'order_id' => $order_id,
+        'product_name' => $product[$x]->name,
+        'product_price' => $product[$x]->price,
+        'product_detail' => $product[$x]->detail,
+        'product_weight' => $product[$x]->weight,
+        'product_size' => $product[$x]->size,
+        'product_unit' => $product[$x]->unit,
+        'product_category' => $product[$x]->cate_name,
+        'product_name' => $this->session->userdata('cart')[$x]['quantity']
+      );
+      $query3 = $this->db->insert('order_product', $data3);
+
+    }
+  }
+
 }

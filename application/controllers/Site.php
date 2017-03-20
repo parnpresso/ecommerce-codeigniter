@@ -174,6 +174,11 @@ class Site extends CI_Controller {
 		$this->load->view('register');
 		$this->load->view('includes/footer');
 	}
+	public function checkout_success() {
+		$this->load->view('includes/header');
+		$this->load->view('checkout_success');
+		$this->load->view('includes/footer');
+	}
 	public function single_product($id) {
 		$this->load->model('model_product');
 		$data['productlist'] = $this->model_product->get_product_list(6,1);
@@ -355,21 +360,19 @@ class Site extends CI_Controller {
 
 	public function checkout_validation() {
 		$this->load->library('form_validation');
-		$this->form_validation->set_rules('username_cus', 'Username', 'required|trim');
-		$this->form_validation->set_rules('password_cus', 'Password', 'required|trim');
 		$this->form_validation->set_rules('fname_cus', 'First name', 'required|trim');
 		$this->form_validation->set_rules('lname_cus', 'Last name', 'required|trim');
 		$this->form_validation->set_rules('email_cus', 'Email', 'required|trim');
 		$this->form_validation->set_rules('idcard_cus', 'ID card', 'required|trim|numeric');
 		$this->form_validation->set_rules('tel', 'Telephone', 'required|trim');
 		$this->form_validation->set_rules('address', 'Address', 'required|trim');
-		$this->form_validation->set_rules('district', 'District', 'required|trim');
+		$this->form_validation->set_rules('district', 'Province', 'required|trim');
 		$this->form_validation->set_rules('province', 'Province', 'required|trim');
 		$this->form_validation->set_rules('postcode', 'postcode', 'required|trim');
 		if ($this->form_validation->run()){
-			$this->load->model('model_site');
-			$this->model_site->edit_profile();
-			redirect('site/edit_profile_success');
+			$this->load->model('model_product');
+			$this->model_product->checkout();
+			redirect('site/checkout_success');
 		} else {
 			$this->checkout();
 		}

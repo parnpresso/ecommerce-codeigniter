@@ -11,49 +11,63 @@
 
             <div class="billing-address">
                 <h2 class="border h1">ที่อยู่</h2>
+                <?php
+                  if (validation_errors() != NULL){
+                    echo '<div class="col-md-4 col-md-offset-4">
+                    <div class="alert alert-danger alert-error">
+                    <button type="button" class="close" data-dismiss="alert">&times;</button>'. validation_errors().'
+                    </div>
+                    </div>
+                    ';
+                  }
+                ?>
                 <form action="<?php echo base_url('site/checkout_validation'); ?>" id="checkoutform" method="post">
                     <div class="row field-row">
                         <div class="col-xs-12 col-sm-6">
                             <label>ชื่อจริง*</label>
-                            <input class="le-input" value="<?php echo $customer[0]->fname_cus;?>">
+                            <input class="le-input" name="fname_cus"  value="<?php echo $customer[0]->fname_cus;?>">
                         </div>
                         <div class="col-xs-12 col-sm-6">
                             <label>นามสกุล*</label>
-                            <input class="le-input" value="<?php echo $customer[0]->lname_cus;?>">
+                            <input class="le-input" name="lname_cus"  value="<?php echo $customer[0]->lname_cus;?>">
                         </div>
                     </div><!-- /.field-row -->
 
                     <div class="row field-row">
                         <div class="col-xs-12">
                             <label>รหัสบัตรประชาชน</label>
-                            <input class="le-input" value="<?php echo $customer[0]->idcard_cus;?>">
+                            <input class="le-input" name="idcard_cus"  value="<?php echo $customer[0]->idcard_cus;?>">
                         </div>
                     </div><!-- /.field-row -->
 
                     <div class="row field-row">
                         <div class="col-xs-12 col-sm-6">
                             <label>ที่อยู่*</label>
-                            <input class="le-input" data-placeholder="ที่อยู่" value="<?php echo $customer[0]->address;?>">
+                            <input class="le-input" data-placeholder="ที่อยู่" name="address"  value="<?php echo $customer[0]->address;?>">
                         </div>
-                        <div class="col-xs-12 col-sm-6">
+                        <div class="col-xs-12 col-sm-3">
                             <label>&nbsp;</label>
-                            <input class="le-input" data-placeholder="จังหวัด" value="<?php echo $customer[0]->province;?>">
+                            <input class="le-input" data-placeholder="อำเภอ" name="district"  value="<?php echo $customer[0]->district;?>">
+                        </div>
+                        <div class="col-xs-12 col-sm-3">
+                            <label>&nbsp;</label>
+                            <input class="le-input" data-placeholder="จังหวัด" name="province"  value="<?php echo $customer[0]->province;?>">
                         </div>
                     </div><!-- /.field-row -->
 
                     <div class="row field-row">
                         <div class="col-xs-12 col-sm-4">
                             <label>รหัสไปรษณีย์*</label>
-                            <input class="le-input" value="<?php echo $customer[0]->postcode;?>" >
+                            <input class="le-input" name="postcode"  value="<?php echo $customer[0]->postcode;?>" >
                         </div>
                         <div class="col-xs-12 col-sm-4">
                             <label>อีเมล*</label>
-                            <input class="le-input" value="<?php echo $customer[0]->email_cus;?>">
+                            <input class="le-input" name="email_cus"  value="<?php echo $customer[0]->email_cus;?>">
                         </div>
 
                         <div class="col-xs-12 col-sm-4">
                             <label>เบอร์โทร*</label>
-                            <input class="le-input" id="signup-password2" name="password2" value="<?php echo $customer[0]->tel;?>">
+                            <input class="le-input" name="tel"  value="<?php echo $customer[0]->tel;?>">
                         </div>
                     </div><!-- /.field-row -->
 
