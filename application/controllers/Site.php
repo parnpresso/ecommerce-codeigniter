@@ -109,8 +109,20 @@ class Site extends CI_Controller {
 		$this->load->view('includes/footer');
 	}
 	public function checkout(){
+		$data['items'] = array();
+		for ($x = 0; $x < sizeof($this->session->userdata('cart'));$x++){
+			$this->db->where('id', $this->session->userdata('cart')[$x]['productid']);
+			$fetch = $this->db->get('product');
+			$temp = $fetch->result();
+			array_push($temp, array('quan' => $this->session->userdata('cart')[$x]['quantity']));
+			array_push($data['items'],$temp);
+		}
+
+		$this->load->model('model_user');
+		$data['customer'] = $this->model_user->get_user($this->session->userdata('id'));
+
 		$this->load->view('includes/header');
-		$this->load->view('checkout');
+		$this->load->view('checkout',$data);
 		$this->load->view('includes/footer');
 	}
 	public function editprofile(){
@@ -339,5 +351,27 @@ class Site extends CI_Controller {
 		}
 		//var_dump($this->session->userdata('cart'));
 		//break;
+	}
+
+	public function checkout_validation() {
+		$this->load->library('form_validation');
+		$this->form_validation->set_rules('username_cus', 'Username', 'required|trim');
+		$this->form_validation->set_rules('password_cus', 'Password', 'required|trim');
+		$this->form_validation->set_rules('fname_cus', 'First name', 'required|trim');
+		$this->form_validation->set_rules('lname_cus', 'Last name', 'required|trim');
+		$this->form_validation->set_rules('email_cus', 'Email', 'required|trim');
+		$this->form_validation->set_rules('idcard_cus', 'ID card', 'required|trim|numeric');
+		$this->form_validation->set_rules('tel', 'Telephone', 'required|trim');
+		$this->form_validation->set_rules('address', 'Address', 'required|trim');
+		$this->form_validation->set_rules('district', 'District', 'required|trim');
+		$this->form_validation->set_rules('province', 'Province', 'required|trim');
+		$this->form_validation->set_rules('postcode', 'postcode', 'required|trim');
+		if ($this->form_validation->run()){
+			$this->load->model('model_site');
+			$this->model_site->edit_profile();
+			redirect('site/edit_profile_success');
+		} else {
+			$this->checkout();
+		}
 	}
 }
