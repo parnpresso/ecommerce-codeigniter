@@ -42,4 +42,16 @@ class Pdf extends MPDF
 
 		$this->WriteHtml($html);
 	}
+
+	public function test()
+	{
+		$this->charset_in='UTF-8';
+		$this->allow_charset_conversion=true;
+		$this->autoScriptToLang = true;
+
+		$this->baseScript = 1;
+
+		$this->autoThailand = true;
+		$this->WriteHtml("ป่านฟasd");
+	}
 }

@@ -128,10 +128,44 @@ class Site extends CI_Controller {
 		$this->load->view('order', $data);
 		$this->load->view('includes/footer');
 	}
-	public function view_order(){
-		$this->load->view('includes/header');
-		$this->load->view('order_view');
-		$this->load->view('includes/footer');
+	public function view_order($id){
+
+		$this->db->select('*');
+		$this->db->from('order');
+		$this->db->join('order_product', 'order_product.order_id = order.id', 'inner');
+		$this->db->join('order_orderer', 'order_orderer.id = order.orderer_id', 'inner');
+		$this->db->where('order.id', $id);
+		$query = $this->db->get();
+		$temp = $query->result();
+
+		// Separate order each bill
+		$current_id = $temp[0]->order_id;
+		$orderlist = array(array($temp[0]));
+
+		$indexat = 0;
+		for ($x=0; $x < sizeof($temp); $x++) {
+			if ($current_id == $temp[$x]->order_id) {
+				if ($x != 0) {
+					array_push($orderlist[$indexat], $temp[$x]);
+				}
+			} else {
+				$current_id = $temp[$x]->order_id;
+				$indexat++;
+				$orderlist[$indexat] = array($temp[$x]);
+			}
+		}
+		$data['orders'] = $orderlist;
+
+		$this->load->library('pdf');
+		//$this->pdf->charset_in='UTF-8';
+		//$this->pdf->allow_charset_conversion=true;
+		//$this->pdf->load_view('order_view', $data);
+		$this->pdf->test();
+		$this->pdf->Output();
+
+		//$this->load->view('includes/header');
+		//$this->load->view('order_view');
+		//$this->load->view('includes/footer');
 	}
 	public function cart(){
 		$data['items'] = array();
