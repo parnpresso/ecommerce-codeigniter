@@ -131,17 +131,18 @@
 						<div class="basket">
 
 							<?php
+
 								if ($this->session->userdata('is_logged_in')) {
 									echo '<a class="dropdown-toggle" data-toggle="dropdown" href="'.base_url('site/cart').'">
 										<div class="basket-item-count">
-											<span class="count">0</span>
+											<span class="count">'.sizeof($this->session->userdata('cart')).'</span>
 											<img src="'.public_url().'assets/images/icon-cart.png" alt="" />
 										</div>
 
 										<div class="total-price-basket">
 											<span class="lbl">ตระกร้าของคุณ:</span>
 											<span class="total-price">
-												<span class="sign">฿</span><span class="value">0</span>
+												<span class="sign"></span><span class="value">มีสินค้า</span>
 											</span>
 										</div>
 									</a>';
@@ -155,7 +156,7 @@
 										<div class="total-price-basket">
 											<span class="lbl">ตระกร้าของคุณ:</span>
 											<span class="total-price">
-												<span class="sign">฿</span><span class="value">0</span>
+												<span class="sign"></span><span class="value">มีสินค้า</span>
 											</span>
 										</div>
 									</a>';
