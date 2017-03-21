@@ -128,6 +128,11 @@ class Site extends CI_Controller {
 		$this->load->view('order', $data);
 		$this->load->view('includes/footer');
 	}
+	public function view_order(){
+		$this->load->view('includes/header');
+		$this->load->view('order_view');
+		$this->load->view('includes/footer');
+	}
 	public function cart(){
 		$data['items'] = array();
 		for ($x = 0; $x < sizeof($this->session->userdata('cart'));$x++){

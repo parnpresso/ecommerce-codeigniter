@@ -1,0 +1,4 @@
+<?php
+
+redirect('google.com');
+?>
