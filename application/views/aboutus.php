@@ -107,12 +107,12 @@
 
 	</div><!-- /.container -->
 
-	<section id="what-can-we-do-for-you" class="row light-bg inner-sm">
+	<section id="บริการของเรา" class="row light-bg inner-sm">
 
 		<div class="container">
 			<div class="row">
 				<div class="col-md-3 section m-t-0">
-					<h2>What can we do for you ?</h2>
+					<h2>บริการของเรา</h2>
 					<p>Donec libero dolor, tincidunt id laoreet vitae, ullamcorper eu tortor. Maecenas pellentesque, dui vitae iaculis mattis, tortor nisi faucibus magna, vitae ultrices lacus purus vitae metus.</p>
 				</div><!-- /.section -->
 

@@ -25,7 +25,7 @@
                 <!-- ============================================================= CONTACT INFO ============================================================= -->
 <div class="contact-info">
     <div class="footer-logo">
-    	<img alt="logo" src="<?php echo public_url();?>assets/images/logo_a.png" width="200%"/>
+    	<img alt="logo" src="<?php echo public_url();?>image/logo/logo2.png"  />
     </div><!-- /.footer-logo -->
 
     <p class="regular-bold"> Feel free to contact us via phone,email or just send us mail.</p>
@@ -64,8 +64,8 @@
         <h3>Information</h3>
         <ul>
             <li><a href="category-grid.html">Find a Store</a></li>
-            <li><a href="category-grid.html">About Us</a></li>
-            <li><a href="category-grid.html">Contact Us</a></li>
+            <li><a href="category-grid.html">เกี่ยวกับเรา</a></li>
+            <li><a href="category-grid.html">ติดต่อเรา</a></li>
             <li><a href="category-grid.html">Weekly Deals</a></li>
             <li><a href="category-grid.html">Gift Cards</a></li>
             <li><a href="category-grid.html">Recycling Program</a></li>
