@@ -12,6 +12,15 @@
    <!-- Latest compiled and minified JavaScript -->
    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
+   <?php
+    if ($this->uri->rsegment(2) == "home" || $this->uri->rsegment(2) == "") {
+      echo '<link href="'.public_url().'dashboard/css/bootstrap.min.css" rel="stylesheet">
+      <link href="'.public_url().'dashboard/css/datepicker3.css" rel="stylesheet">
+      <link href="'.public_url().'dashboard/css/styles.css" rel="stylesheet">
+      <script src="'.public_url().'dashboard/js/lumino.glyphs.js"></script>';
+    }
+   ?>
+
 </head>
 <body>
 

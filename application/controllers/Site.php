@@ -193,6 +193,38 @@ class Site extends CI_Controller {
 		$this->load->view('subscribe', $data);
 		$this->load->view('includes/footer');
 	}
+	public function send_contact(){
+
+		/*$config = Array(
+            'protocol' => 'sendmail',
+            'smtp_host' => 'smtp.gmail.com"',
+            'smtp_port' => 465,
+            'smtp_user' => 'parnpresso@gmail.com',
+            'smtp_pass' => '',
+            'smtp_timeout' => '4',
+            'mailtype'  => 'html',
+            'charset'   => 'iso-8859-1'
+        );
+
+		$this->load->library('email', $config);
+
+		//var_dump($this->input->post());
+		//break;
+		$this->email->from($this->input->post('email'), $this->input->post('name'));
+		$this->email->to('parnpresso@gmail.com');
+		//$this->email->cc('another@another-example.com');
+		//$this->email->bcc('them@their-example.com');
+		$this->email->subject($this->input->post('topic'));
+		$this->email->message($this->input->post('message'));
+
+		echo $this->email->send();*/
+		echo "PROBLEM WITH SMTP";
+		break;
+
+		$this->load->view('includes/header');
+		$this->load->view('contact_success');
+		$this->load->view('includes/footer');
+	}
 	public function subscribing_success(){
 		$this->load->view('includes/header');
 		$this->load->view('subscribing_success');

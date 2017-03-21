@@ -13,4 +13,9 @@ class Model_order extends CI_Model {
     $temp = $query->result();
     return $temp;
   }
+
+  public function get_order_total_row() {
+    $query = $this->db->get('order');
+    return $query->num_rows();
+  }
 }

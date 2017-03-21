@@ -24,30 +24,30 @@
 				<section class="section leave-a-message">
 					<h2 class="bordered">ติดต่อเรา</h2>
 					<p>หากต้องการติดต่อสอบถามข้อมูลเพิ่มเติม สามารถกรอกข้อความที่สงสัยหรือข้อความที่ต้องการจะสอบถามพร้อมทั้งระบุ e-mail ไว้ได้เลยครับ</p>
-					<form id="contact-form" class="contact-form cf-style-1 inner-top-xs" method="post" >
+					<form id="contact-form" class="contact-form cf-style-1 inner-top-xs" action="<?php echo base_url('site/send_contact');?>" method="post" >
 						<div class="row field-row">
 							<div class="col-xs-12 col-sm-6">
 								<label>ชื่อ*</label>
-								<input class="le-input" >
+								<input class="le-input" name="name">
 							</div>
 							<div class="col-xs-12 col-sm-6">
 								<label>อิเมลล์*</label>
-								<input class="le-input" >
+								<input class="le-input" name="email">
 							</div>
 						</div><!-- /.field-row -->
 
 						<div class="field-row">
 							<label>เรื่องที่ต้องการสอบถาม</label>
-							<input type="text" class="le-input">
+							<input type="text" class="le-input" name="topic">
 						</div><!-- /.field-row -->
 
 						<div class="field-row">
 							<label>ข้อความ</label>
-							<textarea rows="8" class="le-input"></textarea>
+							<textarea rows="8" class="le-input" name="message"></textarea>
 						</div><!-- /.field-row -->
 
 						<div class="buttons-holder">
-							<button type="submit" class="le-button huge">Send Message</button>
+							<button type="submit" class="le-button huge">ส่งข้อความ</button>
 						</div><!-- /.buttons-holder -->
 					</form><!-- /.contact-form -->
 				</section><!-- /.leave-a-message -->

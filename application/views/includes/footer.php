@@ -10,7 +10,7 @@
 
 
                 </br>
-                    <input placeholder="รับข้อมูลข่าวสารจากทางร้าน" name="email">
+                    <input type="email" placeholder="รับข้อมูลข่าวสารจากทางร้าน" name="email" required>
                     <button class="le-button" type="submit">สมัคร</button>
                 </form>
             </div>

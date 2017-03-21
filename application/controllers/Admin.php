@@ -16,8 +16,17 @@ class Admin extends CI_Controller {
 	}
   public function home() {
     if ($this->session->userdata('access') == 'ADMIN' || $this->session->userdata('access') == 'STAFF'){
+			$this->load->model('model_product');
+			$this->load->model('model_order');
+			$this->load->model('model_user');
+			$this->load->model('model_promotion');
+			$data['amount_product'] = $this->model_product->get_product_total_row();
+			$data['amount_order'] = $this->model_order->get_order_total_row();
+			$data['amount_user'] = $this->model_user->get_user_total_row();
+			$data['amount_promotion'] = $this->model_promotion->get_promotion_total_row();
+
       $this->load->view('includes/header-admin');
-      $this->load->view('home-admin');
+      $this->load->view('home-admin', $data);
       $this->load->view('includes/footer-admin');
 		} else {
       redirect('admin/login');
