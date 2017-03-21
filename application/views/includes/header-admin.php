@@ -22,11 +22,11 @@
    ?>
 
 </head>
-<body>
+<body <?php if ($this->uri->rsegment(2) == "home" || $this->uri->rsegment(2) == "") echo 'style="padding-top:0px"';?>>
 
    <nav class="navbar navbar-inverse">
       <div class="container-fluid">
-         <div class="navbar-header">
+         <div class="navbar-header" <?php if ($this->uri->rsegment(2) == "home" || $this->uri->rsegment(2) == "") echo 'style="width:5%"';?>>
             <a class="navbar-brand" href=""><?php echo $this->session->userdata('username');?></a>
          </div>
          <ul class="nav navbar-nav">
