@@ -8,6 +8,11 @@ class Model_product extends CI_Model {
     return $query->num_rows();
   }
 
+  public function get_order_total_row() {
+    $query = $this->db->get('order');
+    return $query->num_rows();
+  }
+
   public function search_product($name) {
     $this->db->select('product.*,product_categories.name AS cate_name');
     $this->db->join('product_categories', 'product.category_id = product_categories.id', 'left');
@@ -16,6 +21,39 @@ class Model_product extends CI_Model {
     $query = $this->db->get();
     if ($query->num_rows() > 0) {
       return $query->result();
+    } else {
+      return $query->result();
+    }
+  }
+
+  public function search_order($name) {
+    $this->db->select('*');
+    $this->db->from('order');
+    $this->db->join('order_product', 'order_product.order_id = order.id', 'inner');
+    $this->db->join('order_orderer', 'order_orderer.id = order.orderer_id', 'inner');
+    $this->db->like('order_orderer.username', $name);
+    $query = $this->db->get();
+    $temp = $query->result();
+
+    // Separate order each bill
+    $current_id = $temp[0]->order_id;
+    $orderlist = array(array($temp[0]));
+
+    $indexat = 0;
+    for ($x=0; $x < sizeof($temp); $x++) {
+      if ($current_id == $temp[$x]->order_id) {
+        if ($x != 0) {
+          array_push($orderlist[$indexat], $temp[$x]);
+        }
+      } else {
+        $current_id = $temp[$x]->order_id;
+        $indexat++;
+        $orderlist[$indexat] = array($temp[$x]);
+      }
+    }
+
+    if ($query->num_rows() > 0) {
+      return $orderlist;
     } else {
       return $query->result();
     }

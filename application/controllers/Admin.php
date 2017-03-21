@@ -619,13 +619,88 @@ class Admin extends CI_Controller {
 
   public function order() {
     if ($this->session->userdata('access') == 'ADMIN' || $this->session->userdata('access') == 'STAFF'){
+
+			$this->load->library('pagination');
+			$this->load->model('model_product');
+
+			$config['base_url'] = base_url('admin/order'). '/page/';
+			$config['total_rows'] = $this->model_product->get_order_total_row();
+			$config['per_page'] = 100;
+			$config['uri_segment'] = 4;
+
+			// Pagination style
+			$config['first_tag_open'] = '<li>';
+			$config['first_tag_close'] = '</li>';
+			$config['last_tag_open'] = '<li>';
+			$config['last_tag_close'] = '</li>';
+			$config['prev_tag_open'] = '<li>';
+			$config['prev_tag_close'] = '</li>';
+			$config['next_tag_open'] = '<li>';
+			$config['next_tag_close'] = '</li>';
+			$config['num_tag_open'] = '<li>';
+			$config['num_tag_close'] = '</li>';
+			$config['cur_tag_open'] = '<li class="active"><a href="#">';
+			$config['cur_tag_close'] = '</a></li>';
+
+			$this->pagination->initialize($config);
+			$page = $this->uri->segment(4,0);
+			$data['pagination'] = $this->pagination->create_links();
+
+			$this->db->select('*');
+			$this->db->from('order');
+			$this->db->join('order_product', 'order_product.order_id = order.id', 'inner');
+			$this->db->join('order_orderer', 'order_orderer.id = order.orderer_id', 'inner');
+			$query = $this->db->get();
+			$temp = $query->result();
+
+			// Separate order each bill
+			$current_id = $temp[0]->order_id;
+			$orderlist = array(array($temp[0]));
+
+			$indexat = 0;
+			for ($x=0; $x < sizeof($temp); $x++) {
+				if ($current_id == $temp[$x]->order_id) {
+					if ($x != 0) {
+						array_push($orderlist[$indexat], $temp[$x]);
+					}
+				} else {
+					$current_id = $temp[$x]->order_id;
+					$indexat++;
+					$orderlist[$indexat] = array($temp[$x]);
+				}
+			}
+			$data['orders'] = $orderlist;
+
+
       $this->load->view('includes/header-admin');
-      $this->load->view('order-admin');
+      $this->load->view('order_admin', $data);
       $this->load->view('includes/footer-admin');
 		} else {
       redirect('admin/login');
     }
   }
+	public function search_order() {
+		if ($this->session->userdata('access') == 'ADMIN' || $this->session->userdata('access') == 'STAFF'){
+			$this->load->model('model_product');
+			$data = array("orders" => $this->model_product->search_order($this->input->post('username')));
+      $this->load->view('includes/header-admin');
+      $this->load->view('order_admin', $data);
+      $this->load->view('includes/footer-admin');
+		} else {
+      redirect('admin/login');
+    }
+	}
+	public function view_order($id) {
+		if ($this->session->userdata('access') == 'ADMIN' || $this->session->userdata('access') == 'STAFF'){
+			$this->load->model('model_order');
+			$data = array("order" => $this->model_order->get_order($id));
+      $this->load->view('includes/header-admin');
+      $this->load->view('order_view_admin', $data);
+      $this->load->view('includes/footer-admin');
+		} else {
+      redirect('admin/login');
+    }
+	}
 
 	/// ACCOUNT MANAGEMENT
 	public function editprofile() {
