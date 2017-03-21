@@ -1,9 +1,9 @@
 <?php
 
-require_once '../../public/mpdf/vendor/autoload.php';
+$this->load->library('pdf');
 
-$mpdf = new mPDF();
-$mpdf->WriteHTML('Hello World');
-$mpdf->Output();
+$this->pdf->Output();
+
+//$this->pdf->load_view('welcome', $data);
 
 ?>
