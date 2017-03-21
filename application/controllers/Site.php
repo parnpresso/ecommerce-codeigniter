@@ -102,8 +102,28 @@ class Site extends CI_Controller {
 		$this->db->join('order_orderer', 'order_orderer.id = order.orderer_id', 'inner');
 		$this->db->where('order_orderer.username', $this->session->userdata('username'));
 		$query = $this->db->get();
-		$data['orders'] = $query->result();
-		
+		$temp = $query->result();
+
+		// Separate order each bill
+		$current_id = $temp[0]->order_id;
+		$orderlist = array(array($temp[0]));
+
+		$indexat = 0;
+		for ($x=0; $x < sizeof($temp); $x++) {
+			if ($current_id == $temp[$x]->order_id) {
+				if ($x != 0) {
+					array_push($orderlist[$indexat], $temp[$x]);
+				}
+			} else {
+				$current_id = $temp[$x]->order_id;
+				$indexat++;
+				$orderlist[$indexat] = array($temp[$x]);
+			}
+		}
+
+
+		$data['orders'] = $orderlist;
+
 		$this->load->view('includes/header');
 		$this->load->view('order', $data);
 		$this->load->view('includes/footer');
