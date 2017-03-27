@@ -22,18 +22,20 @@
               echo '<div class="quantity">';
               echo '<div class="le-quantity">';
               echo '<form>';
-              echo '<a class="minus" href="#reduce"></a>';
-              echo '<input name="quantity" readonly="readonly" type="text" value="'.$items[$x][1]['quan'].'" />';
-              echo '<a class="plus" href="#add"></a>';
+              echo '<a class="minus" href="#reduce" onclick="MinusItem('.$items[$x][0]->id.');"></a>';
+              echo '<input name="quantity" id="quantity-'.$items[$x][0]->id.'" readonly="readonly" type="text" value="'.$items[$x][1]['quan'].'" />';
+              echo '<a class="plus" href="#add" onclick="PlusItem('.$items[$x][0]->id.');"></a>';
               echo '</form>';
               echo '</div>';
               echo '</div>';
               echo '</div>';
               echo '<div class="col-xs-12 col-sm-2 no-margin">';
-              echo '<div class="price">฿'.$items[$x][0]->price * (int)$items[$x][1]['quan'].'</br>(Each '.$items[$x][0]->price.')</div>';
+              echo '<div class="price" id="show-'.$items[$x][0]->id.'">฿'.$items[$x][0]->price * (int)$items[$x][1]['quan'].'</br>(Each '.$items[$x][0]->price.')</div>';
               echo '<a class="close-btn" href="'.base_url('site/delete_item/').$items[$x][0]->id.'"></a>';
               echo '</div>';
               echo '</div>';
+              echo '<input type="hidden" name="country" id="price-'.$items[$x][0]->id.'" value="'.$items[$x][0]->price.'" >';
+              echo '<input type="hidden" name="country" id="current-price-'.$items[$x][0]->id.'" value="'.$items[$x][0]->price* (int)$items[$x][1]['quan'].'" >';
             }
           ?>
 
@@ -82,3 +84,21 @@
         <!-- ========================================= SIDEBAR : END ========================================= -->
     </div>
 </section>
+
+
+<script>
+  function MinusItem(id){
+    var price = document.getElementById("price-" + id).value;
+    var currentprice = document.getElementById("current-price-" + id).value;
+    var finalprice = Number(currentprice)-Number(price);
+    document.getElementById("current-price-" + id).value = finalprice;
+    document.getElementById("show-" + id).innerHTML = "฿" + finalprice + "(Each " + price + ")";
+  }
+  function PlusItem(id){
+    var price = document.getElementById("price-" + id).value;
+    var currentprice = document.getElementById("current-price-" + id).value;
+    var finalprice = Number(currentprice)+Number(price);
+    document.getElementById("current-price-" + id).value = finalprice;
+    document.getElementById("show-" + id).innerHTML = "฿" + finalprice + "(Each " + price + ")";
+  }
+</script>
