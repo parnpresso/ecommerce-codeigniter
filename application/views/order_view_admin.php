@@ -18,34 +18,37 @@
 <div class="container-fluid">
   <div class="row">
     <div class="col-md-12">
-      <center><h1>บริษัท AE</h1></center><br>
-      <center>ที่อยู่ที่อยู่ที่อยู่ที่อยู่ที่อยู่ที่อยู่ที่อยู่ที่อยู่ที่อยู่ที่อยู่ที่อยู่</center>
+      <center><img alt="logo" src="<?php echo public_url();?>assets/images/logo_a.png" /></center>
+      <center><h1>บริษัท เอเชียการไฟฟ้า จำกัด</h1></center><br>
+      <center>158/1 ถนน ช้างเผือก ตำบล ศรีภูมิ อำเภอเมืองเชียงใหม่ จังหวัดเชียงใหม่ (โทร.053-214683) (แฟ๊กซ์.053-214717) </center>
     </div>
 
+
     <div class="col-md-6 col-md-offset-3">
-      <center><h2>อนุมัติใบสั่งซื้อ</h2></center><br>
+    </br></br><center><h2>อนุมัติใบสั่งซื้อ</h2></center><br>
       <div class="col-md-6 panel panel-default">
         <div class="col-md-3">
-          <br>
-          ATTR1:<br>
-          ATTR2:<br>
-          ATTR3:<br>
+        <br>
+          ผู้ขาย : <br>
+          สถานที่จัดส่ง:<br>
+
           <br>
         </div>
         <div class="col-md-9">
           <br>
           ANSWER1<br>
           ANSWER2<br>
-          ANSWER3<br>
+
           <br>
         </div>
       </div>
       <div class="col-md-6 panel panel-default">
         <div class="col-md-3">
           <br>
-          ATTR1:<br>
-          ATTR2:<br>
-          ATTR3:<br>
+          เลขที่ใบสั่งซื้อ:<br>
+          ผู้ติดต่อ:<br>
+          วันที่สั่ง:<br>
+          วันกำหนดส่ง:<br>
           <br>
         </div>
         <div class="col-md-9">
@@ -53,7 +56,8 @@
           ANSWER1<br>
           ANSWER2<br>
           ANSWER3<br>
-          <br>
+          ANSWER4<br>
+            <br>
         </div>
       </div>
     </div>
@@ -63,11 +67,13 @@
         <table class="table table-bordered">
           <thead>
             <tr>
-              <th>#</th>
-              <th>สินค้า</th>
+              <th>รหัสสินค้า</th>
+              <th>รายการ</th>
               <th>จำนวน</th>
               <th>หน่วย</th>
-              <th>ราคา</th>
+              <th>ราคา/หน่วย</th>
+              <th>ส่วนลด</th>
+              <th>จำนวนเงิน</th>
             </tr>
           </thead>
           <tbody>
@@ -87,16 +93,28 @@
         </table>
         <table class="table table-bordered">
           <tbody>
+            <tr><th>หมายเหตุ : </th></tr>
+            <tr><th>เงื่อไขอื่นๆ : </th></tr>
             <?php
               $sum = 0;
               for ($x = 0; $x <= sizeof($order)-1; $x++) {
                 $sum += $order[$x]->product_price * (int)$order[$x]->product_quantity;
               }
-              echo '<tr>';
-              echo '<th>ราคารวม</th>';
+              echo '<th>';
+              echo '<th>รวมเป็นเงิน</th>';
               echo '<th><center>'.$sum.' บาท </center></th>';
-              echo '</tr>';
+              echo '</th>';
             ?>
+            <tr><th>ส่วนลด(เป็นเงิน)</th></tr>
+            <tr><th>เงินหลังหักส่วนลด</th></tr>
+            <tr><th>ภาษีมูลค่าเพิ่ม 7%</th></tr>
+            <tr><th>ส่วนลด(เป็นเงิน)</th></tr>
+            <tr><th>เงินหลังหักส่วนลด</th></tr>
+            <tr><th>ค่าจัดส่ง</th></tr>
+            <tr><th>จำนวนเงินทั้งสิ้น</th></tr>
+
+
+
           </tbody>
         </table>
       </center>
