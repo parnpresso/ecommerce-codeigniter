@@ -1,10 +1,10 @@
-<?php var_dump($order); ?>
+<?php //var_dump($order); ?>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
   <meta charset="UTF-8">
-   <title>AdminZone</title>
+   <title>Report</title>
    <!-- Latest compiled and minified CSS -->
    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
    <!-- Optional theme -->
@@ -14,75 +14,98 @@
 </head>
 
 <body>
-  <br/><br/>
-  <div class="container-fluid">
-    <form class="form-horizontal" action="<?php echo base_url('admin/edit_product_validation');?>" method="post" id="register-form">
-      <fieldset>
-        <!-- Form Name -->
-        <legend style="text-align:center"><h2>ดูใบสั่งสินค้า</h2></legend>
-        <br />
+<br/><br/>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-12">
+      <center><h1>บริษัท AE</h1></center><br>
+      <center>ที่อยู่ที่อยู่ที่อยู่ที่อยู่ที่อยู่ที่อยู่ที่อยู่ที่อยู่ที่อยู่ที่อยู่ที่อยู่</center>
+    </div>
 
-        <div class="row">
-          <div class="col-md-12">
-            <div class="form-group">
-              <label class="col-md-4 control-label" for="name">ชื่อสินค้า</label>
-              <div class="col-md-4">
-                <label class="control-label" for="name"><?php echo $product[0]->name;?></label>
-              </div>
-            </div>
-            <div class="form-group">
-              <label class="col-md-4 control-label" for="name">ประเภทสินค้า</label>
-              <div class="col-md-4">
-                <label class="control-label" for="name"><?php echo $product[0]->cate_name;?></label>
-              </div>
-            </div>
-            <div class="form-group">
-              <label class="col-md-4 control-label" for="price">ราคาสินค้า</label>
-              <div class="col-md-4">
-                <label class="control-label" for="name"><?php echo $product[0]->price;?></label>
-              </div>
-            </div>
+    <div class="col-md-6 col-md-offset-3">
+      <center><h2>อนุมัติใบสั่งซื้อ</h2></center><br>
+      <div class="col-md-6 panel panel-default">
+        <div class="col-md-3">
+          <br>
+          ATTR1:<br>
+          ATTR2:<br>
+          ATTR3:<br>
+          <br>
+        </div>
+        <div class="col-md-9">
+          <br>
+          ANSWER1<br>
+          ANSWER2<br>
+          ANSWER3<br>
+          <br>
+        </div>
+      </div>
+      <div class="col-md-6 panel panel-default">
+        <div class="col-md-3">
+          <br>
+          ATTR1:<br>
+          ATTR2:<br>
+          ATTR3:<br>
+          <br>
+        </div>
+        <div class="col-md-9">
+          <br>
+          ANSWER1<br>
+          ANSWER2<br>
+          ANSWER3<br>
+          <br>
+        </div>
+      </div>
+    </div>
 
-            <!-- Text input fname-->
-            <div class="form-group">
-              <label class="col-md-4 control-label" for="detail">รายละเอียดสินค้า</label>
-              <div class="col-md-4" >
-                <label class="control-label" for="name"><?php echo $product[0]->detail;?></label>
+    <div class="col-md-6 col-md-offset-3">
+      <center>
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>สินค้า</th>
+              <th>จำนวน</th>
+              <th>หน่วย</th>
+              <th>ราคา</th>
+            </tr>
+          </thead>
+          <tbody>
+            <?php
+              for ($x = 0; $x <= sizeof($order)-1; $x++) {
+                echo '<tr>';
+                $t = $x + 1;
+                echo '<th>'.$t.'</th>';
+                echo '<th>'.$order[$x]->product_name.'</th>';
+                echo '<th>'.$order[$x]->product_quantity.'</th>';
+                echo '<th>'.$order[$x]->product_unit.'</th>';
+                echo '<th>'.$order[$x]->product_price.'</th>';
+                echo '</tr>';
+              }
+            ?>
+          </tbody>
+        </table>
+        <table class="table table-bordered">
+          <tbody>
+            <?php
+              $sum = 0;
+              for ($x = 0; $x <= sizeof($order)-1; $x++) {
+                $sum += $order[$x]->product_price * (int)$order[$x]->product_quantity;
+              }
+              echo '<tr>';
+              echo '<th>ราคารวม</th>';
+              echo '<th><center>'.$sum.' บาท </center></th>';
+              echo '</tr>';
+            ?>
+          </tbody>
+        </table>
+      </center>
+    </div>
+  </div>
+</div>
 
-              </div>
-            </div>
-            <div class="form-group">
-              <label class="col-md-4 control-label" for="weight">น้ำหนัก</label>
-              <div class="col-md-4">
-                <label class="control-label" for="name"><?php echo $product[0]->weight;?></label>
-              </div>
-            </div>
-            <div class="form-group">
-              <label class="col-md-4 control-label" for="size">ขนาด</label>
-              <div class="col-md-4">
-                <label class="control-label" for="name"><?php echo $product[0]->size;?></label>
-              </div>
-            </div>
-            <div class="form-group">
-              <label class="col-md-4 control-label" for="unit">หน่วย</label>
-              <div class="col-md-4">
-                <label class="control-label" for="name"><?php echo $product[0]->unit;?></label>
-              </div>
-            </div>
 
-            <!-- Text input lname-->
-            <div class="form-group">
-              <label class="col-md-4 control-label" for="image">รูปสินค้า</label>
-              <div class="col-md-4">
-                <img style="width: 300px" src="<?php echo public_url().'image/product/'.$product[0]->image;?>"/>
-              </div>
-            </div>
-            <div class="form-group">
-              <div class="col-md-4"></div>
-              <div class="col-md-4">
-                <a href="<?php echo base_url('admin/product');?>" class="btn btn-danger" style="float:left;">กลับ</a>
-              </div>
-            </div>
 
-          </form>
-          </html>
+
+</body>
+</html>

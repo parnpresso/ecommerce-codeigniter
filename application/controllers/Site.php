@@ -345,7 +345,8 @@ class Site extends CI_Controller {
 	}
 
 	public function subscribing(){
-
+		//var_dump($this->input->post());
+		//break;
 		// INSERT email
 		$data = array(
 			'gen_email' => $this->input->post('email')
@@ -376,6 +377,8 @@ class Site extends CI_Controller {
 						'promotion_categories_id' => $arraycate[$y]->id
 					);
 					$this->db->insert('subscribe_relation', $data);
+					var_dump($data);
+					break;
 	      }
 			}
     }
