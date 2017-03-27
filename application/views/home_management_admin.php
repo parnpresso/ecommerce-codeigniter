@@ -31,7 +31,7 @@
       <table class="table" align="center" border="0">
         <thead class="thead-default">
           <tr style="text-align:center">
-            <th>ID</th>
+
             <th>หัวเรื่อง</th>
             <th>รายละเอียด</th>
             <th>วันที่</th>
@@ -42,7 +42,6 @@
         <?php
         for ($x = 0; $x <= sizeof($contents)-1; $x++) {
           echo '<tr>';
-          echo '<td>'. $contents[$x]->id .'</td>';
           echo '<td>'. $contents[$x]->topic .'</td>';
           echo '<td>'. $contents[$x]->detail .'</td>';
           echo '<td>'. $contents[$x]->created .'</td>';

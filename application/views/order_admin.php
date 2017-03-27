@@ -39,7 +39,7 @@
                <table class="table" align="center" border="0">
                   <thead class="thead-default">
                      <tr style="text-align:center">
-                        <th>ID</th>
+                        <th>รหัสใบสั่งซื้อ</th>
                         <th>วันที่</th>
                         <th>ผู้สั่ง</th>
                         <th>ราคาทั้งหมด</th>

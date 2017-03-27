@@ -37,7 +37,7 @@
       <table class="table table-striped table-bordered table-list">
         <thead>
           <tr>
-            <th>ID</th>
+
             <th>ชื่อบัญชี</th>
             <th>อีเมล</th>
             <th>ชื่อจริง</th>
@@ -49,7 +49,7 @@
           <?php
             for ($x = 0; $x <= sizeof($userlist)-1; $x++) {
               echo '<tr>';
-              echo '<td>'. $userlist[$x]->id .'</td>';
+            
               echo '<td>'. $userlist[$x]->username_cus .'</td>';
               echo '<td>'. $userlist[$x]->email_cus .'</td>';
               echo '<td>'. $userlist[$x]->fname_cus .'</td>';

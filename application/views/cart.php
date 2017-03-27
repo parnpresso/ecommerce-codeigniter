@@ -73,7 +73,7 @@
                     </ul>
                     <div class="buttons-holder">
                         <a class="le-button big" href="<?php echo base_url('site/checkout');?>" >ยืนยันการสั่งซื้อ</a>
-                        <a class="simple-link block" href="<?php echo base_url('site/product');?>" >เลือกสินค้าต่อ</a>
+                        <a class="simple-link block" href="<?php echo base_url('site/product');?>" >เลือกสินค้าต่อ >></a>
                     </div>
                 </div>
             </div><!-- /.widget -->
