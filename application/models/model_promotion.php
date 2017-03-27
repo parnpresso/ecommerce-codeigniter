@@ -43,6 +43,8 @@ class Model_promotion extends CI_Model {
   public function get_email_list($limit, $start){
     $this->db->limit($limit, $start);
     $query = $this->db->get('general_cus');
+    //var_dump($query->result());
+    //break;
     return $query->result();
   }
 
@@ -121,7 +123,39 @@ class Model_promotion extends CI_Model {
       'pro_image' => $image
 		);
 		$query = $this->db->insert('promotion', $data);
-		if ($query) return true;
+		if ($query) {
+
+      // 'subscribe_relation.*,promotion_categories.name AS cate_name'
+      $this->db->select('general_cus.gen_email');
+      $this->db->from('subscribe_relation');
+      $this->db->join('general_cus', 'subscribe_relation.general_cus_id = general_cus.id', 'left');
+      $this->db->where('subscribe_relation.promotion_categories_id', $data['category_id']);
+      $fetch = $this->db->get();
+
+  		$maillist = $fetch->result();
+      for ($x = 0; $x < $maillist; $x++) {
+        $this->load->library('email');
+
+        $this->email->attach(public_url()."image/promotion/".$data['pro_image'], "inline");
+
+    		$this->email->from('parnpresso@gmail.com', "AE Team");
+    		$this->email->to($maillist[$x]->gen_email);
+    		$this->email->subject("[AE] News update");
+    		$text = $data['pro_name']. " - ". $data['pro_detail'];
+        //"<br><img src=\"cid:".$data['pro_image']."\" border=\"0\">"
+    		$this->email->message($text);
+        echo $maillist[$x]->gen_email."<br>";
+    		if ($this->email->send()) {
+          //var_dump($data);
+
+    			return true;
+    		} else return false;
+      }
+
+      //var_dump($data);
+      //break;
+
+    }
 		else return false;
   }
 
