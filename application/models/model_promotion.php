@@ -129,7 +129,7 @@ class Model_promotion extends CI_Model {
 	public function get_upload_config(){
 		return array(
 			// Change path when you upload to a live server
-			'upload_path'   => "C:\wamp64\www\asia\public\image\promotion",
+			'upload_path'   => "C:xampp\htdocs\asia\public\image\promotion",
             'allowed_types' => 'gif|jpg|png|jpeg',
             'max_size'      => '1000',
             'max_width'     => '2000',

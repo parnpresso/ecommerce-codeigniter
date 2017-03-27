@@ -39,7 +39,7 @@
                               <th>ID</th>
                               <th>รหัสประเภทสินค้า</th>
                               <th>ชื่อประเภทสินค้า</th>
-                              <th><center>Update</center></th>
+                              
                            </tr>
                         </thead>
                           <?php

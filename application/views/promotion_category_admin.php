@@ -37,9 +37,9 @@
                         <thead class="thead-default">
                            <tr style="text-align:center">
                               <th>ID</th>
-                              <th>รหัสประเภทสินค้า</th>
-                              <th>ชื่อประเภทสินค้า</th>
-                              <th><center>Update</center></th>
+                              <th>รหัสประเภทโปรโมชั่น</th>
+                              <th>ชื่อประเภทโปรโมชั่น</th>
+
                            </tr>
                         </thead>
                           <?php

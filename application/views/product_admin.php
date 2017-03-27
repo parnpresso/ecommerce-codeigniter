@@ -44,7 +44,7 @@
                         <th>ประเภทสินค้า</th>
                         <th>ราคา</th>
                         <th>หน่วย</th>
-                        <th><center>Update</center></th>
+
                      </tr>
                   </thead>
                     <?php

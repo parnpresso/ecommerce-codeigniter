@@ -43,7 +43,7 @@
             <th>รายละเอียก</th>
             <th>วันที่</th>
             <th>รูปภาพ</th>
-            <th><center>Update</center></th>
+            
           </tr>
         </thead>
         <?php

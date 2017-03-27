@@ -1,4 +1,5 @@
 <main id="about-us">
+
 	<div class="container inner-top-xs inner-bottom-sm">
 
 		<div class="row">
@@ -34,9 +35,9 @@
 					<ul class="team-members list-unstyled">
 
 						<li class="team-member">
-							<img src="<?php echo public_url();?>assets/images/a1.jpg" alt="" class="profile-pic img-responsive">
+							<img src="<?php echo public_url();?>assets/images/ceo.jpg" alt="" class="profile-pic img-responsive">
 							<div class="profile">
-								<h3>John Snow <small class="designation">CEO/Founder</small></h3>
+								<h3>   <small class="designation">CEO/Founder</small></h3>
 								<ul class="social list-unstyled">
 									<li>
 										<a href="http://facebook.com/">
@@ -69,7 +70,7 @@
 						<li class="team-member">
 							<img src="<?php echo public_url();?>assets/images/a2.jpg" alt="" class="profile-pic img-responsive">
 							<div class="profile">
-								<h3>Smith John <small class="designation">Support Staff</small></h3>
+								<h3>  <small class="designation">Support Staff</small></h3>
 								<ul class="social list-unstyled">
 									<li>
 										<a href="http://facebook.com/">
@@ -113,7 +114,7 @@
 			<div class="row">
 				<div class="col-md-3 section m-t-0">
 					<h2>บริการของเรา</h2>
-					<p>Donec libero dolor, tincidunt id laoreet vitae, ullamcorper eu tortor. Maecenas pellentesque, dui vitae iaculis mattis, tortor nisi faucibus magna, vitae ultrices lacus purus vitae metus.</p>
+					<p>รับผลิตและติดตั้งวัสดุอุปกรณ์ไฟฟ้าทุกชนิด บริการรวดเร็วและยินดีให้คำปรึกษาลูกค้าทุกท่าน </p>
 				</div><!-- /.section -->
 
 				<div class="col-md-9">
@@ -122,21 +123,21 @@
 							<div class="service">
 								<div class="service-icon primary-bg"><i class="fa fa-truck"></i></div>
 								<h3>Fast Delivery</h3>
-								<p>Sed in mi rutrum, mattis eros ut, sagittis orci. Suspendisse vehicula auctor leo, nec egestas tellus fringilla ac integer.</p>
+								<p>จัดส่งสินค้าด้วยความรวดเร็ว</p>
 							</div>
 						</li>
 						<li class="col-md-4">
 							<div class="service">
 								<div class="service-icon primary-bg"><i class="fa fa-life-saver"></i></div>
-								<h3>Support 24/7</h3>
-								<p>Sed in mi rutrum, mattis eros ut, sagittis orci. Suspendisse vehicula auctor leo, nec egestas tellus fringilla ac integer.</p>
+								<h3>Support</h3>
+								<p>บริการให้คำปรึกษาในด้านผลิตภัณฑ์</p>
 							</div>
 						</li>
 						<li class="col-md-4">
 							<div class="service">
 								<div class="service-icon primary-bg"><i class="fa fa-star"></i></div>
 								<h3>Best Quality</h3>
-								<p>Sed in mi rutrum, mattis eros ut, sagittis orci. Suspendisse vehicula auctor leo, nec egestas tellus fringilla ac integer.</p>
+								<p>สินค้าราคาถูกมีคุณภาพดี ได้มาตรฐาน</p>
 							</div>
 						</li>
 					</ul><!-- /.services -->

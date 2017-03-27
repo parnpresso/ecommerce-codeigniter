@@ -55,8 +55,8 @@
 						<li><a href="<?php echo base_url('site/contact');?>">ติดต่อเรา</a></li>
 						<?php
 						if ($this->session->userdata('is_logged_in')) {
-							echo '<li><a href="'. base_url('site/editprofile').'">บัญชีของฉัน</a></li>';
-							echo '<li><a href="'. base_url('site/order').'">ใบสั่งสินค้า</a></li>';
+							echo '<li><a href="'. base_url('site/editprofile').'">ข้อมูลส่วนตัว</a></li>';
+							echo '<li><a href="'. base_url('site/order').'">รายการสั่งซื้อสินค้า</a></li>';
 						}
 						?>
 					</ul>
@@ -162,7 +162,7 @@
 									</a>';
 								}
 							?>
-
+								<font color=red>กรุณาสมัครสมาชิกเพื่อทำการสั่งซื้อสินค้า </font>
 
 							<ul class="dropdown-menu">
 
@@ -191,7 +191,7 @@
 												<a href="<?php echo base_url('site/cart'); ?>" class="le-button inverse">ไปยังตระกร้า</a>
 											</div>
 											<div class="col-xs-12 col-sm-6">
-												<a href="<?php echo base_url('site/checkout'); ?>" class="le-button">ชำระเงิน</a>
+												<a href="<?php echo base_url('site/checkout'); ?>" class="le-button">สั่งซื้อสินค้า</a>
 											</div>
 										</div>
 									</div>

@@ -10,7 +10,8 @@
         <div class="col-xs-12 no-margin">
 
             <div class="billing-address">
-                <h2 class="border h1">ที่อยู่</h2>
+                <h2 class="border h1">ที่อยู่จัดส่งสินค้า</h2><font color=red>กรุณาตรวจสอบข้อมูลให้ถูกต้อง </font>
+
                 <?php
                   if (validation_errors() != NULL){
                     echo '<div class="col-md-4 col-md-offset-4">
@@ -21,14 +22,15 @@
                     ';
                   }
                 ?>
+
                 <form action="<?php echo base_url('site/checkout_validation'); ?>" id="checkoutform" method="post">
                     <div class="row field-row">
                         <div class="col-xs-12 col-sm-6">
-                            <label>ชื่อจริง*</label>
+                            <label>ชื่อจริง</label>
                             <input class="le-input" name="fname_cus"  value="<?php echo $customer[0]->fname_cus;?>">
                         </div>
                         <div class="col-xs-12 col-sm-6">
-                            <label>นามสกุล*</label>
+                            <label>นามสกุล</label>
                             <input class="le-input" name="lname_cus"  value="<?php echo $customer[0]->lname_cus;?>">
                         </div>
                     </div><!-- /.field-row -->
@@ -42,8 +44,8 @@
 
                     <div class="row field-row">
                         <div class="col-xs-12 col-sm-6">
-                            <label>ที่อยู่*</label>
-                            <input class="le-input" data-placeholder="ที่อยู่" name="address"  value="<?php echo $customer[0]->address;?>">
+                            <label>ที่อยู่</label>
+                            <input class="le-input" data-placeholder="ที่อยู่" name="address"  value="<?php echo $customer[0]->address;?>"required>
                         </div>
                         <div class="col-xs-12 col-sm-3">
                             <label>&nbsp;</label>
@@ -57,19 +59,20 @@
 
                     <div class="row field-row">
                         <div class="col-xs-12 col-sm-4">
-                            <label>รหัสไปรษณีย์*</label>
+                            <label>รหัสไปรษณีย์</label>
                             <input class="le-input" name="postcode"  value="<?php echo $customer[0]->postcode;?>" >
                         </div>
                         <div class="col-xs-12 col-sm-4">
-                            <label>อีเมล*</label>
+                            <label>อีเมล</label>
                             <input class="le-input" name="email_cus"  value="<?php echo $customer[0]->email_cus;?>">
                         </div>
 
                         <div class="col-xs-12 col-sm-4">
-                            <label>เบอร์โทร*</label>
+                            <label>เบอร์โทร</label>
                             <input class="le-input" name="tel"  value="<?php echo $customer[0]->tel;?>">
                         </div>
                     </div><!-- /.field-row -->
+
 
                     <!--div class="row field-row">
                         <div id="create-account" class="col-xs-12">
@@ -144,7 +147,7 @@
 
 
             <div class="place-order-button">
-                <button class="le-button big" onclick="document.getElementById('checkoutform').submit()">สั่งซื้อ</button>
+                <button class="le-button big" onclick="document.getElementById('checkoutform').submit()">ยืนยันการสั่งซื้อ</button>
             </div><!-- /.place-order-button -->
 
         </div><!-- /.col -->

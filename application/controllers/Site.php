@@ -306,8 +306,8 @@ class Site extends CI_Controller {
 		$this->form_validation->set_rules('lname_cus', 'Last Name', 'required|trim');
 		$this->form_validation->set_rules('address', 'Address', '');
 		$this->form_validation->set_rules('com_add', 'Company Address', '');
-		$this->form_validation->set_rules('idcard_cus', 'ID Card', 'required|trim|numeric');
-		$this->form_validation->set_rules('tel', 'Tel', 'required|trim');
+		$this->form_validation->set_rules('idcard_cus', 'ID Card', 'required|trim|numeric|min_length[13]|max_length[13]');
+		$this->form_validation->set_rules('tel', 'Tel', 'required|trim|numeric|min_length[10]|max_length[10]');
 		// Change error message
 		$this->form_validation->set_message('is_unique', '%s already exists.');
 

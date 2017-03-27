@@ -18,7 +18,7 @@ class Model_home extends CI_Model {
 	public function get_upload_config(){
 		return array(
 			// Change path when you upload to a live server
-			'upload_path'   => "C:\wamp64\www\asia\public\image\contents",
+			'upload_path'   => "C:xampp\htdocs\asia\public\image\contents",
             'allowed_types' => 'gif|jpg|png|jpeg',
             'max_size'      => '1000',
             'max_width'     => '2000',
@@ -58,7 +58,7 @@ class Model_home extends CI_Model {
   }
 
   public function get_all_contents() {
-    $this->db->order_by('id', 'asc');
+    $this->db->order_by('id', 'asc'); //จัดเรียงตาม id น้อย ->มาก (asc)
     $fetch = $this->db->get('content');
     $fetched = $fetch->result();
     $data = array(

@@ -40,11 +40,11 @@
             <li <?php if ($this->uri->rsegment(2) == "order") echo 'class="active"';?>><a href="<?php echo base_url() ."admin/order"; ?>">รายการสั่งซื้อ</a></li>
             <?php
               if ($this->session->userdata('access') == 'ADMIN') {
-                if ($this->uri->rsegment(2) == "staff") echo '<li class="active"><a href="'. base_url() .'admin/staff">ผู้ดูแลระบบ</a></li>';
+                if ($this->uri->rsegment(2) == "staff") echo '<li class="active"><a href="'. base_url() .'admin/staff">ผู้ใช้งานระบบ</a></li>';
                 else echo '<li><a href="'. base_url() .'admin/staff">ผู้ดูแลระบบ</a></li>';
               }
             ?>
-            <li <?php if ($this->uri->rsegment(2) == "user") echo 'class="active"';?>><a href="<?php echo base_url() ."admin/user"; ?>">ผู้ใช้งาน</a></li>
+            <li <?php if ($this->uri->rsegment(2) == "user") echo 'class="active"';?>><a href="<?php echo base_url() ."admin/user"; ?>">ลูกค้า</a></li>
             <!--li <?php if ($this->uri->rsegment(2) == "contact") echo 'class="active"';?>><a href="<?php echo base_url() ."admin/contact"; ?>">Contact</a></li-->
          </ul>
          <ul class="nav navbar-nav navbar-right">

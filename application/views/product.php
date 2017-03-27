@@ -66,7 +66,7 @@
       								echo '<div class="col-xs-12 col-sm-4 no-margin product-item-holder hover">';
                       echo '<div class="product-item">';
                       echo '<div class="image">';
-                      echo '<img alt="" width="200px" src="'. public_url().'assets/images/blank.gif" data-echo="'. public_url().'image/product/'.$productlist[$x]->image.'" />';
+                      echo '<img alt="" height="160px" src="'. public_url().'assets/images/blank.gif" data-echo="'. public_url().'image/product/'.$productlist[$x]->image.'" />';
                       echo '</div>';
                       echo '<div class="body">';
                       echo '<div class="label-discount clear"></div>';

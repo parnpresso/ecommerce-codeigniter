@@ -22,7 +22,7 @@
     <?php echo form_open_multipart(base_url('admin/add_user_validation'),  array('class' => 'form-horizontal'));?>
       <fieldset>
         <!-- Form Name -->
-        <legend style="text-align:center"><h2>เพิ่มผู้ใช้งานใหม่</h2></legend>
+        <legend style="text-align:center"><h2>เพิ่มข้อมูลลูกค้าใหม่</h2></legend>
         <br />
         <?php
         if (validation_errors() != NULL){

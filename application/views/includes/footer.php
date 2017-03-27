@@ -10,7 +10,7 @@
 
 
                 </br>
-                    <input type="email" placeholder="รับข้อมูลข่าวสารจากทางร้าน" name="email" required>
+                    <input type="email" placeholder="กรอกอีเมลล์เพื่อรับข้อมูลข่าวสารจากทางร้าน" name="email" required>
                     <button class="le-button" type="submit">สมัคร</button>
                 </form>
             </div>
@@ -31,7 +31,7 @@
     <p class="regular-bold"> Feel free to contact us via phone,email or just send us mail.</p>
 
     <p>
-      158/1 ถนน ช้างเผือก ตำบล ศรีภูมิ อำเภอเมืองเชียงใหม่ จังหวัดเชียงใหม่ (โทร.053-214683) (แฟ๊กซ์.053-214717)
+      158/1 ถนน ช้างเผือก ตำบล ศรีภูมิ อำเภอเมืองเชียงใหม่ จังหวัดเชียงใหม่ (โทร.053-214683) (แฟ๊กซ์.053-214717) (Email:info@citilights.com)ภ
     </p>
 
 
@@ -45,50 +45,22 @@
                 <!-- ============================================================= LINKS FOOTER ============================================================= -->
 <div class="link-widget">
     <div class="widget">
-        <h3>Find it fast</h3>
-        <ul>
-            <li><a href="category-grid.html">laptops &amp; computers</a></li>
-            <li><a href="category-grid.html">Cameras &amp; Photography</a></li>
-            <li><a href="category-grid.html">Smart Phones &amp; Tablets</a></li>
-            <li><a href="category-grid.html">Video Games &amp; Consoles</a></li>
-            <li><a href="category-grid.html">TV &amp; Audio</a></li>
-            <li><a href="category-grid.html">Gadgets</a></li>
-            <li><a href="category-grid.html">Car Electronic &amp; GPS</a></li>
-            <li><a href="category-grid.html">Accesories</a></li>
-        </ul>
+        <h3>Phillip</h3>
+        <img src="<?php echo public_url(). "assets/images/footer1.jpg";?>">
     </div><!-- /.widget -->
 </div><!-- /.link-widget -->
 
 <div class="link-widget">
     <div class="widget">
-        <h3>Information</h3>
-        <ul>
-            <li><a href="category-grid.html">Find a Store</a></li>
-            <li><a href="category-grid.html">เกี่ยวกับเรา</a></li>
-            <li><a href="category-grid.html">ติดต่อเรา</a></li>
-            <li><a href="category-grid.html">Weekly Deals</a></li>
-            <li><a href="category-grid.html">Gift Cards</a></li>
-            <li><a href="category-grid.html">Recycling Program</a></li>
-            <li><a href="category-grid.html">Community</a></li>
-            <li><a href="category-grid.html">Careers</a></li>
-
-        </ul>
+        <h3>panasonic</h3>
+        <img src="<?php echo public_url(). "assets/images/footer22.png";?>">
     </div><!-- /.widget -->
 </div><!-- /.link-widget -->
 
 <div class="link-widget">
     <div class="widget">
-        <h3>Information</h3>
-        <ul>
-            <li><a href="category-grid.html">My Account</a></li>
-            <li><a href="category-grid.html">Order Tracking</a></li>
-            <li><a href="category-grid.html">Wish List</a></li>
-            <li><a href="category-grid.html">Customer Service</a></li>
-            <li><a href="category-grid.html">Returns / Exchange</a></li>
-            <li><a href="category-grid.html">FAQs</a></li>
-            <li><a href="category-grid.html">Product Support</a></li>
-            <li><a href="category-grid.html">Extended Service Plans</a></li>
-        </ul>
+        <h3>Toshiba</h3>
+      <img src="<?php echo public_url(). "assets/images/footer3.3.png";?>">
     </div><!-- /.widget -->
 </div><!-- /.link-widget -->
 <!-- ============================================================= LINKS FOOTER : END ============================================================= -->            </div>

@@ -50,23 +50,31 @@
 </div><!-- /#top-banner-and-menu -->
 
 <!-- ========================================= HOME BANNERS ========================================= -->
+</br>
 <section id="banner-holder" class="wow fadeInUp">
     <div class="container">
         <div class="col-xs-12 col-lg-6 no-margin banner">
+
             <a href="#">
+
                 <div class="banner-text theblue">
-                    <h1><?php echo $contents['promotion1_topic'];?></h1>
-                    <span class="tagline">-------</span>
+
+                    <h1></h1>
+                    <span class="tagline"></span>
                 </div>
+					<h3>สินค้ามาใหม่</h3>
                 <img class="banner-image" alt="" src="<?php echo public_url();?>image/contents/<?php echo $contents['promotion1'];?>);" data-echo="<?php echo public_url();?>image/contents/<?php echo $contents['promotion1'];?>" />
-            </a>
+
+						</a>
         </div>
         <div class="col-xs-12 col-lg-6 no-margin text-right banner">
             <a href="#">
+
                 <div class="banner-text right">
-                    <h1><?php echo $contents['promotion2_topic'];?></h1>
-                    <span class="tagline">-----</span>
+                    <h1></h1>
+                    <span class="tagline"></span>
                 </div>
+								<h3>สินค้าขายดี่</h3>
                 <img class="banner-image" alt="" src="<?php echo public_url();?>image/contents/<?php echo $contents['promotion2'];?>);" data-echo="<?php echo public_url();?>image/contents/<?php echo $contents['promotion2'];?>" />
             </a>
         </div>
@@ -87,7 +95,7 @@
 												echo '<div class="col-sm-4 col-md-3 no-margin product-item-holder hover">';
 												echo '<div class="product-item">';
 												echo '<div class="image">';
-												echo '<img alt="" width="200px" src="'. public_url().'assets/images/blank.gif" data-echo="'. public_url().'image/product/'.$productlist[$x]->image.'" />';
+												echo '<img alt="" height="160px" src="'. public_url().'assets/images/blank.gif" data-echo="'. public_url().'image/product/'.$productlist[$x]->image.'" />';
 												echo '</div>';
 												echo '<div class="body">';
 												echo '<div class="label-discount clear"></div>';

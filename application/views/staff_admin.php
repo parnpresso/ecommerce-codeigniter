@@ -4,13 +4,13 @@
   <div class="row">
   <div class="col-lg-6">
 
-      <h3>จัดการผู้ดูแลระบบ</h3>
+      <h3>จัดการผู้ใช้งานระบบ</h3>
 
   </div><!-- /.col-lg-6 -->
   <div class="col-lg-6">
     <div class="input-group pull-right">
       <form class="navbar-form " action="<?php echo base_url('admin/search_staff');?>" method="post">
-      <input type="text" class="form-control" id="username" name="username" placeholder="ค้นหาผู้ดูแลระบบ..." required="">
+      <input type="text" class="form-control" id="username" name="username" placeholder="ค้นหาผู้ใช้งานระบบ..." required="">
       <span class="input-group-btn">
         <button class="btn btn-default" type="submit">ค้นหา</button>
       </span>
@@ -28,7 +28,7 @@
         </div>
 
         <div class="col col-xs-9 text-right">
-          <a href="<?php echo base_url('admin/add_staff'); ?>"><button type="button" class="btn btn-sm btn-success btn-create">เพิ่มผู้ดูแลระบบ</button></a>
+          <a href="<?php echo base_url('admin/add_staff'); ?>"><button type="button" class="btn btn-sm btn-success btn-create">เพิ่มผู้ใช้งานระบบ</button></a>
         </div>
       </div>
     </div>
@@ -43,7 +43,7 @@
             <th>ชื่อจริง</th>
             <th>นามสกุล</th>
             <th>สิทธิ์การใช้งาน</th>
-            <th><center><em class="fa fa-cog"></em></center></th>
+            <th></th>
           </tr>
         </thead>
         <tbody>

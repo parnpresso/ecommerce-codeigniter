@@ -40,7 +40,6 @@
                   <thead class="thead-default">
                      <tr style="text-align:center">
                         <th>ID</th>
-                        <th>ชื่อ</th>
                         <th>วันที่</th>
                         <th>ผู้สั่ง</th>
                         <th>ราคาทั้งหมด</th>
@@ -55,7 +54,7 @@
                           $totalprice += $orders[$x][$y]->product_quantity * $orders[$x][$y]->product_price;
                         }
                         echo '<tr>';
-                        echo '<td>'. $orders[$x][0]->order_id .'</td>';
+
                         echo '<td><a href="view_order/'. $orders[$x][0]->order_id .'">'. $orders[$x][0]->order_id .'</a></td>';
                         echo '<td>'. $orders[$x][0]->date .'</td>';
                         echo '<td>'. $orders[$x][0]->username .'</td>';
