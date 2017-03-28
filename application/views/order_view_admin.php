@@ -86,6 +86,8 @@
                 echo '<th>'.$order[$x]->product_quantity.'</th>';
                 echo '<th>'.$order[$x]->product_unit.'</th>';
                 echo '<th>'.$order[$x]->product_price.'</th>';
+                echo '<th>-</th>';
+                echo '<th>'.(int)$order[$x]->product_price * (int)$order[$x]->product_quantity.'</th>';
                 echo '</tr>';
               }
             ?>
@@ -93,28 +95,43 @@
         </table>
         <table class="table table-bordered">
           <tbody>
-            <tr><th>หมายเหตุ : </th></tr>
-            <tr><th>เงื่อไขอื่นๆ : </th></tr>
-            <?php
-              $sum = 0;
-              for ($x = 0; $x <= sizeof($order)-1; $x++) {
-                $sum += $order[$x]->product_price * (int)$order[$x]->product_quantity;
-              }
-              echo '<th>';
-              echo '<th>รวมเป็นเงิน</th>';
-              echo '<th><center>'.$sum.' บาท </center></th>';
-              echo '</th>';
-            ?>
-            <tr><th>ส่วนลด(เป็นเงิน)</th></tr>
-            <tr><th>เงินหลังหักส่วนลด</th></tr>
-            <tr><th>ภาษีมูลค่าเพิ่ม 7%</th></tr>
-            <tr><th>ส่วนลด(เป็นเงิน)</th></tr>
-            <tr><th>เงินหลังหักส่วนลด</th></tr>
-            <tr><th>ค่าจัดส่ง</th></tr>
-            <tr><th>จำนวนเงินทั้งสิ้น</th></tr>
-
-
-
+            <tr>
+              <th class="col-md-7">
+                หมายเหตุ : <br>
+                <?php echo $order[0]->note; ?>
+              </th>
+              <th class="col-md-5">
+                <?php
+                  $sum = 0;
+                  for ($x = 0; $x <= sizeof($order)-1; $x++) {
+                    $sum += $order[$x]->product_price * (int)$order[$x]->product_quantity;
+                  }
+                  //echo '<th>';
+                  //echo '<th>รวมเป็นเงิน</th>';
+                  //echo '<th><center>'.$sum.' บาท </center></th>';
+                  //echo '</th>';
+                ?>
+                <table class="table table-bordered">
+                  <tbody>
+                    <tr><th>ส่วนลด(เป็นเงิน)</th><th>฿0</th></tr>
+                    <tr><th>เงินหลังหักส่วนลด</th><th>฿<?php echo $sum;?></th></tr>
+                    <tr><th>ภาษีมูลค่าเพิ่ม 7%</th><th>฿<?php echo $sum*0.07;?></th></tr>
+                    <tr><th>ค่าจัดส่ง</th><th>฿0</th></tr>
+                    <tr><th>จำนวนเงินทั้งสิ้น</th><th>฿<?php echo $sum;?></th></tr>
+                  </tbody>
+                </table>
+              </th>
+            </tr>
+          </tbody>
+        </table>
+        <table class="table table-bordered">
+          <tbody>
+            <tr>
+              <th>
+                เงื่อนไขอื่นๆ : <br>
+                xxxxxxxxxxxxxxxxxxxxxxxxxx
+              </th>
+            </tr>
           </tbody>
         </table>
       </center>

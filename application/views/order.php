@@ -18,7 +18,7 @@
               echo '</div>';
               echo '<div class="col-xs-12 col-sm-5 ">';
               echo '<div class="title">';
-              echo '<a href="'.base_url('site/view_order/').$orders[$x][0]->order_id.'">Bill #'.$orders[$x][0]->order_id.'</a>';
+              echo '<a  target="_blank" href="'.base_url('site/view_order/').$orders[$x][0]->order_id.'">Bill #'.$orders[$x][0]->order_id.'</a>';
               echo '</div>';
               echo '<div class="brand">วันที่ '.$orders[$x][0]->date.'</div>';
               echo '</div>';
