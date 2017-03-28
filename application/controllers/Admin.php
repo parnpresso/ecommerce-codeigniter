@@ -923,6 +923,7 @@ class Admin extends CI_Controller {
 		$this->load->library('form_validation');
 		$this->form_validation->set_rules('name', 'Name', 'required|trim');
 		$this->form_validation->set_rules('price', 'Price', 'required|trim|numeric');
+		$this->form_validation->set_rules('discount', 'Discount', 'numeric');
 		$this->form_validation->set_rules('detail', 'Detail', 'required|trim');
 		if ($this->form_validation->run()){
 			$this->load->model('model_product');
@@ -936,6 +937,7 @@ class Admin extends CI_Controller {
 		$this->load->library('form_validation');
 		$this->form_validation->set_rules('name', 'Name', 'required|trim');
 		$this->form_validation->set_rules('price', 'Price', 'required|trim|numeric');
+		$this->form_validation->set_rules('discount', 'Discount', 'numeric');
 		$this->form_validation->set_rules('detail', 'Detail', 'required|trim');
 		$this->form_validation->set_rules('weight', 'Weight', 'required|trim|numeric');
 		$this->form_validation->set_rules('size', 'Size', 'required|trim');
