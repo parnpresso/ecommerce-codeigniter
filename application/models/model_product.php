@@ -355,7 +355,8 @@ class Model_product extends CI_Model {
 		$query = $this->db->insert('order_orderer', $data);
 
     $data2 = array(
-      'orderer_id' => $this->db->insert_id()
+      'orderer_id' => $this->db->insert_id(),
+      'note' => $this->input->post('note')
     );
     $query2 = $this->db->insert('order', $data2);
     $order_id = $this->db->insert_id();
