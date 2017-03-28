@@ -57,7 +57,23 @@
                 <div class="body">
                     <ul class="tabled-data no-border inverse-bold">
                         <li>
-                            <label>ราคาทั้งหมด</label>
+                            <label>ส่วนลด(เป็นเงิน)</label>
+                            <div class="value pull-right">฿<?php echo $sum;?></div>
+                        </li>
+                        <li>
+                            <label>เงินหลังหักส่วนลด</label>
+                            <div class="value pull-right">฿0</div>
+                        </li>
+                        <li>
+                            <label>ภาษีมูลค่าเพิ่ม 7%</label>
+                            <div class="value pull-right">฿<?php echo $sum*0.07;?></div>
+                        </li>
+                        <li>
+                            <label>ค่าจัดส่ง</label>
+                            <div class="value pull-right">฿0</div>
+                        </li>
+                        <li>
+                            <label>จำนวนเงินทั้งสิ้น</label>
                             <div class="value pull-right">฿<?php echo $sum;?></div>
                         </li>
                         <!--li>
@@ -72,13 +88,13 @@
                         </li>
                     </ul>
                     <div class="buttons-holder">
-<<<<<<< HEAD
+
                         <a class="le-button big" onclick='document.getElementById("cartform").submit()' href="<?php echo base_url('site/checkout');?>" >ยืนยันการสั่งซื้อ</a>
                         <a class="simple-link block" href="<?php echo base_url('site/product');?>" >เลือกสินค้าต่อ</a>
-=======
-                        <a class="le-button big" href="<?php echo base_url('site/checkout');?>" >ยืนยันการสั่งซื้อ</a>
-                        <a class="simple-link block" href="<?php echo base_url('site/product');?>" >เลือกสินค้าต่อ >></a>
->>>>>>> origin/master
+
+                        <!--a class="le-button big" href="<?php //echo base_url('site/checkout');?>" >ยืนยันการสั่งซื้อ</a>
+                        <a class="simple-link block" href="<?php //echo base_url('site/product');?>" >เลือกสินค้าต่อ >></a-->
+
                     </div>
                 </div>
             </div><!-- /.widget -->

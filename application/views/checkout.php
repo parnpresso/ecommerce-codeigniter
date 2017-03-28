@@ -120,7 +120,27 @@
                 <div class="col-xs-12 col-lg-4 col-lg-offset-8 no-margin-right">
                     <div id="subtotal-holder">
                         <ul class="tabled-data inverse-bold no-border">
-                            <li>
+                          <li>
+                              <label>ส่วนลด(เป็นเงิน)</label>
+                              <div class="value pull-right">฿<?php echo $sum;?></div>
+                          </li>
+                          <li>
+                              <label>เงินหลังหักส่วนลด</label>
+                              <div class="value pull-right">฿0</div>
+                          </li>
+                          <li>
+                              <label>ภาษีมูลค่าเพิ่ม 7%</label>
+                              <div class="value pull-right">฿<?php echo $sum*0.07;?></div>
+                          </li>
+                          <li>
+                              <label>ค่าจัดส่ง</label>
+                              <div class="value pull-right">฿0</div>
+                          </li>
+                          <li>
+                              <label>จำนวนเงินทั้งสิ้น</label>
+                              <div class="value pull-right">฿<?php echo $sum;?></div>
+                          </li>
+                            <!--li>
                                 <label>ค่าสินค้าทั้งหมด</label>
                                 <div class="value ">฿<?php echo $sum;?></div>
                             </li>
@@ -129,10 +149,10 @@
                                 <div class="value">
                                     <div class="radio-group">
                                         <input class="le-radio" type="radio" name="group1" value="free" checked> <div class="radio-label bold">ส่งฟรี</div><br>
-                                        <!--input class="le-radio" type="radio" name="group1" value="local">  <div class="radio-label">local delivery<br><span class="bold">$15</span></div-->
+                                        <input class="le-radio" type="radio" name="group1" value="local">  <div class="radio-label">local delivery<br><span class="bold">$15</span></div>
                                     </div>
                                 </div>
-                            </li>
+                            </li-->
                         </ul><!-- /.tabled-data -->
 
                         <ul id="total-field" class="tabled-data inverse-bold ">
