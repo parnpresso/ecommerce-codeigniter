@@ -72,8 +72,13 @@
                         </li>
                     </ul>
                     <div class="buttons-holder">
+<<<<<<< HEAD
                         <a class="le-button big" onclick='document.getElementById("cartform").submit()' href="<?php echo base_url('site/checkout');?>" >ยืนยันการสั่งซื้อ</a>
                         <a class="simple-link block" href="<?php echo base_url('site/product');?>" >เลือกสินค้าต่อ</a>
+=======
+                        <a class="le-button big" href="<?php echo base_url('site/checkout');?>" >ยืนยันการสั่งซื้อ</a>
+                        <a class="simple-link block" href="<?php echo base_url('site/product');?>" >เลือกสินค้าต่อ >></a>
+>>>>>>> origin/master
                     </div>
                 </div>
             </div><!-- /.widget -->

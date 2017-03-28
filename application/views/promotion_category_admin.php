@@ -36,7 +36,6 @@
                      <table class="table" align="center" border="0">
                         <thead class="thead-default">
                            <tr style="text-align:center">
-                              <th>ID</th>
                               <th>รหัสประเภทโปรโมชั่น</th>
                               <th>ชื่อประเภทโปรโมชั่น</th>
 
@@ -45,7 +44,6 @@
                           <?php
                             for ($x = 0; $x <= sizeof($promotioncategorylist)-1; $x++) {
                               echo '<tr>';
-                              echo '<td>'. $promotioncategorylist[$x]->id .'</td>';
                               echo '<td>'. $promotioncategorylist[$x]->codename .'</td>';
                               echo '<td>'. $promotioncategorylist[$x]->name .'</td>';
                               echo '<td align="center">

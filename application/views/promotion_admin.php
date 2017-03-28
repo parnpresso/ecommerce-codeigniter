@@ -38,18 +38,17 @@
       <table class="table" align="center" border="0">
         <thead class="thead-default">
           <tr style="text-align:center">
-            <th>ID</th>
+
             <th>ชื่อ</th>
             <th>รายละเอียก</th>
             <th>วันที่</th>
             <th>รูปภาพ</th>
-            
+
           </tr>
         </thead>
         <?php
         for ($x = 0; $x <= sizeof($promotionlist)-1; $x++) {
           echo '<tr>';
-          echo '<td>'. $promotionlist[$x]->id .'</td>';
           echo '<td>'. $promotionlist[$x]->pro_name .'</td>';
           echo '<td>'. $promotionlist[$x]->pro_detail .'</td>';
           echo '<td>'. $promotionlist[$x]->pro_date .'</td>';

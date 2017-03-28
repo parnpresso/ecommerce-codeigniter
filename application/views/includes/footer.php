@@ -31,7 +31,7 @@
     <p class="regular-bold"> Feel free to contact us via phone,email or just send us mail.</p>
 
     <p>
-      158/1 ถนน ช้างเผือก ตำบล ศรีภูมิ อำเภอเมืองเชียงใหม่ จังหวัดเชียงใหม่ (โทร.053-214683) (แฟ๊กซ์.053-214717) (Email:info@citilights.com)ภ
+      158/1 ถนน ช้างเผือก ตำบล ศรีภูมิ อำเภอเมืองเชียงใหม่ จังหวัดเชียงใหม่ (โทร.053-214683) (แฟ๊กซ์.053-214717) (Email:info@citilights.com)
     </p>
 
 

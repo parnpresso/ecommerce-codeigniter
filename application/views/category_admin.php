@@ -36,16 +36,15 @@
                      <table class="table" align="center" border="0">
                         <thead class="thead-default">
                            <tr style="text-align:center">
-                              <th>ID</th>
+
                               <th>รหัสประเภทสินค้า</th>
                               <th>ชื่อประเภทสินค้า</th>
-                              
+
                            </tr>
                         </thead>
                           <?php
                             for ($x = 0; $x <= sizeof($categorylist)-1; $x++) {
                               echo '<tr>';
-                              echo '<td>'. $categorylist[$x]->id .'</td>';
                               echo '<td>'. $categorylist[$x]->codename .'</td>';
                               echo '<td>'. $categorylist[$x]->name .'</td>';
                               echo '<td align="center">
