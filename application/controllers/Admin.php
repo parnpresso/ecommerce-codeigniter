@@ -813,6 +813,87 @@ class Admin extends CI_Controller {
 		}
 	}
 
+	/// STAFF MANAGEMENT
+	public function report() {
+    if ($this->session->userdata('access') == 'ADMIN' || $this->session->userdata('access') == 'STAFF'){
+
+			/*$this->load->library('pagination');
+			$this->load->model('model_staff');
+
+			$config['base_url'] = base_url('admin/staff'). '/page/';
+			$config['total_rows'] = $this->model_staff->get_staff_total_row();
+			$config['per_page'] = 10;
+			$config['uri_segment'] = 4;
+
+			// Pagination style
+			$config['first_tag_open'] = '<li>';
+			$config['first_tag_close'] = '</li>';
+			$config['last_tag_open'] = '<li>';
+			$config['last_tag_close'] = '</li>';
+			$config['prev_tag_open'] = '<li>';
+			$config['prev_tag_close'] = '</li>';
+			$config['next_tag_open'] = '<li>';
+			$config['next_tag_close'] = '</li>';
+			$config['num_tag_open'] = '<li>';
+			$config['num_tag_close'] = '</li>';
+			$config['cur_tag_open'] = '<li class="active"><a href="#">';
+			$config['cur_tag_close'] = '</a></li>';
+
+			$this->pagination->initialize($config);
+			$page = $this->uri->segment(4,0);
+			$data['pagination'] = $this->pagination->create_links();
+			$data['stafflist'] = $this->model_staff->get_staff_list($config['per_page'], $page);
+*/
+
+      $this->load->view('includes/header-admin');
+      $this->load->view('report_admin');
+      $this->load->view('includes/footer-admin');
+		} else {
+      redirect('admin/login');
+    }
+  }
+	public function view_report(){
+		if ($this->session->userdata('access') == 'ADMIN' || $this->session->userdata('access') == 'STAFF'){
+			$this->load->model('model_report');
+			$data['report'] = $this->model_report->get_report($this->input->post('month'), $this->input->post('year'));
+
+			if ($this->input->post('month') == 1) $data['month'] = "มกราคม";
+			else if ($this->input->post('month') == 2) $data['month'] = "กุมภาพันธ์";
+			else if ($this->input->post('month') == 3) $data['month'] = "มีนาคม";
+			else if ($this->input->post('month') == 4) $data['month'] = "เมษายน";
+			else if ($this->input->post('month') == 5) $data['month'] = "พฤษภาคม";
+			else if ($this->input->post('month') == 6) $data['month'] = "มิถุนายน";
+			else if ($this->input->post('month') == 7) $data['month'] = "กรกฎาคม";
+			else if ($this->input->post('month') == 8) $data['month'] = "สิงหาคม";
+			else if ($this->input->post('month') == 9) $data['month'] = "กันยายน";
+			else if ($this->input->post('month') == 10) $data['month'] = "ตุลาคม";
+			else if ($this->input->post('month') == 11) $data['month'] = "พฤศจิกายน";
+			else if ($this->input->post('month') == 12) $data['month'] = "ธันวาคม";
+
+			if ($this->input->post('year') == 2017) $data['year'] = "2560";
+			else if ($this->input->post('year') == 2016) $data['year'] = "2559";
+			else if ($this->input->post('year') == 2015) $data['year'] = "2558";
+			else if ($this->input->post('year') == 2014) $data['year'] = "2557";
+			else if ($this->input->post('year') == 2013) $data['year'] = "2556";
+			else if ($this->input->post('year') == 2012) $data['year'] = "2555";
+			else if ($this->input->post('year') == 2011) $data['year'] = "2554";
+			else if ($this->input->post('year') == 2010) $data['year'] = "2553";
+			else if ($this->input->post('year') == 2009) $data['year'] = "2552";
+			else if ($this->input->post('year') == 2008) $data['year'] = "2551";
+
+			if ($data['report'] == NULL) {
+				$this->load->view('includes/header-admin');
+				$this->load->view('report_error_admin');
+				$this->load->view('includes/footer-admin');
+			} else {
+				$this->load->view('report_view_admin', $data);
+			}
+		} else {
+			redirect('admin/login');
+		}
+	}
+
+
 
   public function validation() {
 		$this->load->library('form_validation');

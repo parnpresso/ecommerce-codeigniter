@@ -36,8 +36,9 @@
             <li <?php if ($this->uri->rsegment(2) == "category") echo 'class="active"';?>><a href="<?php echo base_url() ."admin/category"; ?>">ประเภทสินค้า</a></li>
             <li <?php if ($this->uri->rsegment(2) == "promotion") echo 'class="active"';?>><a href="<?php echo base_url() ."admin/promotion"; ?>">โปรโมชั่น</a></li>
             <li <?php if ($this->uri->rsegment(2) == "promotion_category") echo 'class="active"';?>><a href="<?php echo base_url() ."admin/promotion_category"; ?>">ประเภทโปรโมชั่น</a></li>
-            <li <?php if ($this->uri->rsegment(2) == "email") echo 'class="active"';?>><a href="<?php echo base_url() ."admin/email"; ?>">อีเมล</a></li>
+            <li <?php if ($this->uri->rsegment(2) == "email") echo 'class="active"';?>><a href="<?php echo base_url() ."admin/email"; ?>">ส่งโปรโมชั่น</a></li>
             <li <?php if ($this->uri->rsegment(2) == "order") echo 'class="active"';?>><a href="<?php echo base_url() ."admin/order"; ?>">รายการสั่งซื้อ</a></li>
+            <li <?php if ($this->uri->rsegment(2) == "report") echo 'class="active"';?>><a href="<?php echo base_url() ."admin/report"; ?>">รายงาน</a></li>
             <?php
               if ($this->session->userdata('access') == 'ADMIN') {
                 if ($this->uri->rsegment(2) == "staff") echo '<li class="active"><a href="'. base_url() .'admin/staff">ผู้ใช้งานระบบ</a></li>';
