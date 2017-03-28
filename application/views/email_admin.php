@@ -1,9 +1,12 @@
+<?php //var_dump($categories);
+//break; ?>
+
 <div class="container">
 
   <div class="row">
     <div class="col-lg-6">
 
-      <h3>จัดการอีเมล</h3>
+      <h3>ส่งโปรโมชั่น</h3>
 
     </div><!-- /.col-lg-6 -->
     <!--div class="col-lg-6">
@@ -18,6 +21,28 @@
     <!--/div><!-- /.col-lg-6 -->
   </div><!-- /.row -->
 </br>
+
+<form method="post" action="<?php echo base_url('admin/send');?>">
+<div class="row">
+  <div class="col col-md-3">
+    <label for="sel1">เลือกประเภทโปรโมชั่นที่ต้องการส่ง</label>
+    <select class="form-control" id="promotion" name="promotion">
+      <?php
+        for ($x = 0; $x <= sizeof($categories)-1; $x++) {
+          echo '<option value="'.$categories[$x]->id.'">'.$categories[$x]->name.'</option>';
+        }
+      ?>
+
+    </select>
+  </div>
+
+
+  <div class="col col-md-3">
+      <button type="submit" class="btn btn-sm btn-success btn-create"><h4>ส่ง</h4></button>
+  </div>
+</div>
+</form>
+
 
 <div class="panel panel-default panel-table">
   <div class="panel-heading">

@@ -794,6 +794,9 @@ class Admin extends CI_Controller {
 			$data['pagination'] = $this->pagination->create_links();
 			$data['emaillist'] = $this->model_promotion->get_email_list($config['per_page'], $page);
 
+			$this->load->model('model_promotion');
+			$data['categories'] = $this->model_promotion->get_promotion_category_list(999, 0);
+
       $this->load->view('includes/header-admin');
       $this->load->view('email_admin.php', $data);
       $this->load->view('includes/footer-admin');
