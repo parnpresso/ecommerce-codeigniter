@@ -86,7 +86,7 @@
 
 
                   <div class="form-group">
-                     <label class="col-md-4 control-label" for="idcard_cus">id-card</label>
+                     <label class="col-md-4 control-label" for="idcard_cus">รหัสบัตรประชาชน</label>
                      <div class="col-md-4">
                         <input id="idcard_cus" name="idcard_cus" type="text" placeholder="ID CARD" class="form-control input-md" value="<?php echo $this->input->post('idcard_cus');?>"  required="">
 
@@ -94,7 +94,7 @@
                   </div>
 
                   <div class="form-group">
-                     <label class="col-md-4 control-label" for="tel">Tel</label>
+                     <label class="col-md-4 control-label" for="tel">โทร</label>
                      <div class="col-md-4">
                         <input id="tel" name="tel" type="text" placeholder="Tel" class="form-control input-md" value="<?php echo $this->input->post('tel');?>"  required="">
 
