@@ -710,6 +710,15 @@ class Admin extends CI_Controller {
       redirect('admin/login');
     }
 	}
+	public function add_order() {
+    if ($this->session->userdata('access') == 'ADMIN' || $this->session->userdata('access') == 'STAFF'){
+			//$this->load->view('includes/header-admin');
+      $this->load->view('order_add_admin');
+      //$this->load->view('includes/footer-admin');
+		} else {
+      redirect('admin/login');
+    }
+  }
 
 	/// ACCOUNT MANAGEMENT
 	public function editprofile() {
@@ -1167,7 +1176,7 @@ class Admin extends CI_Controller {
 		$fetch = $this->db->get();
 		$maillist = $fetch->result();
 
-		for ($x = 0; $x < $maillist; $x++) {
+		for ($x = 0; $x < sizeof($maillist); $x++) {
 			$this->load->library('email');
 			$this->email->attach(public_url()."image/promotion/".$finalmail->pro_image, "inline");
 

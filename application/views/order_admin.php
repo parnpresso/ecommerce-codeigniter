@@ -27,9 +27,9 @@
                   <!--h3 class="panel-title">Products</h3-->
                </div>
 
-               <!--div class="col col-xs-9 text-right">
-                  <a href="<?php echo base_url('admin/add_product'); ?>"><button type="button" class="btn btn-sm btn-success btn-create">เพิ่มสินค้า</button></a>
-               </div-->
+               <div class="col col-xs-9 text-right">
+                  <a href="<?php echo base_url('admin/add_order'); ?>"><button type="button" class="btn btn-sm btn-success btn-create">เพิ่มใบสั่งซื้อสินค้า</button></a>
+               </div>
             </div>
          </div>
 
