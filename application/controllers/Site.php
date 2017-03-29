@@ -313,10 +313,74 @@ class Site extends CI_Controller {
 	}
 
 	public function subscribing(){
+
+		$this->load->library('form_validation');
+		$this->form_validation->set_rules('email', 'Email', 'required|trim|valid_email|is_unique[general_cus.gen_email]');
+		$this->form_validation->set_message('is_unique', '%s already exists.');
+
+		if ($this->form_validation->run()) {
+			$data = array(
+				'gen_email' => $this->input->post('email')
+			);
+			$this->db->insert('general_cus', $data);
+
+			// SELECT email id
+			$sub = $this->input->post();
+			$this->db->select('*');
+	    $this->db->from('general_cus');
+	    $this->db->where('gen_email', array_pop($sub));
+	    $fetch = $this->db->get();
+			$email_id = $fetch->result();
+
+			// SELECT Promotion categories id
+			$this->load->model('model_promotion');
+			$arraycate = $this->model_promotion->get_promotion_category_list(99,0);
+			//var_dump($arraycate);
+			//break;
+			//echo sizeof($this->input->post())-1;
+			//break;
+
+
+			//var_dump(array_pop($sub));
+			//var_dump($sub);
+			//var_dump($arraycate);
+			//break;
+
+			for ($x = 0; $x < sizeof($this->input->post()); $x++) {
+				$cateidpop = array_pop($sub);
+				for ($y = 0; $y < sizeof($arraycate); $y++) {
+					//echo "CHECK".$this->input->post('cate'.$x);
+					if ($cateidpop == $arraycate[$y]->id) {
+						//echo  $arraycate[$y]->id;
+						// INSERT relationship
+						$data = array(
+							'general_cus_id' => $email_id[0]->id,
+							'promotion_categories_id' => $arraycate[$y]->id
+						);
+						$this->db->insert('subscribe_relation', $data);
+						//var_dump($data);
+						//break;
+		      }
+					//var_dump( $arraycate[$y]->id);
+
+				}
+				//echo "X".$x."Y".$y;
+				//var_dump($this->input->post());
+	    }
+
+			//var_dump($email_id[0]->id);
+			//break;
+			redirect('site/subscribing_success');
+		} else {
+			// Register has Failed
+			$this->index();
+		}
+
+
 		//var_dump($this->input->post());
 		//break;
 		// INSERT email
-		$data = array(
+		/*$data = array(
 			'gen_email' => $this->input->post('email')
 		);
 		$this->db->insert('general_cus', $data);
@@ -345,15 +409,15 @@ class Site extends CI_Controller {
 						'promotion_categories_id' => $arraycate[$y]->id
 					);
 					$this->db->insert('subscribe_relation', $data);
-					var_dump($data);
-					break;
+					//var_dump($data);
+					//break;
 	      }
 			}
     }
 
 		//var_dump($email_id[0]->id);
 		//break;
-		redirect('site/subscribing_success');
+		redirect('site/subscribing_success');*/
 	}
 
 	public function edit_profile_validation() {
