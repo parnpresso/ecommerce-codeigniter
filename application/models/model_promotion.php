@@ -41,7 +41,7 @@ class Model_promotion extends CI_Model {
   }
 
   public function get_email_list($limit, $start){
-    $this->db->limit($limit, $start);
+    /*$this->db->limit($limit, $start);
     $this->db->select('*');
     $this->db->from('general_cus');
     $this->db->join('subscribe_relation', 'subscribe_relation.general_cus_id = general_cus.id', 'left');
@@ -49,19 +49,46 @@ class Model_promotion extends CI_Model {
     $query = $this->db->get();
 
     $temp = $query->result();
-    $data = array(array('email' => $temp[0]->gen_email, 'subscribe' => $temp[0]->name));
+    //var_dump($temp);
+    //break;
+    $data = array(array('id' => $temp[0]->id , 'email' => $temp[0]->gen_email, 'subscribe' => $temp[0]->name));
+
     $oldEmail = $temp[0]->gen_email;
     for ($x = 1; $x < sizeof($temp); $x++) {
       if ($temp[$x]->gen_email == $oldEmail) {
-        $data[$x-1]->subscribe += ",".$temp[$x]->name;
+        $data[$x-1]['subscribe'] = $data[$x-1]['subscribe'].", ".$temp[$x]->name;
       } else {
-        array_push($data,array('email' => $temp[$x]->gen_email, 'subscribe' => $temp[$x]->name));
+        array_push($data,array('id' => $temp[$x]->id , 'email' => $temp[$x]->gen_email, 'subscribe' => $temp[$x]->name));
         $oldEmail = $temp[$x]->gen_email;
       }
     }
-    var_dump($data);
-    break;
-    return $query->result();
+    //var_dump($data);
+    //break;
+    return $data;*/
+    $final = array();
+    $temp = $this->db->get('general_cus');
+    $allmail = $temp->result();
+    for ($x = 0; $x < sizeof($allmail); $x++) {
+      $this->db->select('*');
+      $this->db->from('subscribe_relation');
+      $this->db->where('general_cus_id', $allmail[$x]->id);
+      $this->db->join('promotion_categories', 'promotion_categories.id = subscribe_relation.promotion_categories_id', 'left');
+      $query = $this->db->get();
+      $cates = $query->result();
+      $sub = "";
+      for ($y = 0; $y < sizeof($cates); $y++) {
+        if ($y == 0) $sub = $cates[$y]->name;
+        else $sub = $sub. ", ". $cates[$y]->name;
+      }
+      $this->db->select('gen_email');
+      $this->db->where('id', $allmail[$x]->id);
+      $t = $this->db->get('general_cus');
+      $mail = $t->result();
+
+      array_push($final, array('id' => $allmail[$x]->id, 'email' => $mail[0]->gen_email, 'subscribe' => $sub));
+    }
+
+    return $final;
   }
 
   public function get_email_total_row() {
@@ -139,40 +166,6 @@ class Model_promotion extends CI_Model {
       'pro_image' => $image
 		);
 		$query = $this->db->insert('promotion', $data);
-		if ($query) {
-
-      // 'subscribe_relation.*,promotion_categories.name AS cate_name'
-      $this->db->select('general_cus.gen_email');
-      $this->db->from('subscribe_relation');
-      $this->db->join('general_cus', 'subscribe_relation.general_cus_id = general_cus.id', 'left');
-      $this->db->where('subscribe_relation.promotion_categories_id', $data['category_id']);
-      $fetch = $this->db->get();
-
-  		$maillist = $fetch->result();
-      for ($x = 0; $x < $maillist; $x++) {
-        $this->load->library('email');
-
-        $this->email->attach(public_url()."image/promotion/".$data['pro_image'], "inline");
-
-    		$this->email->from('parnpresso@gmail.com', "AE Team");
-    		$this->email->to($maillist[$x]->gen_email);
-    		$this->email->subject("[AE] News update");
-    		$text = $data['pro_name']. " - ". $data['pro_detail'];
-        //"<br><img src=\"cid:".$data['pro_image']."\" border=\"0\">"
-    		$this->email->message($text);
-        echo $maillist[$x]->gen_email."<br>";
-    		if ($this->email->send()) {
-          //var_dump($data);
-
-    			return true;
-    		} else return false;
-      }
-
-      //var_dump($data);
-      //break;
-
-    }
-		else return false;
   }
 
   // Upload Config Loader

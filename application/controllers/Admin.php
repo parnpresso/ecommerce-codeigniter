@@ -772,7 +772,7 @@ class Admin extends CI_Controller {
 
 			$config['base_url'] = base_url('admin/email'). '/page/';
 			$config['total_rows'] = $this->model_promotion->get_email_total_row();
-			$config['per_page'] = 10;
+			$config['per_page'] = 1000;
 			$config['uri_segment'] = 4;
 
 			// Pagination style
@@ -1107,6 +1107,7 @@ class Admin extends CI_Controller {
 		}
 	}
 
+
 	public function add_promotion_validation() {
 		$this->load->library('form_validation');
 		$this->form_validation->set_rules('name', 'Name', 'required|trim');
@@ -1148,4 +1149,41 @@ class Admin extends CI_Controller {
 			redirect('admin/edit_home/'. $id);
 		}
 	}
+
+
+	public function email_promotion_validation() {
+
+		$this->db->select('*');
+		$this->db->from('promotion');
+		$this->db->order_by('pro_date','desc');
+		$this->db->where('category_id', $this->input->post('promotion'));
+		$query = $this->db->get();
+		$finalmail = $query->result()[0];
+
+		$this->db->select('general_cus.gen_email');
+		$this->db->from('subscribe_relation');
+		$this->db->join('general_cus', 'subscribe_relation.general_cus_id = general_cus.id', 'left');
+		$this->db->where('subscribe_relation.promotion_categories_id', $this->input->post('promotion'));
+		$fetch = $this->db->get();
+		$maillist = $fetch->result();
+
+		for ($x = 0; $x < $maillist; $x++) {
+			$this->load->library('email');
+			$this->email->attach(public_url()."image/promotion/".$finalmail->pro_image, "inline");
+
+			$this->email->from('parnpresso@gmail.com', "AE Team");
+			$this->email->to($maillist[$x]->gen_email);
+			$this->email->subject("[AE] News update");
+			$text = $finalmail->pro_name. " - ". $finalmail->pro_detail;
+			//"<br><img src=\"cid:".$data['pro_image']."\" border=\"0\">"
+			$this->email->message($text);
+			//echo $maillist[$x]->gen_email."<br>";
+			$this->email->send();
+    }
+		redirect('admin/email');
+	}
+
+
+
+
 }

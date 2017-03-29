@@ -1,4 +1,5 @@
 <?php //var_dump($categories);
+//var_dump($emaillist);
 //break; ?>
 
 <div class="container">
@@ -22,7 +23,7 @@
   </div><!-- /.row -->
 </br>
 
-<form method="post" action="<?php echo base_url('admin/send');?>">
+<form method="post" action="<?php echo base_url('admin/email_promotion_validation');?>">
 <div class="row">
   <div class="col col-md-3">
     <label for="sel1">เลือกประเภทโปรโมชั่นที่ต้องการส่ง</label>
@@ -61,16 +62,18 @@
           <tr style="text-align:center">
             <th>ID</th>
             <th>อีเมล</th>
+            <th>ข่าวสารที่รับ</th>
             <th><center>Update</center></th>
           </tr>
         </thead>
         <?php
         for ($x = 0; $x <= sizeof($emaillist)-1; $x++) {
           echo '<tr>';
-          echo '<td>'. $emaillist[$x]->id .'</td>';
-          echo '<td>'. $emaillist[$x]->gen_email .'</td>';
+          echo '<td>'. $emaillist[$x]['id'] .'</td>';
+          echo '<td>'. $emaillist[$x]['email'] .'</td>';
+          echo '<td>'. $emaillist[$x]['subscribe'] .'</td>';
           echo '<td align="center">
-          <a href="'. base_url("admin/delete_email/"). $emaillist[$x]->id .'" onClick="return confirm(\'Are you sure you want to delete?\')" class="btn btn-danger"><em class="fa fa-trash"></em></a>
+          <a href="'. base_url("admin/delete_email/"). $emaillist[$x]['id'] .'" onClick="return confirm(\'Are you sure you want to delete?\')" class="btn btn-danger"><em class="fa fa-trash"></em></a>
           </td>';
           echo '</tr>';
         }

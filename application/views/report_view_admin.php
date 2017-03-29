@@ -53,11 +53,11 @@
         <table class="table table-bordered">
           <tbody>
             <tr>
-              <th class="col-md-7">
-                หมายเหตุ : <br>
+              <th class="col-md-6">
+                 <br>
                 <?php echo $report[0]->note; ?>
               </th>
-              <th class="col-md-5">
+              <th class="col-md-6">
                 <?php
                   $sum = 0;
                   for ($x = 0; $x <= sizeof($report)-1; $x++) {
@@ -71,9 +71,8 @@
                 <table class="table table-bordered">
                   <tbody>
                     <tr><th>ส่วนลด(เป็นเงิน)</th><th>฿0</th></tr>
-                    <tr><th>เงินหลังหักส่วนลด</th><th>฿<?php echo $sum;?></th></tr>
+                    <tr><th>เงินหลังหักส่วนลด</th><th>฿0</th></tr>
                     <tr><th>ภาษีมูลค่าเพิ่ม 7%</th><th>฿<?php echo $sum*0.07;?></th></tr>
-                    <tr><th>ค่าจัดส่ง</th><th>฿0</th></tr>
                     <tr><th>จำนวนเงินทั้งสิ้น</th><th>฿<?php echo $sum;?></th></tr>
                   </tbody>
                 </table>
