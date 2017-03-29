@@ -711,14 +711,66 @@ class Admin extends CI_Controller {
     }
 	}
 	public function add_order() {
+		if ($this->input->post() != NULL) {
+			var_dump($this->input->post());
+			$newdata = array(
+        'fname'  => 'johndoe',
+        'lname'     => 'johndoe@some-site.com',
+				'discount'  => 'johndoe',
+				'note'     => 'johndoe@some-site.com',
+			);
+
+			$this->session->set_userdata($newdata);
+		}
+
     if ($this->session->userdata('access') == 'ADMIN' || $this->session->userdata('access') == 'STAFF'){
+
+			$this->load->library('pagination');
+			$this->load->model('model_product');
+
+			$config['base_url'] = base_url('admin/add_order'). '/page/';
+			$config['total_rows'] = $this->model_product->get_product_total_row();
+			$config['per_page'] = 10;
+			$config['uri_segment'] = 4;
+
+			// Pagination style
+			$config['first_tag_open'] = '<li>';
+			$config['first_tag_close'] = '</li>';
+			$config['last_tag_open'] = '<li>';
+			$config['last_tag_close'] = '</li>';
+			$config['prev_tag_open'] = '<li>';
+			$config['prev_tag_close'] = '</li>';
+			$config['next_tag_open'] = '<li>';
+			$config['next_tag_close'] = '</li>';
+			$config['num_tag_open'] = '<li>';
+			$config['num_tag_close'] = '</li>';
+			$config['cur_tag_open'] = '<li class="active"><a href="#">';
+			$config['cur_tag_close'] = '</a></li>';
+
+			$this->pagination->initialize($config);
+			$page = $this->uri->segment(4,0);
+			$data['pagination'] = $this->pagination->create_links();
+			$data['productlist'] = $this->model_product->get_product_list($config['per_page'], $page);
+
+
 			//$this->load->view('includes/header-admin');
-      $this->load->view('order_add_admin');
+      $this->load->view('order_add_admin', $data);
       //$this->load->view('includes/footer-admin');
 		} else {
       redirect('admin/login');
     }
   }
+	public function search_product_order() {
+		if ($this->session->userdata('access') == 'ADMIN' || $this->session->userdata('access') == 'STAFF'){
+			$this->load->model('model_product');
+			$data = array("productlist" => $this->model_product->search_product($this->input->post('username')));
+      $this->load->view('order_add_admin', $data);
+		} else {
+      redirect('admin/login');
+    }
+	}
+
+
 
 	/// ACCOUNT MANAGEMENT
 	public function editprofile() {
@@ -1197,6 +1249,11 @@ class Admin extends CI_Controller {
 	}
 
 
+	public function add_order_validation(){
+		var_dump($this->input->post());
+		var_dump($this->session->all_userdata());
+		break;
+	}
 
 
 }
