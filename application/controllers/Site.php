@@ -131,6 +131,7 @@ class Site extends CI_Controller {
 	public function view_order($id){
 		$this->load->model('model_order');
 		$data['order'] = $this->model_order->get_order($id);
+		//$data['detail'] = = $this->model_order->get_order($id);
 		//$this->load->view('includes/header');
 		$this->load->view('order_view', $data);
 		//$this->load->view('includes/footer');
