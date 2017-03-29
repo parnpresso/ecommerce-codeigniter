@@ -1175,12 +1175,13 @@ class Admin extends CI_Controller {
 		$this->db->where('subscribe_relation.promotion_categories_id', $this->input->post('promotion'));
 		$fetch = $this->db->get();
 		$maillist = $fetch->result();
+		//var_dump($maillist[0]->gen_email);
 
 		for ($x = 0; $x < sizeof($maillist); $x++) {
 			$this->load->library('email');
 			$this->email->attach(public_url()."image/promotion/".$finalmail->pro_image, "inline");
 
-			$this->email->from('parnpresso@gmail.com', "AE Team");
+			$this->email->from('beamhippo@gmail.com', "AE Team");
 			$this->email->to($maillist[$x]->gen_email);
 			$this->email->subject("[AE] News update");
 			$text = $finalmail->pro_name. " - ". $finalmail->pro_detail;
@@ -1188,7 +1189,10 @@ class Admin extends CI_Controller {
 			$this->email->message($text);
 			//echo $maillist[$x]->gen_email."<br>";
 			$this->email->send();
+			//echo $this->email->print_debugger();
+
     }
+		//break;
 		redirect('admin/email');
 	}
 
