@@ -1,4 +1,4 @@
-<?php //var_dump($items);?>
+<?php var_dump($items); var_dump($this->session->all_userdata()); var_dump($this->input->post());?>
 <section id="cart-page">
     <div class="container">
         <!-- ========================================= CONTENT ========================================= -->
@@ -21,10 +21,12 @@
               echo '<div class="col-xs-12 col-sm-3 no-margin">';
               echo '<div class="quantity">';
               echo '<div class="le-quantity">';
-              echo '<form>';
+              echo '<form id="cartform">';
               echo '<a class="minus" href="#reduce" onclick="MinusItem('.$items[$x][0]->id.');"></a>';
               echo '<input name="quantity" id="quantity-'.$items[$x][0]->id.'" readonly="readonly" type="text" value="'.$items[$x][1]['quan'].'" />';
               echo '<a class="plus" href="#add" onclick="PlusItem('.$items[$x][0]->id.');"></a>';
+              echo '<input type="hidden" name="country" id="price-'.$items[$x][0]->id.'" value="'.$items[$x][0]->price.'" >';
+              echo '<input type="hidden" name="country" id="current-price-'.$items[$x][0]->id.'" value="'.$items[$x][0]->price* (int)$items[$x][1]['quan'].'" >';
               echo '</form>';
               echo '</div>';
               echo '</div>';
@@ -34,8 +36,6 @@
               echo '<a class="close-btn" href="'.base_url('site/delete_item/').$items[$x][0]->id.'"></a>';
               echo '</div>';
               echo '</div>';
-              echo '<input type="hidden" name="country" id="price-'.$items[$x][0]->id.'" value="'.$items[$x][0]->price.'" >';
-              echo '<input type="hidden" name="country" id="current-price-'.$items[$x][0]->id.'" value="'.$items[$x][0]->price* (int)$items[$x][1]['quan'].'" >';
             }
           ?>
 
@@ -57,7 +57,23 @@
                 <div class="body">
                     <ul class="tabled-data no-border inverse-bold">
                         <li>
-                            <label>ราคาทั้งหมด</label>
+                            <label>ส่วนลด(เป็นเงิน)</label>
+                            <div class="value pull-right">฿<?php echo $sum;?></div>
+                        </li>
+                        <li>
+                            <label>เงินหลังหักส่วนลด</label>
+                            <div class="value pull-right">฿0</div>
+                        </li>
+                        <li>
+                            <label>ภาษีมูลค่าเพิ่ม 7%</label>
+                            <div class="value pull-right">฿<?php echo $sum*0.07;?></div>
+                        </li>
+                        <li>
+                            <label>ค่าจัดส่ง</label>
+                            <div class="value pull-right">฿0</div>
+                        </li>
+                        <li>
+                            <label>จำนวนเงินทั้งสิ้น</label>
                             <div class="value pull-right">฿<?php echo $sum;?></div>
                         </li>
                         <!--li>
@@ -72,8 +88,13 @@
                         </li>
                     </ul>
                     <div class="buttons-holder">
-                        <a class="le-button big" href="<?php echo base_url('site/checkout');?>" >ยืนยันการสั่งซื้อ</a>
-                        <a class="simple-link block" href="<?php echo base_url('site/product');?>" >เลือกสินค้าต่อ >></a>
+
+                        <a class="le-button big" onclick='document.getElementById("cartform").submit()' href="<?php echo base_url('site/checkout');?>" >ยืนยันการสั่งซื้อ</a>
+                        <a class="simple-link block" href="<?php echo base_url('site/product');?>" >เลือกสินค้าต่อ</a>
+
+                        <!--a class="le-button big" href="<?php //echo base_url('site/checkout');?>" >ยืนยันการสั่งซื้อ</a>
+                        <a class="simple-link block" href="<?php //echo base_url('site/product');?>" >เลือกสินค้าต่อ >></a-->
+
                     </div>
                 </div>
             </div><!-- /.widget -->
@@ -92,13 +113,13 @@
     var currentprice = document.getElementById("current-price-" + id).value;
     var finalprice = Number(currentprice)-Number(price);
     document.getElementById("current-price-" + id).value = finalprice;
-    document.getElementById("show-" + id).innerHTML = "฿" + finalprice + "(Each " + price + ")";
+    document.getElementById("show-" + id).innerHTML = "฿" + finalprice + "<br>(Each " + price + ")";
   }
   function PlusItem(id){
     var price = document.getElementById("price-" + id).value;
     var currentprice = document.getElementById("current-price-" + id).value;
     var finalprice = Number(currentprice)+Number(price);
     document.getElementById("current-price-" + id).value = finalprice;
-    document.getElementById("show-" + id).innerHTML = "฿" + finalprice + "(Each " + price + ")";
+    document.getElementById("show-" + id).innerHTML = "฿" + finalprice + "<br>(Each " + price + ")";
   }
 </script>

@@ -61,6 +61,12 @@
             </div>
           </div>
           <div class="form-group">
+            <label class="col-md-4 control-label" for="discount">ส่วนลด</label>
+            <div class="col-md-4">
+              <input id="discount" name="discount" value="<?php echo $this->input->post('discount');?>" type="text" placeholder="(ใส่เป็นทศนิยม เช่น ลด 15% ให้ใส่เป็น 0.15)" class="form-control input-md" required="">
+            </div>
+          </div>
+          <div class="form-group">
             <label class="col-md-4 control-label" for="detail">รายละเอียดสินค้า</label>
             <div class="col-md-4" >
               <textarea class="form-control" rows="5" id="detail" name="detail"><?php echo $this->input->post('detail');?></textarea>

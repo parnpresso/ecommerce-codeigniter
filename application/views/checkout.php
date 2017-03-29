@@ -1,10 +1,7 @@
-<?php //var_dump($this->session->all_userdata());?>
-<?php //var_dump($customer);?>
-<script type="text/javascript">
-  function clearField() {
-    document.getElementById("password2").reset();
-  };
-</script>
+<?php var_dump($this->session->all_userdata());?>
+<?php var_dump($this->input->post());?>
+<?php var_dump($customer);?>
+
 <section id="checkout-page">
     <div class="container">
         <div class="col-xs-12 no-margin">
@@ -27,60 +24,64 @@
                     <div class="row field-row">
                         <div class="col-xs-12 col-sm-6">
                             <label>ชื่อจริง</label>
-                            <input class="le-input" name="fname_cus"  value="<?php echo $customer[0]->fname_cus;?>">
+                            <input class="le-input" name="fname_cus"  value="<?php echo $customer[0]->fname_cus;?>" readonly >
                         </div>
                         <div class="col-xs-12 col-sm-6">
                             <label>นามสกุล</label>
-                            <input class="le-input" name="lname_cus"  value="<?php echo $customer[0]->lname_cus;?>">
+                            <input class="le-input" name="lname_cus"  value="<?php echo $customer[0]->lname_cus;?>" readonly >
                         </div>
                     </div><!-- /.field-row -->
 
                     <div class="row field-row">
-                        <div class="col-xs-12">
+                        <div class="col-xs-12 col-sm-4">
                             <label>รหัสบัตรประชาชน</label>
-                            <input class="le-input" name="idcard_cus"  value="<?php echo $customer[0]->idcard_cus;?>">
+                            <input class="le-input" name="idcard_cus"  value="<?php echo $customer[0]->idcard_cus;?>" readonly >
+                        </div>
+                        <div class="col-xs-12 col-sm-4">
+                            <label>อีเมล</label>
+                            <input class="le-input" name="email_cus"  value="<?php echo $customer[0]->email_cus;?>" readonly >
+                        </div>
+
+                        <div class="col-xs-12 col-sm-4">
+                            <label>เบอร์โทร</label>
+                            <input class="le-input" name="tel"  value="<?php echo $customer[0]->tel;?>" readonly >
                         </div>
                     </div><!-- /.field-row -->
 
                     <div class="row field-row">
                         <div class="col-xs-12 col-sm-6">
                             <label>ที่อยู่</label>
-                            <input class="le-input" data-placeholder="ที่อยู่" name="address"  value="<?php echo $customer[0]->address;?>"required>
+                            <input class="le-input" data-placeholder="ที่อยู่" name="address" id="address" value="<?php echo $customer[0]->address;?>" required>
                         </div>
                         <div class="col-xs-12 col-sm-3">
-                            <label>&nbsp;</label>
-                            <input class="le-input" data-placeholder="อำเภอ" name="district"  value="<?php echo $customer[0]->district;?>">
+                            <label>อำเภอ</label>
+                            <input class="le-input" data-placeholder="อำเภอ" name="district" id="district"  value="<?php echo $customer[0]->district;?>">
                         </div>
                         <div class="col-xs-12 col-sm-3">
-                            <label>&nbsp;</label>
-                            <input class="le-input" data-placeholder="จังหวัด" name="province"  value="<?php echo $customer[0]->province;?>">
+                            <label>จังหวัด</label>
+                            <input class="le-input" data-placeholder="จังหวัด" name="province" id="province"  value="<?php echo $customer[0]->province;?>">
                         </div>
                     </div><!-- /.field-row -->
 
                     <div class="row field-row">
                         <div class="col-xs-12 col-sm-4">
                             <label>รหัสไปรษณีย์</label>
-                            <input class="le-input" name="postcode"  value="<?php echo $customer[0]->postcode;?>" >
+                            <input class="le-input" name="postcode" id="postcode"  value="<?php echo $customer[0]->postcode;?>" >
                         </div>
-                        <div class="col-xs-12 col-sm-4">
-                            <label>อีเมล</label>
-                            <input class="le-input" name="email_cus"  value="<?php echo $customer[0]->email_cus;?>">
-                        </div>
-
-                        <div class="col-xs-12 col-sm-4">
-                            <label>เบอร์โทร</label>
-                            <input class="le-input" name="tel"  value="<?php echo $customer[0]->tel;?>">
+                        <div class="col-xs-12 col-sm-8">
+                            <label>หมายเหตุ</label>
+                            <input class="le-input" name="note" id="note"  >
                         </div>
                     </div><!-- /.field-row -->
 
 
-                    <!--div class="row field-row">
+                    <div class="row field-row">
                         <div id="create-account" class="col-xs-12">
-                            <input  class="le-checkbox big" type="checkbox"  />
-                            <button type="reset" value="Reset">Reset</button>
-                            <a class="simple-link bold" href="#" onclick="clearField();">ส่งไปที่อยู่อื่น</a> - จะทำการเคลียร์ฟอร์มให้กรอกข้อมูลใหม่
+                            <!--input  class="le-checkbox big" type="checkbox"  /-->
+                            <button type="button" onclick="clearField()" value="Reset">Reset</button>
+                            <!--a class="simple-link bold" href="#" onclick="clearField()"-->ส่งไปที่อยู่อื่น</a> - จะทำการเคลียร์ฟอร์มให้กรอกข้อมูลใหม่
                         </div>
-                    </div--><!-- /.field-row -->
+                    </div><!-- /.field-row -->
 
                 </form>
             </div><!-- /.billing-address -->
@@ -119,7 +120,27 @@
                 <div class="col-xs-12 col-lg-4 col-lg-offset-8 no-margin-right">
                     <div id="subtotal-holder">
                         <ul class="tabled-data inverse-bold no-border">
-                            <li>
+                          <li>
+                              <label>ส่วนลด(เป็นเงิน)</label>
+                              <div class="value pull-right">฿<?php echo $sum;?></div>
+                          </li>
+                          <li>
+                              <label>เงินหลังหักส่วนลด</label>
+                              <div class="value pull-right">฿0</div>
+                          </li>
+                          <li>
+                              <label>ภาษีมูลค่าเพิ่ม 7%</label>
+                              <div class="value pull-right">฿<?php echo $sum*0.07;?></div>
+                          </li>
+                          <li>
+                              <label>ค่าจัดส่ง</label>
+                              <div class="value pull-right">฿0</div>
+                          </li>
+                          <li>
+                              <label>จำนวนเงินทั้งสิ้น</label>
+                              <div class="value pull-right">฿<?php echo $sum;?></div>
+                          </li>
+                            <!--li>
                                 <label>ค่าสินค้าทั้งหมด</label>
                                 <div class="value ">฿<?php echo $sum;?></div>
                             </li>
@@ -128,10 +149,10 @@
                                 <div class="value">
                                     <div class="radio-group">
                                         <input class="le-radio" type="radio" name="group1" value="free" checked> <div class="radio-label bold">ส่งฟรี</div><br>
-                                        <!--input class="le-radio" type="radio" name="group1" value="local">  <div class="radio-label">local delivery<br><span class="bold">$15</span></div-->
+                                        <input class="le-radio" type="radio" name="group1" value="local">  <div class="radio-label">local delivery<br><span class="bold">$15</span></div>
                                     </div>
                                 </div>
-                            </li>
+                            </li-->
                         </ul><!-- /.tabled-data -->
 
                         <ul id="total-field" class="tabled-data inverse-bold ">
@@ -153,3 +174,13 @@
         </div><!-- /.col -->
     </div><!-- /.container -->
 </section><!-- /#checkout-page -->
+
+<script>
+  function clearField() {
+    document.getElementById("address").value = "";
+    document.getElementById("district").value = "";
+    document.getElementById("province").value = "";
+    document.getElementById("postcode").value = "";
+    document.getElementById("note").value = "";
+  }
+</script>

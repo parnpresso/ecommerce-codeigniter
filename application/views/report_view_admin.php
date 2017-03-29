@@ -1,4 +1,4 @@
-<?php //var_dump($order); ?>
+<?php //var_dump($report); ?>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -20,48 +20,9 @@
     <div class="col-md-12">
       <center><img alt="logo" src="<?php echo public_url();?>assets/images/logo_a.png" /></center>
       <center><h1>บริษัท เอเชียการไฟฟ้า จำกัด</h1></center><br>
-      <center>158/1 ถนน ช้างเผือก ตำบล ศรีภูมิ อำเภอเมืองเชียงใหม่ จังหวัดเชียงใหม่ (โทร.053-214683) (แฟ๊กซ์.053-214717) </center>
+      <center>ปี <?php echo $year; ?> ประจำเดือน <?php echo $month; ?></center>
     </div>
-
-
-    <div class="col-md-6 col-md-offset-3">
-    </br></br><center><h2>อนุมัติใบสั่งซื้อ</h2></center><br>
-      <div class="col-md-6 panel panel-default">
-        <div class="col-md-3">
-        <br>
-          ผู้ขาย : <br>
-          สถานที่จัดส่ง:<br>
-
-          <br>
-        </div>
-        <div class="col-md-9">
-          <br>
-          ANSWER1<br>
-          ANSWER2<br>
-
-          <br>
-        </div>
-      </div>
-      <div class="col-md-6 panel panel-default">
-        <div class="col-md-3">
-          <br>
-          เลขที่ใบสั่งซื้อ:<br>
-          ผู้ติดต่อ:<br>
-          วันที่สั่ง:<br>
-          วันกำหนดส่ง:<br>
-          <br>
-        </div>
-        <div class="col-md-9">
-          <br>
-          ANSWER1<br>
-          ANSWER2<br>
-          ANSWER3<br>
-          ANSWER4<br>
-            <br>
-        </div>
-      </div>
-    </div>
-
+<br>
     <div class="col-md-6 col-md-offset-3">
       <center>
         <table class="table table-bordered">
@@ -71,23 +32,19 @@
               <th>รายการ</th>
               <th>จำนวน</th>
               <th>หน่วย</th>
-              <th>ราคา/หน่วย</th>
-              <th>ส่วนลด</th>
               <th>จำนวนเงิน</th>
             </tr>
           </thead>
           <tbody>
             <?php
-              for ($x = 0; $x <= sizeof($order)-1; $x++) {
+              for ($x = 0; $x <= sizeof($report)-1; $x++) {
                 echo '<tr>';
                 $t = $x + 1;
                 echo '<th>'.$t.'</th>';
-                echo '<th>'.$order[$x]->product_name.'</th>';
-                echo '<th>'.$order[$x]->product_quantity.'</th>';
-                echo '<th>'.$order[$x]->product_unit.'</th>';
-                echo '<th>'.$order[$x]->product_price.'</th>';
-                echo '<th>-</th>';
-                echo '<th>'.(int)$order[$x]->product_price * (int)$order[$x]->product_quantity.'</th>';
+                echo '<th>'.$report[$x]->product_name.'</th>';
+                echo '<th>'.$report[$x]->product_quantity.'</th>';
+                echo '<th>'.$report[$x]->product_unit.'</th>';
+                echo '<th>'.(int)$report[$x]->product_price * (int)$report[$x]->product_quantity.'</th>';
                 echo '</tr>';
               }
             ?>
@@ -98,13 +55,13 @@
             <tr>
               <th class="col-md-7">
                 หมายเหตุ : <br>
-                <?php echo $order[0]->note; ?>
+                <?php echo $report[0]->note; ?>
               </th>
               <th class="col-md-5">
                 <?php
                   $sum = 0;
-                  for ($x = 0; $x <= sizeof($order)-1; $x++) {
-                    $sum += $order[$x]->product_price * (int)$order[$x]->product_quantity;
+                  for ($x = 0; $x <= sizeof($report)-1; $x++) {
+                    $sum += $report[$x]->product_price * (int)$report[$x]->product_quantity;
                   }
                   //echo '<th>';
                   //echo '<th>รวมเป็นเงิน</th>';
@@ -124,16 +81,7 @@
             </tr>
           </tbody>
         </table>
-        <table class="table table-bordered">
-          <tbody>
-            <tr>
-              <th>
-                เงื่อนไขอื่นๆ : <br>
-                xxxxxxxxxxxxxxxxxxxxxxxxxx
-              </th>
-            </tr>
-          </tbody>
-        </table>
+
       </center>
     </div>
   </div>

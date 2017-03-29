@@ -42,9 +42,25 @@ class Model_promotion extends CI_Model {
 
   public function get_email_list($limit, $start){
     $this->db->limit($limit, $start);
-    $query = $this->db->get('general_cus');
-    //var_dump($query->result());
-    //break;
+    $this->db->select('*');
+    $this->db->from('general_cus');
+    $this->db->join('subscribe_relation', 'subscribe_relation.general_cus_id = general_cus.id', 'left');
+    $this->db->join('promotion_categories', 'subscribe_relation.promotion_categories_id = promotion_categories.id', 'left');
+    $query = $this->db->get();
+
+    $temp = $query->result();
+    $data = array(array('email' => $temp[0]->gen_email, 'subscribe' => $temp[0]->name));
+    $oldEmail = $temp[0]->gen_email;
+    for ($x = 1; $x < sizeof($temp); $x++) {
+      if ($temp[$x]->gen_email == $oldEmail) {
+        $data[$x-1]->subscribe += ",".$temp[$x]->name;
+      } else {
+        array_push($data,array('email' => $temp[$x]->gen_email, 'subscribe' => $temp[$x]->name));
+        $oldEmail = $temp[$x]->gen_email;
+      }
+    }
+    var_dump($data);
+    break;
     return $query->result();
   }
 

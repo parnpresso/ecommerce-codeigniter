@@ -65,11 +65,12 @@
       							for ($x = 0; $x <= sizeof($productlist)-1; $x++) {
       								echo '<div class="col-xs-12 col-sm-4 no-margin product-item-holder hover">';
                       echo '<div class="product-item">';
+                      if ($productlist[$x]->discount != 0) echo '<div class="ribbon red"><span>ลดราคา</span></div>';
                       echo '<div class="image">';
                       echo '<img alt="" height="160px" src="'. public_url().'assets/images/blank.gif" data-echo="'. public_url().'image/product/'.$productlist[$x]->image.'" />';
                       echo '</div>';
                       echo '<div class="body">';
-                      echo '<div class="label-discount clear"></div>';
+                      if ($productlist[$x]->discount != 0) echo '<div class="label-discount green">ลด '.$productlist[$x]->discount * 100 .'%</div>';
                       echo '<div class="title">';
                       echo '<a href="'.base_url('site/single_product/').$productlist[$x]->id.'">'.$productlist[$x]->name.'</a>';
                       echo '</div>';
@@ -77,7 +78,7 @@
                       echo '</div>';
                       echo '<div class="prices">';
                       echo '<div class="price-prev">'.$productlist[$x]->price.'</div>';
-                      echo '<div class="price-current pull-right">฿'.$productlist[$x]->price.'</div>';
+                      echo '<div class="price-current pull-right">฿'.$productlist[$x]->price * (1-$productlist[$x]->discount).'</div>';
                       echo '</div>';
                       echo '<div class="hover-area">';
                       echo '<div class="add-cart-button">';
