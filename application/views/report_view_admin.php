@@ -39,8 +39,8 @@
             <?php
               for ($x = 0; $x <= sizeof($report)-1; $x++) {
                 echo '<tr>';
-                $t = $x + 1;
-                echo '<th>'.$t.'</th>';
+                //$t = $x + 1;
+                echo '<th>'.$report[$x]->id.'</th>';
                 echo '<th>'.$report[$x]->product_name.'</th>';
                 echo '<th>'.$report[$x]->product_quantity.'</th>';
                 echo '<th>'.$report[$x]->product_unit.'</th>';
@@ -70,8 +70,6 @@
                 ?>
                 <table class="table table-bordered">
                   <tbody>
-                    <tr><th>ส่วนลด(เป็นเงิน)</th><th>฿0</th></tr>
-                    <tr><th>เงินหลังหักส่วนลด</th><th>฿0</th></tr>
                     <tr><th>ภาษีมูลค่าเพิ่ม 7%</th><th>฿<?php echo $sum*0.07;?></th></tr>
                     <tr><th>จำนวนเงินทั้งสิ้น</th><th>฿<?php echo $sum;?></th></tr>
                   </tbody>

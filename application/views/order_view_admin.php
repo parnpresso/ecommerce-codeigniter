@@ -27,23 +27,23 @@
     <div class="col-md-6 col-md-offset-3">
     </br></br><center><h2>อนุมัติใบสั่งซื้อ</h2></center><br>
       <div class="col-md-6 panel panel-default">
-        <div class="col-md-3">
+        <div class="col-md-4">
         <br>
           ผู้ขาย : <br>
           สถานที่จัดส่ง:<br>
 
           <br>
         </div>
-        <div class="col-md-9">
+        <div class="col-md-8">
           <br>
-          ANSWER1<br>
-          ANSWER2<br>
+          บริษัท เอเชียการไฟฟ้า จำกัด<br>
+          <?php echo $order[0]->address.', '.$order[0]->district.', '.$order[0]->province.', '.$order[0]->postcode?><br>
 
           <br>
         </div>
       </div>
       <div class="col-md-6 panel panel-default">
-        <div class="col-md-3">
+        <div class="col-md-5">
           <br>
           เลขที่ใบสั่งซื้อ:<br>
           ผู้ติดต่อ:<br>
@@ -51,12 +51,16 @@
           วันกำหนดส่ง:<br>
           <br>
         </div>
-        <div class="col-md-9">
+        <div class="col-md-7">
           <br>
-          ANSWER1<br>
-          ANSWER2<br>
-          ANSWER3<br>
-          ANSWER4<br>
+          <?php
+            $date = substr($order[0]->date, 0, 10);
+            $dateOrder = date('Y-m-d', strtotime($date. ' + 3 days'));
+          ?>
+          <?php echo $order[0]->order_id;?><br>
+          <?php echo $order[0]->fname.' '.$order[0]->lname;?><br>
+          <?php echo $date;?><br>
+          <?php echo $dateOrder;?><br>
             <br>
         </div>
       </div>
@@ -113,11 +117,10 @@
                 ?>
                 <table class="table table-bordered">
                   <tbody>
-                    <tr><th>ส่วนลด(เป็นเงิน)</th><th>฿0</th></tr>
-                    <tr><th>เงินหลังหักส่วนลด</th><th>฿<?php echo $sum;?></th></tr>
                     <tr><th>ภาษีมูลค่าเพิ่ม 7%</th><th>฿<?php echo $sum*0.07;?></th></tr>
                     <tr><th>ค่าจัดส่ง</th><th>฿0</th></tr>
-                    <tr><th>จำนวนเงินทั้งสิ้น</th><th>฿<?php echo $sum;?></th></tr>
+                    <tr><th>ราคารวม</th><th>฿<?php echo $sum*0.93;?></th></tr>
+                    <tr><th>รวมสุทธิ</th><th>฿<?php echo $sum;?></th></tr>
                   </tbody>
                 </table>
               </th>
@@ -129,7 +132,7 @@
             <tr>
               <th>
                 เงื่อนไขอื่นๆ : <br>
-                xxxxxxxxxxxxxxxxxxxxxxxxxx
+                1) หากเกิดข้อผิดพลาด ให้โทรแจ้งพนักงานหรือติดต่อผ่านหน้าเว็บไซต์<br>
               </th>
             </tr>
           </tbody>
