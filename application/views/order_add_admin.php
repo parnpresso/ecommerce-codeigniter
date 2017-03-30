@@ -79,7 +79,7 @@
                     <thead class="thead-default">
                        <tr style="text-align:center">
                           <th class="col-md-6">ชื่อ</th>
-                          <th class="col-md-1"><center>ราคา</center></th>
+                          <th class="col-md-1"><center>ราคา/บาท</center></th>
                           <th class="col-md-1"><center>หน่วย</center></th>
                           <th class="col-md-3"><center>จำนวน</center></th>
                           <th class="col-md-1"></th>

@@ -56,14 +56,8 @@
                 <h1 class="border">ราคาสินค้าทั้งหมด</h1>
                 <div class="body">
                     <ul class="tabled-data no-border inverse-bold">
-                        <li>
-                            <label>ส่วนลด(เป็นเงิน)</label>
-                            <div class="value pull-right">฿<?php echo $sum;?></div>
-                        </li>
-                        <li>
-                            <label>เงินหลังหักส่วนลด</label>
-                            <div class="value pull-right">฿0</div>
-                        </li>
+
+                      
                         <li>
                             <label>ภาษีมูลค่าเพิ่ม 7%</label>
                             <div class="value pull-right">฿<?php echo $sum*0.07;?></div>

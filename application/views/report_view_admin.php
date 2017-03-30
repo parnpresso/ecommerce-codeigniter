@@ -19,20 +19,21 @@
   <div class="row">
     <div class="col-md-12">
       <center><img alt="logo" src="<?php echo public_url();?>assets/images/logo_a.png" /></center>
-      <center><h1>บริษัท เอเชียการไฟฟ้า จำกัด</h1></center><br>
-      <center>ปี <?php echo $year; ?> ประจำเดือน <?php echo $month; ?></center>
-    </div>
+      <center><h2>บริษัท เอเชียการไฟฟ้า จำกัด</h2></center><br>
+      <center><h4>รายงานสรุปยอดขายประจำเดือน</h4></center><br>
+      <center >ปี <?php echo $year; ?> ประจำเดือน <?php echo $month; ?></center>
+    </div></br>
 <br>
     <div class="col-md-6 col-md-offset-3">
       <center>
         <table class="table table-bordered">
           <thead>
             <tr>
-              <th>รหัสสินค้า</th>
-              <th>รายการ</th>
-              <th>จำนวน</th>
-              <th>หน่วย</th>
-              <th>จำนวนเงิน</th>
+              <th bgcolor="#8dbbbf">รหัสสินค้า</th>
+              <th bgcolor="#8dbbbf">รายการ</th>
+              <th bgcolor="#8dbbbf">จำนวน</th>
+              <th bgcolor="#8dbbbf">หน่วย</th>
+              <th bgcolor="#8dbbbf">จำนวนเงิน</th>
             </tr>
           </thead>
           <tbody>
@@ -71,7 +72,7 @@
                 <table class="table table-bordered">
                   <tbody>
                     <tr><th>ภาษีมูลค่าเพิ่ม 7%</th><th>฿<?php echo $sum*0.07;?></th></tr>
-                    <tr><th>จำนวนเงินทั้งสิ้น</th><th>฿<?php echo $sum;?></th></tr>
+                    <tr><th>ยอดขายรวม</th><th>฿<?php echo $sum;?></th></tr>
                   </tbody>
                 </table>
               </th>
