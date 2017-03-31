@@ -769,6 +769,15 @@ class Admin extends CI_Controller {
       redirect('admin/login');
     }
 	}
+	public function search_customer_order() {
+		if ($this->session->userdata('access') == 'ADMIN' || $this->session->userdata('access') == 'STAFF'){
+			$this->load->model('model_user');
+			$data = array("userlist" => $this->model_product->search_user($this->input->post('username')));
+      $this->load->view('order_add_admin', $data);
+		} else {
+      redirect('admin/login');
+    }
+	}
 
 
 

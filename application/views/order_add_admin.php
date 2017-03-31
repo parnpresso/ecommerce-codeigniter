@@ -19,17 +19,17 @@
     <fieldset>
       <legend style="text-align:center"><h2>เพิ่มใบสั่งซื้อ</h2></legend><br />
       <?php
-        if (validation_errors() != NULL){
+        /*if (validation_errors() != NULL){
           echo '<div class="col-md-4 col-md-offset-4">
           <div class="alert alert-danger alert-error">
           <button type="button" class="close" data-dismiss="alert">&times;</button>'. validation_errors().'
           </div>
           </div>
           ';
-        }
+        }*/
       ?>
-      <?php echo form_open_multipart('admin/add_order_validation',  array('class' => 'form-horizontal', 'id="subForm"'));?>
-      <div class="row">
+      <?php //echo form_open_multipart('admin/add_order_validation',  array('class' => 'form-horizontal', 'id="subForm"'));?>
+      <!--div class="row">
         <div class="col-md-12">
           <div class="form-group">
             <label class="col-md-4 control-label" for="fname">ชื่อผู้ติดต่อ</label>
@@ -55,10 +55,79 @@
               <textarea class="form-control" rows="5" id="note" name="note"><?php echo $this->input->post('note');?></textarea>
             </div>
           </div>
-          </form>
+        </form-->
 
-<div class="row">
+
+        <div class="row">
+          <div class="col-md-4 col-md-offset-2">
+            <div class="input-group pull-right">
+              <form class="navbar-form " action="<?php echo base_url('admin/search_customer_order');?>" method="post">
+              <input type="text" class="form-control" id="username" name="username" placeholder="ค้นหาลูกค้า..." required="">
+              <span class="input-group-btn">
+                <button class="btn btn-default" type="submit">ค้นหา</button>
+              </span>
+            </form>
+            </div><!-- /input-group -->
+          </div><!-- /.col-lg-6 -->
           <div class="col-md-4 col-md-offset-4">
+            <div class="panel panel-default panel-table">
+               <div class="panel-heading">
+               </div>
+               <div class="panel-body">
+
+
+                 <table class="table" align="center" border="0">
+                    <thead class="thead-default">
+                       <tr style="text-align:center">
+                          <th class="col-md-6">ชื่อ</th>
+                          <th class="col-md-1"><center>ราคา</center></th>
+                          <th class="col-md-1"><center>หน่วย</center></th>
+                          <th class="col-md-3"><center>จำนวน</center></th>
+                          <th class="col-md-1"></th>
+                       </tr>
+                    </thead>
+                      <?php
+                        for ($x = 0; $x <= sizeof($productlist)-1; $x++) {
+                          echo '<form action="#" id="thisForm"  method="post">';
+                          echo '<tr>';
+                          echo '<td><a href="'.base_url('admin/').'view_product/'. $productlist[$x]->id .'">'. $productlist[$x]->name .'</a></td>';
+                          echo '<td><center>'. $productlist[$x]->price .'</center></td>';
+                          echo '<td><center>'. $productlist[$x]->unit .'</center></td>';
+                          echo '<td><input id="amount" name="amount" type="text" placeholder="" class="form-control input-md" required=""></td>';
+                          echo '<td align="center">
+                                  <button type="submit" class="btn">เพิ่ม</button>
+                                </td>';
+                          echo '</tr>';
+                          echo '<input type="hidden" id="productid" name="productid" value="'.$productlist[$x]->id.'">';
+                          echo '</form>';
+                          //'. base_url("admin/set_session_product/"). $productlist[$x]->id .'
+                        }
+
+                      ?>
+
+                    </table>
+
+                </div>
+
+                <div class="panel-footer">
+
+                   <nav style="text-align:right">
+                      <ul class="pagination">
+                        <?php
+                          if (isset($pagination)) echo $pagination;
+                        ?>
+                         </ul>
+                      </nav>
+                   </div>
+                </div>
+
+        </div><!-- /.col-lg-6 -->
+        </div>
+
+
+
+        <div class="row">
+          <div class="col-md-4 col-md-offset-2">
             <div class="input-group pull-right">
               <form class="navbar-form " action="<?php echo base_url('admin/search_product_order');?>" method="post">
               <input type="text" class="form-control" id="username" name="username" placeholder="ค้นหาสินค้า..." required="">
