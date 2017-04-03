@@ -1355,6 +1355,19 @@ class Admin extends CI_Controller {
 	public function add_order_validation(){
 		var_dump($this->session->all_userdata());
 		var_dump($this->input->post());
+
+		/*$data['items'] = array();
+		for ($x = 0; $x < sizeof($this->session->userdata('cart'));$x++){
+			$this->db->where('id', $this->session->userdata('cart')[$x]['productid']);
+			$fetch = $this->db->get('product');
+			$temp = $fetch->result();
+			array_push($temp, array('quan' => $this->session->userdata('cart')[$x]['quantity']));
+			array_push($data['items'],$temp);
+		}*/
+
+		$this->load->model('model_order');
+		$this->model_order->add_order();
+		redirect('admin/order');
 	}
 
 
