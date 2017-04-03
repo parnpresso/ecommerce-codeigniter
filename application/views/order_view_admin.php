@@ -11,12 +11,26 @@
    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
    <!-- Latest compiled and minified JavaScript -->
    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+   <style>
+    @media print
+    {
+        .no-print, .no-print *
+        {
+            display: none !important;
+        }
+    }
+   </style>
+
 </head>
 
 <body>
 <br/><br/>
 <div class="container-fluid">
   <div class="row">
+    <div class="col-md-2 col-md-offset-10">
+      <button onclick="myFunction()" class='no-print'>ปริ้นใบสั่งซื้อ</button>
+    </div>
     <div class="col-md-12">
       <center><img alt="logo" src="<?php echo public_url();?>assets/images/logo_a.png" /></center>
       <center><h1>บริษัท เอเชียการไฟฟ้า จำกัด</h1></center><br>
@@ -159,7 +173,11 @@
   </div>
 </div>
 
-
+<script>
+function myFunction() {
+    window.print();
+}
+</script>
 
 
 </body>
