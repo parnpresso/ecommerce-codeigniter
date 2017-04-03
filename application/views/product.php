@@ -65,12 +65,12 @@
       							for ($x = 0; $x <= sizeof($productlist)-1; $x++) {
       								echo '<div class="col-xs-12 col-sm-4 no-margin product-item-holder hover">';
                       echo '<div class="product-item">';
-                      if ($productlist[$x]->discount != 0) echo '<div class="ribbon red"><span>ลดราคา</span></div>';
+                      //if ($productlist[$x]->discount != 0) echo '<div class="ribbon red"><span>ลดราคา</span></div>';
                       echo '<div class="image">';
                       echo '<img alt="" height="160px" src="'. public_url().'assets/images/blank.gif" data-echo="'. public_url().'image/product/'.$productlist[$x]->image.'" />';
                       echo '</div>';
                       echo '<div class="body">';
-                      if ($productlist[$x]->discount != 0) echo '<div class="label-discount green">ลด '.$productlist[$x]->discount * 100 .'%</div>';
+                      //if ($productlist[$x]->discount != 0) echo '<div class="label-discount green">ลด '.$productlist[$x]->discount * 100 .'%</div>';
                       echo '<div class="title">';
                       echo '<a href="'.base_url('site/single_product/').$productlist[$x]->id.'">'.$productlist[$x]->name.'</a>';
                       echo '</div>';

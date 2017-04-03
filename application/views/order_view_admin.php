@@ -37,7 +37,13 @@
         <div class="col-md-8">
           <br>
           บริษัท เอเชียการไฟฟ้า จำกัด<br>
-          <?php echo $order[0]->address.', '.$order[0]->district.', '.$order[0]->province.', '.$order[0]->postcode?><br>
+          <?php
+            if ($order[0]->address !== "walk-in") {
+              echo $order[0]->address.', '.$order[0]->district.', '.$order[0]->province.', '.$order[0]->postcode;
+            } else {
+              echo "มารับหน้าร้าน";
+            }
+          ?><br>
 
           <br>
         </div>
@@ -110,6 +116,14 @@
                   for ($x = 0; $x <= sizeof($order)-1; $x++) {
                     $sum += $order[$x]->product_price * (int)$order[$x]->product_quantity;
                   }
+                  if ($order[0]->discount != 0) {
+                    $discount_percentage = $order[0]->discount *100;
+                    $discount = $sum - ($sum * $order[0]->discount);
+                  } else {
+                    $discount_percentage = 0;
+                    $discount = 0;
+                  }
+
                   //echo '<th>';
                   //echo '<th>รวมเป็นเงิน</th>';
                   //echo '<th><center>'.$sum.' บาท </center></th>';
@@ -117,10 +131,13 @@
                 ?>
                 <table class="table table-bordered">
                   <tbody>
+                    <tr><th>ราคาสินค้า</th><th>฿<?php echo $sum*0.93;?></th></tr>
                     <tr><th>ภาษีมูลค่าเพิ่ม 7%</th><th>฿<?php echo $sum*0.07;?></th></tr>
+                    <tr><th>ราคารวม</th><th>฿<?php echo $sum;?></th></tr>
                     <tr><th>ค่าจัดส่ง</th><th>฿0</th></tr>
-                    <tr><th>ราคารวม</th><th>฿<?php echo $sum*0.93;?></th></tr>
-                    <tr><th>รวมสุทธิ</th><th>฿<?php echo $sum;?></th></tr>
+                    <tr><th>ลดราคา</th><th>฿<?php echo $discount;?></th></tr>
+                    <tr><th>ลดไป</th><th><?php echo $discount_percentage;?>%</th></tr>
+                    <tr><th>รวมสุทธิ</th><th>฿<?php echo $sum - $discount;?></th></tr>
                   </tbody>
                 </table>
               </th>

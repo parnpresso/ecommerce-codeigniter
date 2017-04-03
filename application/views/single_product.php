@@ -81,12 +81,12 @@
                         <div class="value">฿<?php echo $product[0]->price;?></div>
                     </li>
                     <?php
-                      if ($product[0]->discount != 0) {
+                      /*if ($product[0]->discount != 0) {
                         echo '<li>';
                         echo '<label style="color:red">ราคาหลังลดราคา</label>';
                         echo '<div class="value" style="color:red">฿'.$product[0]->price * (1-$product[0]->discount).'</div>';
                         echo '</li>';
-                      }
+                      }*/
 
                     ?>
 
