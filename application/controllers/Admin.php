@@ -751,7 +751,7 @@ class Admin extends CI_Controller {
 			$page = $this->uri->segment(4,0);
 			$data['pagination'] = $this->pagination->create_links();
 			$data['productlist'] = $this->model_product->get_product_list($config['per_page'], $page);
-
+			$data['userlist'] = "";
 
 			//$this->load->view('includes/header-admin');
       $this->load->view('order_add_admin', $data);
@@ -762,9 +762,68 @@ class Admin extends CI_Controller {
   }
 	public function search_product_order() {
 		if ($this->session->userdata('access') == 'ADMIN' || $this->session->userdata('access') == 'STAFF'){
+			//$this->load->model('model_user');
+			//$this->load->model('model_product');
+			//$data['userlist'] = $this->model_user->search_user($this->input->post('customer'));
+			//$data['productlist'] = $this->model_product->search_product($this->input->post('product'));
+
+
 			$this->load->model('model_product');
-			$data = array("productlist" => $this->model_product->search_product($this->input->post('username')));
-      $this->load->view('order_add_admin', $data);
+			$data['productlist'] = $this->model_product->search_product($this->input->post('product'));
+
+      $this->load->view('order_add_2_admin', $data);
+		} else {
+      redirect('admin/login');
+    }
+	}
+	public function choose_customer(){
+		if ($this->session->userdata('access') == 'ADMIN' || $this->session->userdata('access') == 'STAFF'){
+			$this->load->model('model_product');
+			$data['productlist'] = $this->model_product->search_product($this->input->post('product'));
+			$data['customerid'] = $this->input->post('customerid');
+
+
+			$this->load->view('order_add_2_admin', $data);
+		} else {
+			redirect('admin/login');
+		}
+	}
+	public function choose_product() {
+		if ($this->session->userdata('access') == 'ADMIN' || $this->session->userdata('access') == 'STAFF'){
+			//$this->load->model('model_user');
+			//$this->load->model('model_product');
+			//$data['userlist'] = $this->model_user->search_user($this->input->post('customer'));
+			//$data['productlist'] = $this->model_product->search_product($this->input->post('product'));
+
+			$this->load->library('pagination');
+			$this->load->model('model_product');
+
+			$config['base_url'] = base_url('admin/choose_product'). '/page/';
+			$config['total_rows'] = $this->model_product->get_product_total_row();
+			$config['per_page'] = 10;
+			$config['uri_segment'] = 4;
+
+			// Pagination style
+			$config['first_tag_open'] = '<li>';
+			$config['first_tag_close'] = '</li>';
+			$config['last_tag_open'] = '<li>';
+			$config['last_tag_close'] = '</li>';
+			$config['prev_tag_open'] = '<li>';
+			$config['prev_tag_close'] = '</li>';
+			$config['next_tag_open'] = '<li>';
+			$config['next_tag_close'] = '</li>';
+			$config['num_tag_open'] = '<li>';
+			$config['num_tag_close'] = '</li>';
+			$config['cur_tag_open'] = '<li class="active"><a href="#">';
+			$config['cur_tag_close'] = '</a></li>';
+
+			$this->pagination->initialize($config);
+			$page = $this->uri->segment(4,0);
+			$data['pagination'] = $this->pagination->create_links();
+			$data['productlist'] = $this->model_product->get_product_list($config['per_page'], $page);
+
+
+      $this->load->view('order_add_2_admin', $data);
 		} else {
       redirect('admin/login');
     }
@@ -772,11 +831,17 @@ class Admin extends CI_Controller {
 	public function search_customer_order() {
 		if ($this->session->userdata('access') == 'ADMIN' || $this->session->userdata('access') == 'STAFF'){
 			$this->load->model('model_user');
-			$data = array("userlist" => $this->model_product->search_user($this->input->post('username')));
+			$this->load->model('model_product');
+			$data['userlist'] = $this->model_user->search_user($this->input->post('customer'));
+			$data['productlist'] = $this->model_product->search_product($this->input->post('product'));
       $this->load->view('order_add_admin', $data);
 		} else {
       redirect('admin/login');
     }
+	}
+	public function choose_product_by_id(){
+		var_dump($this->input->post());
+		break;
 	}
 
 
@@ -1259,10 +1324,23 @@ class Admin extends CI_Controller {
 
 
 	public function add_order_validation(){
-		var_dump($this->input->post());
-		var_dump($this->session->all_userdata());
-		break;
+		if ($this->session->userdata('cart') == NULL) {
+			$temp = array('productid' => $id,
+			'quantity' => $this->input->post('quantity'));
+			$newdata = array(
+			  'cart'  => array($temp)
+			);
+			$this->session->set_userdata($newdata);
+		} else {
+			$session_data = $this->session->userdata('cart');
+			$temp = array('productid' => $id,
+			'quantity' => $this->input->post('quantity'));
+			array_push($session_data,$temp);
+			//$this->session->set_userdata("cart", $session_data);
+		}
+		redirect('admin/choose_product');
 	}
+
 
 
 }

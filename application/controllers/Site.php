@@ -443,8 +443,6 @@ class Site extends CI_Controller {
 	}
 
 	public function carting($id) {
-		//var_dump($this->input->post());
-		//break;
 		if ($this->session->userdata('cart') == NULL) {
 			$temp = array('productid' => $id,
 			'quantity' => $this->input->post('quantity'));
