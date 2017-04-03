@@ -629,6 +629,9 @@ class Admin extends CI_Controller {
   public function order() {
     if ($this->session->userdata('access') == 'ADMIN' || $this->session->userdata('access') == 'STAFF'){
 
+			$this->session->unset_userdata('cart');
+			$this->session->unset_userdata('customer');
+
 			$this->load->library('pagination');
 			$this->load->model('model_product');
 
@@ -762,11 +765,6 @@ class Admin extends CI_Controller {
   }
 	public function search_product_order() {
 		if ($this->session->userdata('access') == 'ADMIN' || $this->session->userdata('access') == 'STAFF'){
-			//$this->load->model('model_user');
-			//$this->load->model('model_product');
-			//$data['userlist'] = $this->model_user->search_user($this->input->post('customer'));
-			//$data['productlist'] = $this->model_product->search_product($this->input->post('product'));
-
 
 			$this->load->model('model_product');
 			$data['productlist'] = $this->model_product->search_product($this->input->post('product'));
@@ -794,6 +792,18 @@ class Admin extends CI_Controller {
 			//$this->load->model('model_product');
 			//$data['userlist'] = $this->model_user->search_user($this->input->post('customer'));
 			//$data['productlist'] = $this->model_product->search_product($this->input->post('product'));
+			$this->load->model('model_user');
+			//if ($this->session->userdata('customer') != NULL) $data['customer'] = $this->model_user->get_user($this->session->userdata('customer')[0]['customerid']);
+			//else $data['customer'] = $this->model_user->get_user($this->input->post('customerid'));
+
+			if ($this->input->post('customerid') != NULL || $this->session->userdata('access') == NULL) {
+				$temp = array('customerid' => $this->input->post('customerid'), 'customer_name' =>  $this->model_user->get_user($this->input->post('customerid'))[0]->username_cus);
+				$newdata = array(
+				  'customer'  => array($temp)
+				);
+				$this->session->set_userdata($newdata);
+			}
+
 
 			$this->load->library('pagination');
 			$this->load->model('model_product');
@@ -828,6 +838,9 @@ class Admin extends CI_Controller {
       redirect('admin/login');
     }
 	}
+	public function choose_discount() {
+		$this->load->view('order_add_3_admin');
+	}
 	public function search_customer_order() {
 		if ($this->session->userdata('access') == 'ADMIN' || $this->session->userdata('access') == 'STAFF'){
 			$this->load->model('model_user');
@@ -839,9 +852,25 @@ class Admin extends CI_Controller {
       redirect('admin/login');
     }
 	}
-	public function choose_product_by_id(){
-		var_dump($this->input->post());
-		break;
+	public function choose_product_by_id($id){
+		//var_dump($this->input->post());
+		//break;
+
+		if ($this->session->userdata('cart') == NULL) {
+			$temp = array('productid' => $this->input->post('productid'),
+			'quantity' => $this->input->post('amount'));
+			$newdata = array(
+			  'cart'  => array($temp)
+			);
+			$this->session->set_userdata($newdata);
+		} else {
+			$session_data = $this->session->userdata('cart');
+			$temp = array('productid' => $this->input->post('productid'),
+			'quantity' => $this->input->post('amount'));
+			array_push($session_data,$temp);
+			$this->session->set_userdata("cart", $session_data);
+		}
+		redirect('admin/choose_product');
 	}
 
 
@@ -1324,21 +1353,8 @@ class Admin extends CI_Controller {
 
 
 	public function add_order_validation(){
-		if ($this->session->userdata('cart') == NULL) {
-			$temp = array('productid' => $id,
-			'quantity' => $this->input->post('quantity'));
-			$newdata = array(
-			  'cart'  => array($temp)
-			);
-			$this->session->set_userdata($newdata);
-		} else {
-			$session_data = $this->session->userdata('cart');
-			$temp = array('productid' => $id,
-			'quantity' => $this->input->post('quantity'));
-			array_push($session_data,$temp);
-			//$this->session->set_userdata("cart", $session_data);
-		}
-		redirect('admin/choose_product');
+		var_dump($this->session->all_userdata());
+		var_dump($this->input->post());
 	}
 
 

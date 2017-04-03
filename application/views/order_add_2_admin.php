@@ -1,6 +1,6 @@
 <?php
-var_dump($this->session->all_userdata());
-//var_dump($userlist);
+//var_dump($this->session->all_userdata());
+//var_dump($customer);
 ?>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -20,7 +20,7 @@ var_dump($this->session->all_userdata());
   <br/><br/>
   <div class="container-fluid">
     <fieldset>
-      <legend style="text-align:center"><h2>เลือกสินค้าสำหรับ </h2></legend><br />
+      <legend style="text-align:center"><h2>เลือกสินค้าสำหรับ <?php echo $this->session->userdata('customer')[0]['customer_name']; ?></h2></legend><br />
 
 
 
@@ -54,7 +54,7 @@ var_dump($this->session->all_userdata());
             </thead>
             <?php
             for ($x = 0; $x <= sizeof($productlist)-1; $x++) {
-              echo '<form action="choose_product_by_id" id="thisForm"  method="post">';
+              echo '<form action="'.base_url('admin/').'choose_product_by_id/'.$productlist[$x]->id.'" id="thisForm"  method="post">';
               echo '<tr>';
               echo '<td><a href="'.base_url('admin/').'view_product/'. $productlist[$x]->id .'">'. $productlist[$x]->name .'</a></td>';
               echo '<td><center>'. $productlist[$x]->price .'</center></td>';
@@ -95,10 +95,12 @@ var_dump($this->session->all_userdata());
     <div class="col-md-4">
     </div>
     <div class="col-md-4">
-      <a href="<?php echo base_url('admin/order');?>" class="btn btn-danger" style="float:left;">กลับ</a>
-      <button type="submit" class="btn btn-success" name="btn-signup" style="float:right;" onclick="subForm()">
-        <span class="glyphicon glyphicon-log-in"></span> &nbsp;เสร็จสิ้น
-      </button>
+      <form action="<?php echo base_url('admin/choose_discount');?>" id="subForm" mdthod="post">
+        <a href="<?php echo base_url('admin/order');?>" class="btn btn-danger" style="float:left;">กลับ</a>
+        <button type="submit" class="btn btn-success" style="float:right;" onclick="subForm()">
+          <span class="glyphicon glyphicon-log-in"></span> &nbsp;ต่อไป
+        </button>
+      </form>
     </div>
   </div>
 </div>
