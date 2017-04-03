@@ -36,8 +36,24 @@ class Model_report extends CI_Model {
     //array_unshift($temp);
     //$final = array_values($temp);
     //var_dump($final);
+
+    // Separate category
+    $cate_counter = 0;
+    $final_with_category = array(array('category' => $final[0]->product_category, 'product' => array($final[0])));
+    for ($y = 1; $y < sizeof($final); $y++) {
+      if ($final[$y]->product_category == $final[$y-1]->product_category) {
+        array_push($final_with_category[$cate_counter]['product'], $final[$y]);
+      } else {
+        $cate_counter++;
+        array_push($final_with_category, array('category' => $final[$y]->product_category, 'product' => array($final[$y])));
+      }
+    }
+
+    //var_dump($final_with_category);
     //break;
-    return $final;
+
+    // return $final;
+    return $final_with_category;
   }
 
 }

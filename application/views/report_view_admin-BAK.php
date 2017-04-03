@@ -26,62 +26,7 @@
 <br>
     <div class="col-md-6 col-md-offset-3">
       <center>
-        <?php
-          $sum = 0;
-          $sum_each_cate = 0;
-          for ($x = 0; $x < sizeof($report); $x++) {
-            echo '<table class="table table-bordered" style="margin-bottom: 0px">';
-            echo '<thead>';
-            echo '<tr>';
-            echo '<th><center>';
-            echo $report[$x]['category'];
-            echo '</center></th>';
-            echo '</tr>';
-            echo '</thead>';
-            echo '</table>';
-            echo '<table class="table table-bordered" style="margin-bottom: 0px">';
-            echo '<thead>';
-            echo '<tr>';
-            echo '<th bgcolor="#8dbbbf">รหัสสินค้า</th>';
-            echo '<th bgcolor="#8dbbbf">รายการ</th>';
-            echo '<th bgcolor="#8dbbbf">จำนวน</th>';
-            echo '<th bgcolor="#8dbbbf">หน่วย</th>';
-            echo '<th bgcolor="#8dbbbf">จำนวนเงิน</th>';
-            echo '</tr>';
-            echo '</thead>';
-            echo '<tbody>';
-            for ($y = 0; $y < sizeof($report[$x]['product']); $y++) {
-              echo '<tr>';
-              echo '<th>'.$report[$x]['product'][$y]->id.'</th>';
-              echo '<th>'.$report[$x]['product'][$y]->product_name.'</th>';
-              echo '<th>'.$report[$x]['product'][$y]->product_quantity.'</th>';
-              echo '<th>'.$report[$x]['product'][$y]->product_unit.'</th>';
-              echo '<th>'.(int)$report[$x]['product'][$y]->product_price * (int)$report[$x]['product'][$y]->product_quantity.'</th>';
-              echo '</tr>';
-              //echo $sum_each_cate.',';
-              $sum_each_cate = $sum_each_cate + ((int)$report[$x]['product'][$y]->product_price * (int)$report[$x]['product'][$y]->product_quantity);
-              //echo "--------------". $x.$y;
-            }
-            echo '</tbody>';
-            echo '</table>';
-            echo '<table class="table table-bordered">';
-            echo '<thead>';
-            echo '<tr>';
-            echo '<th><center>';
-            echo 'ราคารวม';
-            echo '</center></th>';
-            echo '<th><center>';
-            echo $sum_each_cate;
-            echo '</center></th>';
-            echo '</tr>';
-            echo '</thead>';
-            echo '</table>';
-            $sum = $sum + $sum_each_cate;
-            $sum_each_cate = 0;
-          }
-
-        ?>
-        <!--table class="table table-bordered">
+        <table class="table table-bordered">
           <thead>
             <tr>
               <th bgcolor="#8dbbbf">รหัสสินค้า</th>
@@ -93,7 +38,7 @@
           </thead>
           <tbody>
             <?php
-              /*for ($x = 0; $x <= sizeof($report)-1; $x++) {
+              for ($x = 0; $x <= sizeof($report)-1; $x++) {
                 echo '<tr>';
                 //$t = $x + 1;
                 echo '<th>'.$report[$x]->id.'</th>';
@@ -102,23 +47,23 @@
                 echo '<th>'.$report[$x]->product_unit.'</th>';
                 echo '<th>'.(int)$report[$x]->product_price * (int)$report[$x]->product_quantity.'</th>';
                 echo '</tr>';
-              }*/
+              }
             ?>
           </tbody>
-        </table-->
+        </table>
         <table class="table table-bordered">
           <tbody>
             <tr>
               <th class="col-md-6">
                  <br>
-                <?php //echo $report[0]->note; ?>
+                <?php echo $report[0]->note; ?>
               </th>
               <th class="col-md-6">
                 <?php
-                  /*$sum = 0;
+                  $sum = 0;
                   for ($x = 0; $x <= sizeof($report)-1; $x++) {
                     $sum += $report[$x]->product_price * (int)$report[$x]->product_quantity;
-                  }*/
+                  }
                   //echo '<th>';
                   //echo '<th>รวมเป็นเงิน</th>';
                   //echo '<th><center>'.$sum.' บาท </center></th>';
