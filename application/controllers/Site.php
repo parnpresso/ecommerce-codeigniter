@@ -503,4 +503,37 @@ class Site extends CI_Controller {
 			$this->checkout();
 		}
 	}
+
+
+
+
+
+
+
+
+	function get_session() {
+    echo $this->session->userdata('cart');
+	}
+	function updateSessionPlus($id) {
+		$cart = $this->session->userdata('cart');
+		for ($x = 0; $x < sizeof($cart); $x++) {
+			if ($cart[$x]['productid'] == $id) {
+				$cart[$x]['quantity'] = (int)$cart[$x]['quantity'] + 1;
+			}
+		}
+		$this->session->unset_userdata('cart');
+		$this->session->set_userdata('cart', $cart);
+		//echo $this->session->userdata('cart')[0]['quantity'];
+	}
+	function updateSessionMinus($id) {
+		//echo $id;
+		$cart = $this->session->userdata('cart');
+		for ($x = 0; $x < sizeof($cart); $x++) {
+			if ($cart[$x]['productid'] == $id) {
+				$cart[$x]['quantity'] = (int)$cart[$x]['quantity'] - 1;
+			}
+		}
+		$this->session->unset_userdata('cart');
+		$this->session->set_userdata('cart', $cart);
+	}
 }

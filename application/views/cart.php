@@ -1,4 +1,4 @@
-<?php var_dump($items); var_dump($this->session->all_userdata()); var_dump($this->input->post());?>
+<?php //var_dump($items); //var_dump($this->session->all_userdata()); //var_dump($this->input->post());?>
 <section id="cart-page">
     <div class="container">
         <!-- ========================================= CONTENT ========================================= -->
@@ -84,7 +84,7 @@
                     </ul>
                     <div class="buttons-holder">
 
-                        <a class="le-button big" onclick='document.getElementById("cartform").submit()' href="<?php echo base_url('site/checkout');?>" >ยืนยันการสั่งซื้อ</a>
+                        <a class="le-button big" onclick='updateCart(); document.getElementById("cartform").submit();' href="<?php echo base_url('site/checkout');?>" >ยืนยันการสั่งซื้อ</a>
                         <a class="simple-link block" href="<?php echo base_url('site/product');?>" >เลือกสินค้าต่อ</a>
 
                         <!--a class="le-button big" href="<?php //echo base_url('site/checkout');?>" >ยืนยันการสั่งซื้อ</a>
@@ -111,9 +111,8 @@
     //var finalprice = Number(currentprice)-Number(price);
     quantity = quantity - 1;
     //document.getElementById("current-price-" + id).value = finalprice;
-    document.getElementById("show-" + id).innerHTML = "฿" + (price*quantity) + "<br>(ชิ้นละ " + price + ")";
-    //alert("price:" + price + ", currentprice:" + currentprice + ",finalprice:" + finalprice + ", quantity:" + quantity);
-    //alert(quantity);
+    if (quantity != -1) document.getElementById("show-" + id).innerHTML = "฿" + (price*quantity) + "<br>(ชิ้นละ " + price + ")";
+    $.post("http://localhost/asia/site/updateSessionMinus/" + id, function(ans) { console.log("MINUS"); });
   }
   function PlusItem(id){
     var quantity = Number(document.getElementById("quantity-" + id).value);
@@ -122,8 +121,12 @@
     //var finalprice = Number(currentprice)+Number(price);
     quantity = quantity + 1;
     //document.getElementById("current-price-" + id).value = finalprice;
-    document.getElementById("show-" + id).innerHTML = "฿" + (price*quantity) + "<br>(ชิ้นละ " + price + ")";
-    //alert("price:" + price + ", currentprice:" + currentprice + ",finalprice:" + finalprice + ", quantity:" + quantity);
-    //alert(quantity);
+    if (quantity != -1) document.getElementById("show-" + id).innerHTML = "฿" + (price*quantity) + "<br>(ชิ้นละ " + price + ")";
+    $.post("http://localhost/asia/site/updateSessionPlus/" + id, function(ans) { console.log("PLUS"); });
+  }
+  function updateCart() {
+    //$.post("http://localhost/asia/site/get_session", function(cart) {
+      //alert(cart);
+    //});
   }
 </script>

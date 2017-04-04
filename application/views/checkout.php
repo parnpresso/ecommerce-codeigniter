@@ -1,6 +1,6 @@
-<?php var_dump($this->session->all_userdata());?>
-<?php var_dump($this->input->post());?>
-<?php var_dump($customer);?>
+<?php //var_dump($this->session->all_userdata());?>
+<?php //var_dump($this->input->post());?>
+<?php //var_dump($customer);?>
 
 <section id="checkout-page">
     <div class="container">
