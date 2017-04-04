@@ -100,6 +100,7 @@ class Site extends CI_Controller {
 		$this->db->from('order');
 		$this->db->join('order_product', 'order_product.order_id = order.id', 'inner');
 		$this->db->join('order_orderer', 'order_orderer.id = order.orderer_id', 'inner');
+		$this->db->order_by('order.id', 'desc');
 		$this->db->where('order_orderer.username', $this->session->userdata('username'));
 		$query = $this->db->get();
 		$temp = $query->result();

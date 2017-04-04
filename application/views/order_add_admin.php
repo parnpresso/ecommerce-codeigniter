@@ -60,7 +60,7 @@
                   echo '<td><center>'. $userlist[$x]->fname_cus .'</center></td>';
                   echo '<td><center>'. $userlist[$x]->lname_cus .'</center></td>';
                   echo '<td align="center">
-                  <button type="submit" class="btn">เลือก</button>
+                  <button type="submit" class="btn">เลือกสินค้า</button>
                   </td>';
                   echo '</tr>';
                   echo '<input type="hidden" id="customerid" name="customerid" value="'.$userlist[$x]->id.'">';
@@ -93,9 +93,9 @@
     </div>
     <div class="col-md-4">
       <a href="<?php echo base_url('admin/order');?>" class="btn btn-danger" style="float:left;">กลับ</a>
-      <button type="submit" class="btn btn-success" name="btn-signup" style="float:right;" onclick="subForm()">
+      <!--button type="submit" class="btn btn-success" name="btn-signup" style="float:right;" onclick="subForm()">
         <span class="glyphicon glyphicon-log-in"></span> &nbsp;เลือกสินค้า
-      </button>
+      </button-->
     </div>
   </div>
 </div>
