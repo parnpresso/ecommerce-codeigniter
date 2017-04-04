@@ -78,7 +78,7 @@
                       echo '</div>';
                       echo '<div class="prices">';
                       echo '<div class="price-prev">'.$productlist[$x]->price.'</div>';
-                      echo '<div class="price-current pull-right">฿'.$productlist[$x]->price * (1-$productlist[$x]->discount).'</div>';
+                      echo '<div class="price-current pull-right">฿'.$productlist[$x]->price.'</div>';
                       echo '</div>';
                       echo '<div class="hover-area">';
                       echo '<div class="add-cart-button">';

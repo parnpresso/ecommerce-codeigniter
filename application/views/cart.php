@@ -25,17 +25,18 @@
               echo '<a class="minus" href="#reduce" onclick="MinusItem('.$items[$x][0]->id.');"></a>';
               echo '<input name="quantity" id="quantity-'.$items[$x][0]->id.'" readonly="readonly" type="text" value="'.$items[$x][1]['quan'].'" />';
               echo '<a class="plus" href="#add" onclick="PlusItem('.$items[$x][0]->id.');"></a>';
-              echo '<input type="hidden" name="country" id="price-'.$items[$x][0]->id.'" value="'.$items[$x][0]->price.'" >';
-              echo '<input type="hidden" name="country" id="current-price-'.$items[$x][0]->id.'" value="'.$items[$x][0]->price* (int)$items[$x][1]['quan'].'" >';
+              echo '<input type="hidden" id="quantity-'.$items[$x][0]->id.'" value="'.$items[$x][1]['quan'].'" >';
+              echo '<input type="hidden" id="current-price-'.$items[$x][0]->id.'" value="'.$items[$x][0]->price* (int)$items[$x][1]['quan'].'" >';
               echo '</form>';
               echo '</div>';
               echo '</div>';
               echo '</div>';
               echo '<div class="col-xs-12 col-sm-2 no-margin">';
-              echo '<div class="price" id="show-'.$items[$x][0]->id.'">฿'.$items[$x][0]->price * (int)$items[$x][1]['quan'].'</br>(Each '.$items[$x][0]->price.')</div>';
+              echo '<div class="price" id="show-'.$items[$x][0]->id.'">฿'.$items[$x][0]->price * (int)$items[$x][1]['quan'].'</br>(ชิ้นละ '.$items[$x][0]->price.')</div>';
               echo '<a class="close-btn" href="'.base_url('site/delete_item/').$items[$x][0]->id.'"></a>';
               echo '</div>';
               echo '</div>';
+              echo '<input type="hidden" id="price-'.$items[$x][0]->id.'" value="'.$items[$x][0]->price.'" >';
             }
           ?>
 
@@ -57,7 +58,7 @@
                 <div class="body">
                     <ul class="tabled-data no-border inverse-bold">
 
-                      
+
                         <li>
                             <label>ภาษีมูลค่าเพิ่ม 7%</label>
                             <div class="value pull-right">฿<?php echo $sum*0.07;?></div>
@@ -102,18 +103,27 @@
 
 
 <script>
+
   function MinusItem(id){
-    var price = document.getElementById("price-" + id).value;
-    var currentprice = document.getElementById("current-price-" + id).value;
-    var finalprice = Number(currentprice)-Number(price);
-    document.getElementById("current-price-" + id).value = finalprice;
-    document.getElementById("show-" + id).innerHTML = "฿" + finalprice + "<br>(Each " + price + ")";
+    var quantity = Number(document.getElementById("quantity-" + id).value);
+    var price = Number(document.getElementById("price-" + id).value);
+    //var currentprice = document.getElementById("current-price-" + id).value;
+    //var finalprice = Number(currentprice)-Number(price);
+    quantity = quantity - 1;
+    //document.getElementById("current-price-" + id).value = finalprice;
+    document.getElementById("show-" + id).innerHTML = "฿" + (price*quantity) + "<br>(ชิ้นละ " + price + ")";
+    //alert("price:" + price + ", currentprice:" + currentprice + ",finalprice:" + finalprice + ", quantity:" + quantity);
+    //alert(quantity);
   }
   function PlusItem(id){
-    var price = document.getElementById("price-" + id).value;
-    var currentprice = document.getElementById("current-price-" + id).value;
-    var finalprice = Number(currentprice)+Number(price);
-    document.getElementById("current-price-" + id).value = finalprice;
-    document.getElementById("show-" + id).innerHTML = "฿" + finalprice + "<br>(Each " + price + ")";
+    var quantity = Number(document.getElementById("quantity-" + id).value);
+    var price = Number(document.getElementById("price-" + id).value);
+    //var currentprice = document.getElementById("current-price-" + id).value;
+    //var finalprice = Number(currentprice)+Number(price);
+    quantity = quantity + 1;
+    //document.getElementById("current-price-" + id).value = finalprice;
+    document.getElementById("show-" + id).innerHTML = "฿" + (price*quantity) + "<br>(ชิ้นละ " + price + ")";
+    //alert("price:" + price + ", currentprice:" + currentprice + ",finalprice:" + finalprice + ", quantity:" + quantity);
+    //alert(quantity);
   }
 </script>
