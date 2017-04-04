@@ -130,13 +130,22 @@
                   for ($x = 0; $x <= sizeof($order)-1; $x++) {
                     $sum += $order[$x]->product_price * (int)$order[$x]->product_quantity;
                   }
-                  if ($order[0]->discount != 0) {
+                  if (isset($order[0]->discount)) {
+                    if ($order[0]->discount != 0) {
+                      $discount_percentage = $order[0]->discount *100;
+                      $discount = $sum - ($sum * $order[0]->discount);
+                    } else {
+                      $discount_percentage = 0;
+                      $discount = 0;
+                    }
+                  }
+                  /*if ($order[0]->discount != 0) {
                     $discount_percentage = $order[0]->discount *100;
                     $discount = $sum - ($sum * $order[0]->discount);
                   } else {
                     $discount_percentage = 0;
                     $discount = 0;
-                  }
+                  }*/
 
                   //echo '<th>';
                   //echo '<th>รวมเป็นเงิน</th>';
