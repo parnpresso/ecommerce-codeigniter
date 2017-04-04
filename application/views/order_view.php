@@ -35,27 +35,24 @@
       <center>158/1 ถนน ช้างเผือก ตำบล ศรีภูมิ อำเภอเมืองเชียงใหม่ จังหวัดเชียงใหม่ (โทร.053-214683) (แฟ๊กซ์.053-214717) </center>
     </div>
 
-
     <div class="col-md-6 col-md-offset-3">
     </br></br><center><h2>รายการสั่งซื้อสินค้า</h2></center><br>
-      <div class="col-md-6 panel panel-default">
-        <div class="col-md-4">
+      <div class="col-md-6 col-xs-6 panel panel-default">
+        <div class="col-md-4 col-xs-4">
         <br>
           ผู้ขาย : <br>
           สถานที่จัดส่ง:<br>
-
           <br>
         </div>
-        <div class="col-md-8">
+        <div class="col-md-8 col-xs-8">
           <br>
           บริษัท เอเชียการไฟฟ้า จำกัด<br>
           <?php echo $order[0]->address.', '.$order[0]->district.', '.$order[0]->province.', '.$order[0]->postcode?><br>
-
           <br>
         </div>
       </div>
-      <div class="col-md-6 panel panel-default">
-        <div class="col-md-5">
+      <div class="col-md-6 col-xs-6 panel panel-default">
+        <div class="col-md-5 col-xs-5">
           <br>
           เลขที่ใบสั่งซื้อ:<br>
           ผู้ติดต่อ:<br>
@@ -63,7 +60,7 @@
           วันกำหนดส่ง:<br>
           <br>
         </div>
-        <div class="col-md-7">
+        <div class="col-md-7 col-xs-7">
           <br>
           <?php
             $date = substr($order[0]->date, 0, 10);

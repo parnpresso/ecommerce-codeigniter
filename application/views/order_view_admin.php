@@ -40,15 +40,15 @@
 
     <div class="col-md-6 col-md-offset-3">
     </br></br><center><h2>อนุมัติใบสั่งซื้อ</h2></center><br>
-      <div class="col-md-6 panel panel-default">
-        <div class="col-md-4">
+      <div class="col-md-6 col-xs-6 panel panel-default">
+        <div class="col-md-4 col-xs-4">
         <br>
           ผู้ขาย : <br>
           สถานที่จัดส่ง:<br>
 
           <br>
         </div>
-        <div class="col-md-8">
+        <div class="col-md-8 col-xs-8">
           <br>
           บริษัท เอเชียการไฟฟ้า จำกัด<br>
           <?php
@@ -62,8 +62,8 @@
           <br>
         </div>
       </div>
-      <div class="col-md-6 panel panel-default">
-        <div class="col-md-5">
+      <div class="col-md-6 col-xs-6 panel panel-default">
+        <div class="col-md-5 col-xs-5">
           <br>
           เลขที่ใบสั่งซื้อ:<br>
           ผู้ติดต่อ:<br>
@@ -71,7 +71,7 @@
           วันกำหนดส่ง:<br>
           <br>
         </div>
-        <div class="col-md-7">
+        <div class="col-md-7 col-xs-7">
           <br>
           <?php
             $date = substr($order[0]->date, 0, 10);
