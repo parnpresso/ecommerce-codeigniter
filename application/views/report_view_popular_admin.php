@@ -32,7 +32,7 @@
           echo '<table class="table table-bordered" style="margin-bottom: 0px">';
           echo '<thead>';
           echo '<tr>';
-          //echo '<th bgcolor="#8dbbbf">รหัสสินค้า</th>';
+          echo '<th bgcolor="#8dbbbf">ลำดับ</th>';
           echo '<th bgcolor="#8dbbbf">รายการ</th>';
           echo '<th bgcolor="#8dbbbf">จำนวน</th>';
           echo '<th bgcolor="#8dbbbf">หน่วย</th>';
@@ -42,7 +42,7 @@
           echo '<tbody>';
           for ($y = 0; $y < sizeof($report); $y++) {
             echo '<tr>';
-            //echo '<th>'.$report[$x]['product'][$y]->id.'</th>';
+            echo '<th>'.($y+1).'</th>';
             echo '<th>'.$report[$y]->product_name.'</th>';
             echo '<th>'.$report[$y]->product_quantity.'</th>';
             echo '<th>'.$report[$y]->product_unit.'</th>';
@@ -58,10 +58,10 @@
           echo '<thead>';
           echo '<tr>';
           echo '<th><center>';
-          echo 'ราคารวม';
+          echo 'ราคารวม (บาท)';
           echo '</center></th>';
           echo '<th><center>';
-          echo $sum_each_cate;
+          echo sprintf("%.2f",$sum_each_cate);
           echo '</center></th>';
           echo '</tr>';
           echo '</thead>';

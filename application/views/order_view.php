@@ -124,12 +124,12 @@
                 ?>
                 <table class="table table-bordered">
                   <tbody>
-                    <tr><th>ลดราคา</th><th>฿0</th></tr>
-                    <tr><th>ลดไป</th><th>0%</th></tr>
-                    <tr><th>ภาษีมูลค่าเพิ่ม 7%</th><th>฿<?php echo $sum*0.07;?></th></tr>
-                    <tr><th>ค่าจัดส่ง</th><th>฿0</th></tr>
-                    <tr><th>ราคารวม</th><th>฿<?php echo $sum*0.93;?></th></tr>
-                    <tr><th>รวมสุทธิ</th><th>฿<?php echo $sum;?></th></tr>
+                    <tr><th>ลดราคา (บาท)</th><th>฿0.00</th></tr>
+                    <tr><th>ลดไป (บาท)</th><th>0.00%</th></tr>
+                    <tr><th>ภาษีมูลค่าเพิ่ม 7%</th><th>฿<?php echo sprintf("%.2f",$sum*0.07);?></th></tr>
+                    <tr><th>ค่าจัดส่ง (บาท)</th><th>฿0.00</th></tr>
+                    <tr><th>ราคารวม (บาท)</th><th>฿<?php echo sprintf("%.2f",$sum*0.93);?></th></tr>
+                    <tr><th>รวมสุทธิ (บาท)</th><th>฿<?php echo sprintf("%.2f",$sum);?></th></tr>
                   </tbody>
                 </table>
               </th>
