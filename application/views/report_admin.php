@@ -57,8 +57,9 @@
         </select>
       </div>
 
-      <div class="col col-md-3">
-          <button type="submit" class="btn btn-sm btn-success btn-create"><h4>ดูรายงาน</h4></button>
+      <div class="col col-md-6">
+          <button type="submit" name="type" value="summary" class="btn btn-sm btn-success btn-create"><h4>สรุปยอดขายรวม</h4></button>
+          <button type="submit" name="type" value="popular" class="btn btn-sm btn-success btn-create"><h4>สรุปสินค้าขายดี</h4></button>
       </div>
     </div>
     </form>

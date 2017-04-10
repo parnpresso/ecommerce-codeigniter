@@ -42,7 +42,7 @@
             echo '<table class="table table-bordered" style="margin-bottom: 0px">';
             echo '<thead>';
             echo '<tr>';
-            echo '<th bgcolor="#8dbbbf">รหัสสินค้า</th>';
+            //echo '<th bgcolor="#8dbbbf">รหัสสินค้า</th>';
             echo '<th bgcolor="#8dbbbf">รายการ</th>';
             echo '<th bgcolor="#8dbbbf">จำนวน</th>';
             echo '<th bgcolor="#8dbbbf">หน่วย</th>';
@@ -52,7 +52,7 @@
             echo '<tbody>';
             for ($y = 0; $y < sizeof($report[$x]['product']); $y++) {
               echo '<tr>';
-              echo '<th>'.$report[$x]['product'][$y]->id.'</th>';
+              //echo '<th>'.$report[$x]['product'][$y]->id.'</th>';
               echo '<th>'.$report[$x]['product'][$y]->product_name.'</th>';
               echo '<th>'.$report[$x]['product'][$y]->product_quantity.'</th>';
               echo '<th>'.$report[$x]['product'][$y]->product_unit.'</th>';

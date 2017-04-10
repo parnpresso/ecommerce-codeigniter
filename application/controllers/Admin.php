@@ -1048,13 +1048,18 @@ class Admin extends CI_Controller {
 			else if ($this->input->post('year') == 2009) $data['year'] = "2552";
 			else if ($this->input->post('year') == 2008) $data['year'] = "2551";
 
-			if ($data['report'] == NULL) {
-				$this->load->view('includes/header-admin');
-				$this->load->view('report_error_admin');
-				$this->load->view('includes/footer-admin');
+			if ($this->input->post('type') == "popular") {
+				echo "POP";
 			} else {
-				$this->load->view('report_view_admin', $data);
+				if ($data['report'] == NULL) {
+					$this->load->view('includes/header-admin');
+					$this->load->view('report_error_admin');
+					$this->load->view('includes/footer-admin');
+				} else {
+					$this->load->view('report_view_admin', $data);
+				}
 			}
+
 		} else {
 			redirect('admin/login');
 		}
