@@ -74,7 +74,7 @@
                     <h1></h1>
                     <span class="tagline"></span>
                 </div>
-								<h3>สินค้าขายดี่</h3>
+								<h3>สินค้าขายดี</h3>
                 <img class="banner-image" alt="" src="<?php echo public_url();?>image/contents/<?php echo $contents['promotion2'];?>);" data-echo="<?php echo public_url();?>image/contents/<?php echo $contents['promotion2'];?>" />
             </a>
         </div>

@@ -44,12 +44,7 @@
                 <label class="control-label" for="name"><?php echo $product[0]->price;?></label>
               </div>
             </div>
-            <div class="form-group">
-              <label class="col-md-4 control-label" for="discount">ส่วนลด</label>
-              <div class="col-md-4">
-                <label class="control-label" for="discount"><?php echo $product[0]->discount;?></label>
-              </div>
-            </div>
+        
 
             <!-- Text input fname-->
             <div class="form-group">

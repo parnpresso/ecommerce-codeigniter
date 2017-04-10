@@ -58,6 +58,10 @@
                 <div class="body">
                     <ul class="tabled-data no-border inverse-bold">
 
+                      <li>
+                          <label>ราคารวม</label>
+                          <div class="value pull-right">฿<?php echo $sum;?></div>
+                      </li>
 
                         <li>
                             <label>ภาษีมูลค่าเพิ่ม 7%</label>
@@ -67,10 +71,7 @@
                             <label>ค่าจัดส่ง</label>
                             <div class="value pull-right">฿0</div>
                         </li>
-                        <li>
-                            <label>จำนวนเงินทั้งสิ้น</label>
-                            <div class="value pull-right">฿<?php echo $sum;?></div>
-                        </li>
+
                         <!--li>
                             <label>shipping</label>
                             <div class="value pull-right">free shipping</div>
@@ -78,7 +79,7 @@
                     </ul>
                     <ul id="total-price" class="tabled-data inverse-bold no-border">
                         <li>
-                            <label>ราคารวม</label>
+                            <label>ราคารวมสุทธิ</label>
                             <div class="value pull-right">฿<?php echo $sum;?></div>
                         </li>
                     </ul>

@@ -41,30 +41,48 @@
 </div>
 <!-- ============================================================= CONTACT INFO : END ============================================================= -->            </div>
 
-            <div class="col-xs-12 col-md-8 no-margin">
-                <!-- ============================================================= LINKS FOOTER ============================================================= -->
-<div class="link-widget">
-    <div class="widget">
-        <h3>Phillip</h3>
-        <img src="<?php echo public_url(). "assets/images/footer1.jpg";?>">
-    </div><!-- /.widget -->
-</div><!-- /.link-widget -->
+  <div class="col-xs-12 col-md-8 no-margin">
+
+<!-- ============================================================= LINKS FOOTER ============================================================= -->
 
 <div class="link-widget">
     <div class="widget">
-        <h3>panasonic</h3>
-        <img src="<?php echo public_url(). "assets/images/footer22.png";?>">
-    </div><!-- /.widget -->
-</div><!-- /.link-widget -->
+    <img src="<?php echo public_url(). "assets/images/bitcino.png";?>">
+    </div>
+</div>
 
 <div class="link-widget">
     <div class="widget">
-        <h3>Toshiba</h3>
+    <img src="<?php echo public_url(). "assets/images/footer22.png";?>">
+    </div>
+</div>
+
+<div class="link-widget">
+    <div class="widget">
       <img src="<?php echo public_url(). "assets/images/footer3.3.png";?>">
-    </div><!-- /.widget -->
-</div><!-- /.link-widget -->
+    </div>
+</div>
+
+<div class="link-widget">
+    <div class="widget">
+    <img src="<?php echo public_url(). "assets/images/footer1.jpg";?>">
+    </div>
+</div>
+
+<div class="link-widget">
+    <div class="widget">
+    <img src="<?php echo public_url(). "assets/images/JKL.png";?>">
+    </div>
+</div>
+
+<div class="link-widget">
+    <div class="widget">
+    <img src="<?php echo public_url(). "assets/images/thai.png";?>">
+    </div>
+</div>
+
 <!-- ============================================================= LINKS FOOTER : END ============================================================= -->            </div>
-        </div><!-- /.container -->
+    </div><!-- /.container -->
     </div><!-- /.link-list-row -->
 
     <div class="copyright-bar">

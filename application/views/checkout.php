@@ -78,8 +78,8 @@
                     <div class="row field-row">
                         <div id="create-account" class="col-xs-12">
                             <!--input  class="le-checkbox big" type="checkbox"  /-->
-                            <button type="button" onclick="clearField()" value="Reset">Reset</button>
-                            <!--a class="simple-link bold" href="#" onclick="clearField()"-->ส่งไปที่อยู่อื่น</a> - จะทำการเคลียร์ฟอร์มให้กรอกข้อมูลใหม่
+                            <button type="button" onclick="clearField()" value="Reset">เปลี่ยนที่อยู่จัดส่ง</button>
+                            <!--a class="simple-link bold" href="#" onclick="clearField()"--></a><font color="red"> ท่านสามารถกรอกข้อมูลที่อยู่ในการจัดส่งใหม่</font>
                         </div>
                     </div><!-- /.field-row -->
 

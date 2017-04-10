@@ -80,7 +80,6 @@ class Model_product extends CI_Model {
     $data = array(
 			'name' => $this->input->post('name'),
 			'price' => $this->input->post('price'),
-      'discount' => $this->input->post('discount'),
 			'detail' => $this->input->post('detail'),
       'weight' => $this->input->post('weight'),
 			'size' => $this->input->post('size'),
