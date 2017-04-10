@@ -1022,7 +1022,7 @@ class Admin extends CI_Controller {
 	public function view_report(){
 		if ($this->session->userdata('access') == 'ADMIN' || $this->session->userdata('access') == 'STAFF'){
 			$this->load->model('model_report');
-			$data['report'] = $this->model_report->get_report($this->input->post('month'), $this->input->post('year'));
+
 
 			if ($this->input->post('month') == 1) $data['month'] = "มกราคม";
 			else if ($this->input->post('month') == 2) $data['month'] = "กุมภาพันธ์";
@@ -1049,8 +1049,16 @@ class Admin extends CI_Controller {
 			else if ($this->input->post('year') == 2008) $data['year'] = "2551";
 
 			if ($this->input->post('type') == "popular") {
-				echo "POP";
+				$data['report'] = $this->model_report->get_report_popular($this->input->post('month'), $this->input->post('year'));
+				if ($data['report'] == NULL) {
+					$this->load->view('includes/header-admin');
+					$this->load->view('report_error_admin');
+					$this->load->view('includes/footer-admin');
+				} else {
+					$this->load->view('report_view_popular_admin', $data);
+				}
 			} else {
+				$data['report'] = $this->model_report->get_report($this->input->post('month'), $this->input->post('year'));
 				if ($data['report'] == NULL) {
 					$this->load->view('includes/header-admin');
 					$this->load->view('report_error_admin');
