@@ -134,9 +134,7 @@ class Model_report extends CI_Model {
             $temp = $final[$y-1];
             $final[$y-1] = $final[$y];
             $final[$y] = $temp;
-          } else {
-            echo "x ";
-          }
+          } 
         }
       }
       //var_dump($final);

@@ -1,4 +1,4 @@
-<?php var_dump($report); ?>
+<?php //var_dump($report); ?>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -96,7 +96,7 @@
             ?>
           </tbody>
         </table-->
-        <table class="table table-bordered">
+        <!--table class="table table-bordered">
           <tbody>
             <tr>
               <th class="col-md-6">
@@ -114,16 +114,16 @@
                   //echo '<th><center>'.$sum.' บาท </center></th>';
                   //echo '</th>';
                 ?>
-                <!--table class="table table-bordered">
+                <table class="table table-bordered">
                   <tbody>
                     <tr><th>ภาษีมูลค่าเพิ่ม 7%</th><th>฿<?php echo $sum*0.07;?></th></tr>
                     <tr><th>ยอดขายรวม</th><th>฿<?php echo $sum;?></th></tr>
                   </tbody>
-                </table-->
+                </table>
               </th>
             </tr>
           </tbody>
-        </table>
+        </table-->
 
       </center>
     </div>
